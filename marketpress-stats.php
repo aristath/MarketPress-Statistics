@@ -134,20 +134,20 @@ function business_marketpress_stats_page() {
       google.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-    ['Month', 'Total', 'Average'],
-    ['<?php echo date("F Y",strtotime("-12 Months")) ?>', <?php echo $month12total; ?>, <?php echo $month12average; ?>],
-    ['<?php echo date("F Y",strtotime("-11 Months")) ?>', <?php echo $month11total; ?>, <?php echo $month11average; ?>],
-    ['<?php echo date("F Y",strtotime("-10 Months")) ?>', <?php echo $month10total; ?>, <?php echo $month10average; ?>],
-    ['<?php echo date("F Y",strtotime("-9 Months")) ?>', <?php echo $month9total; ?>, <?php echo $month9average; ?>],
-    ['<?php echo date("F Y",strtotime("-8 Months")) ?>', <?php echo $month8total; ?>, <?php echo $month8average; ?>],
-    ['<?php echo date("F Y",strtotime("-7 Months")) ?>', <?php echo $month7total; ?>, <?php echo $month7average; ?>],
-    ['<?php echo date("F Y",strtotime("-6 Months")) ?>', <?php echo $month6total; ?>, <?php echo $month6average; ?>],
-    ['<?php echo date("F Y",strtotime("-5 Months")) ?>', <?php echo $month5total; ?>, <?php echo $month5average; ?>],
-    ['<?php echo date("F Y",strtotime("-4 Months")) ?>', <?php echo $month4total; ?>, <?php echo $month4average; ?>],
-    ['<?php echo date("F Y",strtotime("-3 Months")) ?>', <?php echo $month3total; ?>, <?php echo $month3average; ?>],
-    ['<?php echo date("F Y",strtotime("-2 Months")) ?>', <?php echo $month2total; ?>, <?php echo $month2average; ?>],
-    ['<?php echo date("F Y",strtotime("-1 Months")) ?>', <?php echo $month1total; ?>, <?php echo $month1average; ?>],
-    ['<?php echo date("F Y",strtotime("-0 Months")) ?>', <?php echo $month0total; ?>, <?php echo $month0average; ?>]
+    ['Month', 'Total'],
+    ['<?php echo date("F Y",strtotime("-12 Months")) ?>', <?php echo $month12total; ?>],
+    ['<?php echo date("F Y",strtotime("-11 Months")) ?>', <?php echo $month11total; ?>],
+    ['<?php echo date("F Y",strtotime("-10 Months")) ?>', <?php echo $month10total; ?>],
+    ['<?php echo date("F Y",strtotime("-9 Months")) ?>', <?php echo $month9total; ?>],
+    ['<?php echo date("F Y",strtotime("-8 Months")) ?>', <?php echo $month8total; ?>],
+    ['<?php echo date("F Y",strtotime("-7 Months")) ?>', <?php echo $month7total; ?>],
+    ['<?php echo date("F Y",strtotime("-6 Months")) ?>', <?php echo $month6total; ?>],
+    ['<?php echo date("F Y",strtotime("-5 Months")) ?>', <?php echo $month5total; ?>],
+    ['<?php echo date("F Y",strtotime("-4 Months")) ?>', <?php echo $month4total; ?>],
+    ['<?php echo date("F Y",strtotime("-3 Months")) ?>', <?php echo $month3total; ?>],
+    ['<?php echo date("F Y",strtotime("-2 Months")) ?>', <?php echo $month2total; ?>],
+    ['<?php echo date("F Y",strtotime("-1 Months")) ?>', <?php echo $month1total; ?>],
+    ['<?php echo date("F Y",strtotime("-0 Months")) ?>', <?php echo $month0total; ?>]
         ]);
 
         var options = {
@@ -159,7 +159,39 @@ function business_marketpress_stats_page() {
         chart.draw(data, options);
       }
     </script>
-   <div id="chart_div" style="width: 900px; height: 500px;"></div>
+   <div id="chart_div" style="width: 900px; height: 350px;"></div>
+
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+    ['Month', 'Average'],
+    ['<?php echo date("F Y",strtotime("-12 Months")) ?>', <?php echo $month12average; ?>],
+    ['<?php echo date("F Y",strtotime("-11 Months")) ?>', <?php echo $month11average; ?>],
+    ['<?php echo date("F Y",strtotime("-10 Months")) ?>', <?php echo $month10average; ?>],
+    ['<?php echo date("F Y",strtotime("-9 Months")) ?>', <?php echo $month9average; ?>],
+    ['<?php echo date("F Y",strtotime("-8 Months")) ?>', <?php echo $month8average; ?>],
+    ['<?php echo date("F Y",strtotime("-7 Months")) ?>', <?php echo $month7average; ?>],
+    ['<?php echo date("F Y",strtotime("-6 Months")) ?>', <?php echo $month6average; ?>],
+    ['<?php echo date("F Y",strtotime("-5 Months")) ?>', <?php echo $month5average; ?>],
+    ['<?php echo date("F Y",strtotime("-4 Months")) ?>', <?php echo $month4average; ?>],
+    ['<?php echo date("F Y",strtotime("-3 Months")) ?>', <?php echo $month3average; ?>],
+    ['<?php echo date("F Y",strtotime("-2 Months")) ?>', <?php echo $month2average; ?>],
+    ['<?php echo date("F Y",strtotime("-1 Months")) ?>', <?php echo $month1average; ?>],
+    ['<?php echo date("F Y",strtotime("-0 Months")) ?>', <?php echo $month0average; ?>]
+        ]);
+
+        var options = {
+          title: 'Sales Statistics',
+          hAxis: {title: 'Year', titleTextStyle: {color: 'red'}}
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('sales_div'));
+        chart.draw(data, options);
+      }
+    </script>
+   <div id="sales_div" style="width: 900px; height: 350px;"></div>
     
     <?php
 }
