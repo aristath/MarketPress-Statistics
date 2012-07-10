@@ -127,8 +127,8 @@ function business_marketpress_stats_page() {
 	
 	?>
 
-
-   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<div class="StatisticsCharts" style="margin-right: 320px;">
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
@@ -159,7 +159,7 @@ function business_marketpress_stats_page() {
         chart.draw(data, options);
       }
     </script>
-   <div id="total_chart" style="width: 100%; height: 350px;"></div>
+    <div id="total_chart" style="width: 100%; height: 350px;"></div>
 
     <script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
@@ -191,7 +191,7 @@ function business_marketpress_stats_page() {
         chart.draw(data, options);
       }
     </script>
-   <div id="average_chart" style="width: 100%; height: 350px;"></div>
+    <div id="average_chart" style="width: 100%; height: 350px;"></div>
 
     <script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
@@ -224,6 +224,13 @@ function business_marketpress_stats_page() {
       }
     </script>
    <div id="count_chart" style="width: 100%; height: 350px;"></div>
+   </div>
+   <div class="TextStats" style="float: right; position: absolute; top: 50px; right: 10px; font-size: 20px;">
+   		<h2 style="font-size: 30px;">This Month's Sales:</h2><br / >
+   		<span style="font-size: 60px; font-weight: bold;">
+   			<?php echo $mp->format_currency('', $month0total); ?>
+   		</span>
+   </div>
     
     <?php
 }
