@@ -384,7 +384,8 @@ function business_marketpress_stats_page() {
   if (!empty($day30->total)){$day30total = $day30->total;} else {$day30total = 0;}
   
   ?>
-
+  
+  <div class="wrap">
   <table style="width: 100%;">
     <tr>
       <td>
@@ -426,37 +427,37 @@ function business_marketpress_stats_page() {
           function drawChart() {
             var data = google.visualization.arrayToDataTable([
               ['Day', 'Total', 'Average'],
-              ['<?php echo date("d/m",strtotime("-30 Days")) ?>', <?php echo $day30total; ?>, <?php echo $day30average; ?>],
-              ['<?php echo date("d/m",strtotime("-29 Days")) ?>', <?php echo $day29total; ?>, <?php echo $day29average; ?>],
-              ['<?php echo date("d/m",strtotime("-28 Days")) ?>', <?php echo $day28total; ?>, <?php echo $day28average; ?>],
-              ['<?php echo date("d/m",strtotime("-27 Days")) ?>', <?php echo $day27total; ?>, <?php echo $day27average; ?>],
-              ['<?php echo date("d/m",strtotime("-26 Days")) ?>', <?php echo $day26total; ?>, <?php echo $day26average; ?>],
-              ['<?php echo date("d/m",strtotime("-25 Days")) ?>', <?php echo $day25total; ?>, <?php echo $day25average; ?>],
-              ['<?php echo date("d/m",strtotime("-24 Days")) ?>', <?php echo $day24total; ?>, <?php echo $day24average; ?>],
-              ['<?php echo date("d/m",strtotime("-23 Days")) ?>', <?php echo $day23total; ?>, <?php echo $day23average; ?>],
-              ['<?php echo date("d/m",strtotime("-22 Days")) ?>', <?php echo $day22total; ?>, <?php echo $day22average; ?>],
-              ['<?php echo date("d/m",strtotime("-21 Days")) ?>', <?php echo $day21total; ?>, <?php echo $day21average; ?>],
-              ['<?php echo date("d/m",strtotime("-20 Days")) ?>', <?php echo $day20total; ?>, <?php echo $day20average; ?>],
-              ['<?php echo date("d/m",strtotime("-19 Days")) ?>', <?php echo $day19total; ?>, <?php echo $day19average; ?>],
-              ['<?php echo date("d/m",strtotime("-18 Days")) ?>', <?php echo $day18total; ?>, <?php echo $day18average; ?>],
-              ['<?php echo date("d/m",strtotime("-17 Days")) ?>', <?php echo $day17total; ?>, <?php echo $day17average; ?>],
-              ['<?php echo date("d/m",strtotime("-16 Days")) ?>', <?php echo $day16total; ?>, <?php echo $day16average; ?>],
-              ['<?php echo date("d/m",strtotime("-15 Days")) ?>', <?php echo $day15total; ?>, <?php echo $day15average; ?>],
-              ['<?php echo date("d/m",strtotime("-14 Days")) ?>', <?php echo $day14total; ?>, <?php echo $day14average; ?>],
-              ['<?php echo date("d/m",strtotime("-13 Days")) ?>', <?php echo $day13total; ?>, <?php echo $day13average; ?>],
-              ['<?php echo date("d/m",strtotime("-12 Days")) ?>', <?php echo $day12total; ?>, <?php echo $day12average; ?>],
-              ['<?php echo date("d/m",strtotime("-11 Days")) ?>', <?php echo $day11total; ?>, <?php echo $day11average; ?>],
-              ['<?php echo date("d/m",strtotime("-10 Days")) ?>', <?php echo $day10total; ?>, <?php echo $day10average; ?>],
-              ['<?php echo date("d/m",strtotime("-9 Days")) ?>', <?php echo $day9total; ?>, <?php echo $day9average; ?>],
-              ['<?php echo date("d/m",strtotime("-8 Days")) ?>', <?php echo $day8total; ?>, <?php echo $day8average; ?>],
-              ['<?php echo date("d/m",strtotime("-7 Days")) ?>', <?php echo $day7total; ?>, <?php echo $day7average; ?>],
-              ['<?php echo date("d/m",strtotime("-6 Days")) ?>', <?php echo $day6total; ?>, <?php echo $day6average; ?>],
-              ['<?php echo date("d/m",strtotime("-5 Days")) ?>', <?php echo $day5total; ?>, <?php echo $day5average; ?>],
-              ['<?php echo date("d/m",strtotime("-4 Days")) ?>', <?php echo $day4total; ?>, <?php echo $day4average; ?>],
-              ['<?php echo date("d/m",strtotime("-3 Days")) ?>', <?php echo $day3total; ?>, <?php echo $day3average; ?>],
-              ['<?php echo date("d/m",strtotime("-2 Days")) ?>', <?php echo $day2total; ?>, <?php echo $day2average; ?>],
-              ['<?php echo date("d/m",strtotime("-1 Days")) ?>', <?php echo $day1total; ?>, <?php echo $day1average; ?>],
-              ['<?php echo date("d/m",strtotime("-0 Days")) ?>', <?php echo $day0total; ?>, <?php echo $day0average; ?>]
+              ['<?php echo date("M d",strtotime("-30 Days")) ?>', <?php echo $day30total; ?>, <?php echo $day30average; ?>],
+              ['<?php echo date("M d",strtotime("-29 Days")) ?>', <?php echo $day29total; ?>, <?php echo $day29average; ?>],
+              ['<?php echo date("M d",strtotime("-28 Days")) ?>', <?php echo $day28total; ?>, <?php echo $day28average; ?>],
+              ['<?php echo date("M d",strtotime("-27 Days")) ?>', <?php echo $day27total; ?>, <?php echo $day27average; ?>],
+              ['<?php echo date("M d",strtotime("-26 Days")) ?>', <?php echo $day26total; ?>, <?php echo $day26average; ?>],
+              ['<?php echo date("M d",strtotime("-25 Days")) ?>', <?php echo $day25total; ?>, <?php echo $day25average; ?>],
+              ['<?php echo date("M d",strtotime("-24 Days")) ?>', <?php echo $day24total; ?>, <?php echo $day24average; ?>],
+              ['<?php echo date("M d",strtotime("-23 Days")) ?>', <?php echo $day23total; ?>, <?php echo $day23average; ?>],
+              ['<?php echo date("M d",strtotime("-22 Days")) ?>', <?php echo $day22total; ?>, <?php echo $day22average; ?>],
+              ['<?php echo date("M d",strtotime("-21 Days")) ?>', <?php echo $day21total; ?>, <?php echo $day21average; ?>],
+              ['<?php echo date("M d",strtotime("-20 Days")) ?>', <?php echo $day20total; ?>, <?php echo $day20average; ?>],
+              ['<?php echo date("M d",strtotime("-19 Days")) ?>', <?php echo $day19total; ?>, <?php echo $day19average; ?>],
+              ['<?php echo date("M d",strtotime("-18 Days")) ?>', <?php echo $day18total; ?>, <?php echo $day18average; ?>],
+              ['<?php echo date("M d",strtotime("-17 Days")) ?>', <?php echo $day17total; ?>, <?php echo $day17average; ?>],
+              ['<?php echo date("M d",strtotime("-16 Days")) ?>', <?php echo $day16total; ?>, <?php echo $day16average; ?>],
+              ['<?php echo date("M d",strtotime("-15 Days")) ?>', <?php echo $day15total; ?>, <?php echo $day15average; ?>],
+              ['<?php echo date("M d",strtotime("-14 Days")) ?>', <?php echo $day14total; ?>, <?php echo $day14average; ?>],
+              ['<?php echo date("M d",strtotime("-13 Days")) ?>', <?php echo $day13total; ?>, <?php echo $day13average; ?>],
+              ['<?php echo date("M d",strtotime("-12 Days")) ?>', <?php echo $day12total; ?>, <?php echo $day12average; ?>],
+              ['<?php echo date("M d",strtotime("-11 Days")) ?>', <?php echo $day11total; ?>, <?php echo $day11average; ?>],
+              ['<?php echo date("M d",strtotime("-10 Days")) ?>', <?php echo $day10total; ?>, <?php echo $day10average; ?>],
+              ['<?php echo date("M d",strtotime("-9 Days")) ?>', <?php echo $day9total; ?>, <?php echo $day9average; ?>],
+              ['<?php echo date("M d",strtotime("-8 Days")) ?>', <?php echo $day8total; ?>, <?php echo $day8average; ?>],
+              ['<?php echo date("M d",strtotime("-7 Days")) ?>', <?php echo $day7total; ?>, <?php echo $day7average; ?>],
+              ['<?php echo date("M d",strtotime("-6 Days")) ?>', <?php echo $day6total; ?>, <?php echo $day6average; ?>],
+              ['<?php echo date("M d",strtotime("-5 Days")) ?>', <?php echo $day5total; ?>, <?php echo $day5average; ?>],
+              ['<?php echo date("M d",strtotime("-4 Days")) ?>', <?php echo $day4total; ?>, <?php echo $day4average; ?>],
+              ['<?php echo date("M d",strtotime("-3 Days")) ?>', <?php echo $day3total; ?>, <?php echo $day3average; ?>],
+              ['<?php echo date("M d",strtotime("-2 Days")) ?>', <?php echo $day2total; ?>, <?php echo $day2average; ?>],
+              ['<?php echo date("M d",strtotime("-1 Days")) ?>', <?php echo $day1total; ?>, <?php echo $day1average; ?>],
+              ['<?php echo date("M d",strtotime("-0 Days")) ?>', <?php echo $day0total; ?>, <?php echo $day0average; ?>]
             ]);
             var options = {
               title: 'Total and Average Sales in the past 30 days',
@@ -467,6 +468,102 @@ function business_marketpress_stats_page() {
           }
         </script>
         <div id="total_day_chart" style="width: 100%; height: 300px;"></div>
+
+        <script type="text/javascript">
+          google.load("visualization", "1", {packages:["corechart"]});
+          google.setOnLoadCallback(drawChart);
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Day', 'Total'],
+              ['<?php echo date("M d",strtotime("-30 Days")) ?>', <?php echo $day30total; ?>],
+              ['<?php echo date("M d",strtotime("-29 Days")) ?>', <?php echo $day29total; ?>],
+              ['<?php echo date("M d",strtotime("-28 Days")) ?>', <?php echo $day28total; ?>],
+              ['<?php echo date("M d",strtotime("-27 Days")) ?>', <?php echo $day27total; ?>],
+              ['<?php echo date("M d",strtotime("-26 Days")) ?>', <?php echo $day26total; ?>],
+              ['<?php echo date("M d",strtotime("-25 Days")) ?>', <?php echo $day25total; ?>],
+              ['<?php echo date("M d",strtotime("-24 Days")) ?>', <?php echo $day24total; ?>],
+              ['<?php echo date("M d",strtotime("-23 Days")) ?>', <?php echo $day23total; ?>],
+              ['<?php echo date("M d",strtotime("-22 Days")) ?>', <?php echo $day22total; ?>],
+              ['<?php echo date("M d",strtotime("-21 Days")) ?>', <?php echo $day21total; ?>],
+              ['<?php echo date("M d",strtotime("-20 Days")) ?>', <?php echo $day20total; ?>],
+              ['<?php echo date("M d",strtotime("-19 Days")) ?>', <?php echo $day19total; ?>],
+              ['<?php echo date("M d",strtotime("-18 Days")) ?>', <?php echo $day18total; ?>],
+              ['<?php echo date("M d",strtotime("-17 Days")) ?>', <?php echo $day17total; ?>],
+              ['<?php echo date("M d",strtotime("-16 Days")) ?>', <?php echo $day16total; ?>],
+              ['<?php echo date("M d",strtotime("-15 Days")) ?>', <?php echo $day15total; ?>],
+              ['<?php echo date("M d",strtotime("-14 Days")) ?>', <?php echo $day14total; ?>],
+              ['<?php echo date("M d",strtotime("-13 Days")) ?>', <?php echo $day13total; ?>],
+              ['<?php echo date("M d",strtotime("-12 Days")) ?>', <?php echo $day12total; ?>],
+              ['<?php echo date("M d",strtotime("-11 Days")) ?>', <?php echo $day11total; ?>],
+              ['<?php echo date("M d",strtotime("-10 Days")) ?>', <?php echo $day10total; ?>],
+              ['<?php echo date("M d",strtotime("-9 Days")) ?>', <?php echo $day9total; ?>],
+              ['<?php echo date("M d",strtotime("-8 Days")) ?>', <?php echo $day8total; ?>],
+              ['<?php echo date("M d",strtotime("-7 Days")) ?>', <?php echo $day7total; ?>],
+              ['<?php echo date("M d",strtotime("-6 Days")) ?>', <?php echo $day6total; ?>],
+              ['<?php echo date("M d",strtotime("-5 Days")) ?>', <?php echo $day5total; ?>],
+              ['<?php echo date("M d",strtotime("-4 Days")) ?>', <?php echo $day4total; ?>],
+              ['<?php echo date("M d",strtotime("-3 Days")) ?>', <?php echo $day3total; ?>],
+              ['<?php echo date("M d",strtotime("-2 Days")) ?>', <?php echo $day2total; ?>],
+              ['<?php echo date("M d",strtotime("-1 Days")) ?>', <?php echo $day1total; ?>],
+              ['<?php echo date("M d",strtotime("-0 Days")) ?>', <?php echo $day0total; ?>]
+            ]);
+            var options = {
+              title: 'Total Sales in the past 30 days (Pie View)',
+              hAxis: {title: '30 Days', titleTextStyle: {color: '#000000'}}
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('total_day_pie'));
+            chart.draw(data, options);
+          }
+        </script>
+        <div id="total_day_pie" style="width: 45%; height: 300px; float: left;"></div>
+
+        <script type="text/javascript">
+          google.load("visualization", "1", {packages:["corechart"]});
+          google.setOnLoadCallback(drawChart);
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Day', 'Average'],
+              ['<?php echo date("M d",strtotime("-30 Days")) ?>', <?php echo $day30average; ?>],
+              ['<?php echo date("M d",strtotime("-29 Days")) ?>', <?php echo $day29average; ?>],
+              ['<?php echo date("M d",strtotime("-28 Days")) ?>', <?php echo $day28average; ?>],
+              ['<?php echo date("M d",strtotime("-27 Days")) ?>', <?php echo $day27average; ?>],
+              ['<?php echo date("M d",strtotime("-26 Days")) ?>', <?php echo $day26average; ?>],
+              ['<?php echo date("M d",strtotime("-25 Days")) ?>', <?php echo $day25average; ?>],
+              ['<?php echo date("M d",strtotime("-24 Days")) ?>', <?php echo $day24average; ?>],
+              ['<?php echo date("M d",strtotime("-23 Days")) ?>', <?php echo $day23average; ?>],
+              ['<?php echo date("M d",strtotime("-22 Days")) ?>', <?php echo $day22average; ?>],
+              ['<?php echo date("M d",strtotime("-21 Days")) ?>', <?php echo $day21average; ?>],
+              ['<?php echo date("M d",strtotime("-20 Days")) ?>', <?php echo $day20average; ?>],
+              ['<?php echo date("M d",strtotime("-19 Days")) ?>', <?php echo $day19average; ?>],
+              ['<?php echo date("M d",strtotime("-18 Days")) ?>', <?php echo $day18average; ?>],
+              ['<?php echo date("M d",strtotime("-17 Days")) ?>', <?php echo $day17average; ?>],
+              ['<?php echo date("M d",strtotime("-16 Days")) ?>', <?php echo $day16average; ?>],
+              ['<?php echo date("M d",strtotime("-15 Days")) ?>', <?php echo $day15average; ?>],
+              ['<?php echo date("M d",strtotime("-14 Days")) ?>', <?php echo $day14average; ?>],
+              ['<?php echo date("M d",strtotime("-13 Days")) ?>', <?php echo $day13average; ?>],
+              ['<?php echo date("M d",strtotime("-12 Days")) ?>', <?php echo $day12average; ?>],
+              ['<?php echo date("M d",strtotime("-11 Days")) ?>', <?php echo $day11average; ?>],
+              ['<?php echo date("M d",strtotime("-10 Days")) ?>', <?php echo $day10average; ?>],
+              ['<?php echo date("M d",strtotime("-9 Days")) ?>', <?php echo $day9average; ?>],
+              ['<?php echo date("M d",strtotime("-8 Days")) ?>', <?php echo $day8average; ?>],
+              ['<?php echo date("M d",strtotime("-7 Days")) ?>', <?php echo $day7average; ?>],
+              ['<?php echo date("M d",strtotime("-6 Days")) ?>', <?php echo $day6average; ?>],
+              ['<?php echo date("M d",strtotime("-5 Days")) ?>', <?php echo $day5average; ?>],
+              ['<?php echo date("M d",strtotime("-4 Days")) ?>', <?php echo $day4average; ?>],
+              ['<?php echo date("M d",strtotime("-3 Days")) ?>', <?php echo $day3average; ?>],
+              ['<?php echo date("M d",strtotime("-2 Days")) ?>', <?php echo $day2average; ?>],
+              ['<?php echo date("M d",strtotime("-1 Days")) ?>', <?php echo $day1average; ?>],
+              ['<?php echo date("M d",strtotime("-0 Days")) ?>', <?php echo $day0average; ?>]
+            ]);
+            var options = {
+              title: 'Average Sales in the past 30 days (Pie View)',
+              hAxis: {title: '30 Days', titleTextStyle: {color: '#000000'}}
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('average_day_pie'));
+            chart.draw(data, options);
+          }
+        </script>
+        <div id="average_day_pie" style="width: 45%; height: 300px; float: left;"></div>
 
         <script type="text/javascript">
           google.load("visualization", "1", {packages:["corechart"]});
@@ -493,18 +590,18 @@ function business_marketpress_stats_page() {
               colors: ['#000000'],
               hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
             };
-            var chart = new google.visualization.ColumnChart(document.getElementById('average_chart'));
+            var chart = new google.visualization.ColumnChart(document.getElementById('average_month_chart'));
             chart.draw(data, options);
           }
         </script>
-        <div id="average_chart" style="width: 100%; height: 200px;"></div>
+        <div id="average_month_chart" style="width: 100%; height: 200px; clear: both; float: none;"></div>
 
         <script type="text/javascript">
         google.load("visualization", "1", {packages:["corechart"]});
         google.setOnLoadCallback(drawChart);
         function drawChart() {
           var data = google.visualization.arrayToDataTable([
-            ['Month', 'Count'],
+            ['Month', 'Sales'],
             ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php echo $month12count; ?>],
             ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php echo $month11count; ?>],
             ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php echo $month10count; ?>],
@@ -592,6 +689,7 @@ function business_marketpress_stats_page() {
       </td>
     </tr>
   </table>
+  </div>
   <?php
   }
 }
