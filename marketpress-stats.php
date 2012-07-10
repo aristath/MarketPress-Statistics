@@ -133,117 +133,112 @@ function business_marketpress_stats_page() {
 
 	<div class="StatisticsCharts" style="margin-right: 320px;">
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-        	['Month', 'Total'],
-        	['<?php echo date("F Y",strtotime("-12 Months")) ?>', <?php echo $month12total; ?>],
-        	['<?php echo date("F Y",strtotime("-11 Months")) ?>', <?php echo $month11total; ?>],
-        	['<?php echo date("F Y",strtotime("-10 Months")) ?>', <?php echo $month10total; ?>],
-        	['<?php echo date("F Y",strtotime("-9 Months")) ?>', <?php echo $month9total; ?>],
-        	['<?php echo date("F Y",strtotime("-8 Months")) ?>', <?php echo $month8total; ?>],
-        	['<?php echo date("F Y",strtotime("-7 Months")) ?>', <?php echo $month7total; ?>],
-        	['<?php echo date("F Y",strtotime("-6 Months")) ?>', <?php echo $month6total; ?>],
-        	['<?php echo date("F Y",strtotime("-5 Months")) ?>', <?php echo $month5total; ?>],
-        	['<?php echo date("F Y",strtotime("-4 Months")) ?>', <?php echo $month4total; ?>],
-        	['<?php echo date("F Y",strtotime("-3 Months")) ?>', <?php echo $month3total; ?>],
-        	['<?php echo date("F Y",strtotime("-2 Months")) ?>', <?php echo $month2total; ?>],
-        	['<?php echo date("F Y",strtotime("-1 Months")) ?>', <?php echo $month1total; ?>],
-        	['<?php echo date("F Y",strtotime("-0 Months")) ?>', <?php echo $month0total; ?>]
-        ]);
+	<script type="text/javascript">
+		google.load("visualization", "1", {packages:["corechart"]});
+		google.setOnLoadCallback(drawChart);
+		function drawChart() {
+			var data = google.visualization.arrayToDataTable([
+				['Month', 'Total'],
+				['<?php echo date("F Y",strtotime("-12 Months")) ?>', <?php echo $month12total; ?>],
+				['<?php echo date("F Y",strtotime("-11 Months")) ?>', <?php echo $month11total; ?>],
+				['<?php echo date("F Y",strtotime("-10 Months")) ?>', <?php echo $month10total; ?>],
+				['<?php echo date("F Y",strtotime("-9 Months")) ?>', <?php echo $month9total; ?>],
+				['<?php echo date("F Y",strtotime("-8 Months")) ?>', <?php echo $month8total; ?>],
+				['<?php echo date("F Y",strtotime("-7 Months")) ?>', <?php echo $month7total; ?>],
+				['<?php echo date("F Y",strtotime("-6 Months")) ?>', <?php echo $month6total; ?>],
+				['<?php echo date("F Y",strtotime("-5 Months")) ?>', <?php echo $month5total; ?>],
+				['<?php echo date("F Y",strtotime("-4 Months")) ?>', <?php echo $month4total; ?>],
+				['<?php echo date("F Y",strtotime("-3 Months")) ?>', <?php echo $month3total; ?>],
+				['<?php echo date("F Y",strtotime("-2 Months")) ?>', <?php echo $month2total; ?>],
+				['<?php echo date("F Y",strtotime("-1 Months")) ?>', <?php echo $month1total; ?>],
+				['<?php echo date("F Y",strtotime("-0 Months")) ?>', <?php echo $month0total; ?>]
+			]);
+			var options = {
+				title: 'Total Sales',
+				colors: ['#000000'],
+				hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
+			};
+			var chart = new google.visualization.ColumnChart(document.getElementById('total_chart'));
+			chart.draw(data, options);
+		}
+	</script>
+	<div id="total_chart" style="width: 100%; height: 350px;"></div>
 
-        var options = {
-          title: 'Total Sales',
-          colors: ['#000000'],
-          hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
-        };
+	<script type="text/javascript">
+		google.load("visualization", "1", {packages:["corechart"]});
+		google.setOnLoadCallback(drawChart);
+		function drawChart() {
+			var data = google.visualization.arrayToDataTable([
+				['Month', 'Average'],
+				['<?php echo date("F Y",strtotime("-12 Months")) ?>', <?php echo $month12average; ?>],
+				['<?php echo date("F Y",strtotime("-11 Months")) ?>', <?php echo $month11average; ?>],
+				['<?php echo date("F Y",strtotime("-10 Months")) ?>', <?php echo $month10average; ?>],
+				['<?php echo date("F Y",strtotime("-9 Months")) ?>', <?php echo $month9average; ?>],
+				['<?php echo date("F Y",strtotime("-8 Months")) ?>', <?php echo $month8average; ?>],
+				['<?php echo date("F Y",strtotime("-7 Months")) ?>', <?php echo $month7average; ?>],
+				['<?php echo date("F Y",strtotime("-6 Months")) ?>', <?php echo $month6average; ?>],
+				['<?php echo date("F Y",strtotime("-5 Months")) ?>', <?php echo $month5average; ?>],
+				['<?php echo date("F Y",strtotime("-4 Months")) ?>', <?php echo $month4average; ?>],
+				['<?php echo date("F Y",strtotime("-3 Months")) ?>', <?php echo $month3average; ?>],
+				['<?php echo date("F Y",strtotime("-2 Months")) ?>', <?php echo $month2average; ?>],
+				['<?php echo date("F Y",strtotime("-1 Months")) ?>', <?php echo $month1average; ?>],
+				['<?php echo date("F Y",strtotime("-0 Months")) ?>', <?php echo $month0average; ?>]
+			]);
+			var options = {
+				title: 'Sales Average',
+				colors: ['#000000'],
+				hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
+			};
+			var chart = new google.visualization.ColumnChart(document.getElementById('average_chart'));
+			chart.draw(data, options);
+		}
+	</script>
+	<div id="average_chart" style="width: 100%; height: 350px;"></div>
 
-        var chart = new google.visualization.ColumnChart(document.getElementById('total_chart'));
-        chart.draw(data, options);
-      }
-    </script>
-    <div id="total_chart" style="width: 100%; height: 350px;"></div>
+	<script type="text/javascript">
+	google.load("visualization", "1", {packages:["corechart"]});
+	google.setOnLoadCallback(drawChart);
+	function drawChart() {
+		var data = google.visualization.arrayToDataTable([
+			['Month', 'Count'],
+			['<?php echo date("F Y",strtotime("-12 Months")) ?>', <?php echo $month12count; ?>],
+			['<?php echo date("F Y",strtotime("-11 Months")) ?>', <?php echo $month11count; ?>],
+			['<?php echo date("F Y",strtotime("-10 Months")) ?>', <?php echo $month10count; ?>],
+			['<?php echo date("F Y",strtotime("-9 Months")) ?>', <?php echo $month9count; ?>],
+			['<?php echo date("F Y",strtotime("-8 Months")) ?>', <?php echo $month8count; ?>],
+			['<?php echo date("F Y",strtotime("-7 Months")) ?>', <?php echo $month7count; ?>],
+			['<?php echo date("F Y",strtotime("-6 Months")) ?>', <?php echo $month6count; ?>],
+			['<?php echo date("F Y",strtotime("-5 Months")) ?>', <?php echo $month5count; ?>],
+			['<?php echo date("F Y",strtotime("-4 Months")) ?>', <?php echo $month4count; ?>],
+			['<?php echo date("F Y",strtotime("-3 Months")) ?>', <?php echo $month3count; ?>],
+			['<?php echo date("F Y",strtotime("-2 Months")) ?>', <?php echo $month2count; ?>],
+			['<?php echo date("F Y",strtotime("-1 Months")) ?>', <?php echo $month1count; ?>],
+			['<?php echo date("F Y",strtotime("-0 Months")) ?>', <?php echo $month0count; ?>]
+		]);
+		var options = {
+			title: 'Number of Sales',
+			colors: ['#000000'],
+			hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
+		};
+		var chart = new google.visualization.ColumnChart(document.getElementById('count_chart'));
+		chart.draw(data, options);
+	}
+	</script>
+	<div id="count_chart" style="width: 100%; height: 350px;"></div>
+	</div>
+	<div class="TextStats" style="float: right; position: absolute; top: 50px; right: 10px; font-size: 20px;">
+		<h2 style="font-size: 30px;">Total Revenue:</h2><br / >
+		<span style="font-size: 60px; font-weight: bold;"><?php echo $mp->format_currency('', $totalitytotal); ?></span>
 
-    <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-        	['Month', 'Average'],
-        	['<?php echo date("F Y",strtotime("-12 Months")) ?>', <?php echo $month12average; ?>],
-        	['<?php echo date("F Y",strtotime("-11 Months")) ?>', <?php echo $month11average; ?>],
-        	['<?php echo date("F Y",strtotime("-10 Months")) ?>', <?php echo $month10average; ?>],
-        	['<?php echo date("F Y",strtotime("-9 Months")) ?>', <?php echo $month9average; ?>],
-        	['<?php echo date("F Y",strtotime("-8 Months")) ?>', <?php echo $month8average; ?>],
-        	['<?php echo date("F Y",strtotime("-7 Months")) ?>', <?php echo $month7average; ?>],
-        	['<?php echo date("F Y",strtotime("-6 Months")) ?>', <?php echo $month6average; ?>],
-        	['<?php echo date("F Y",strtotime("-5 Months")) ?>', <?php echo $month5average; ?>],
-        	['<?php echo date("F Y",strtotime("-4 Months")) ?>', <?php echo $month4average; ?>],
-        	['<?php echo date("F Y",strtotime("-3 Months")) ?>', <?php echo $month3average; ?>],
-        	['<?php echo date("F Y",strtotime("-2 Months")) ?>', <?php echo $month2average; ?>],
-        	['<?php echo date("F Y",strtotime("-1 Months")) ?>', <?php echo $month1average; ?>],
-        	['<?php echo date("F Y",strtotime("-0 Months")) ?>', <?php echo $month0average; ?>]
-        ]);
-
-        var options = {
-          title: 'Sales Average',
-          colors: ['#000000'],
-          hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
-        };
-
-        var chart = new google.visualization.ColumnChart(document.getElementById('average_chart'));
-        chart.draw(data, options);
-      }
-    </script>
-    <div id="average_chart" style="width: 100%; height: 350px;"></div>
-
-    <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-        	['Month', 'Count'],
-        	['<?php echo date("F Y",strtotime("-12 Months")) ?>', <?php echo $month12count; ?>],
-        	['<?php echo date("F Y",strtotime("-11 Months")) ?>', <?php echo $month11count; ?>],
-        	['<?php echo date("F Y",strtotime("-10 Months")) ?>', <?php echo $month10count; ?>],
-        	['<?php echo date("F Y",strtotime("-9 Months")) ?>', <?php echo $month9count; ?>],
-        	['<?php echo date("F Y",strtotime("-8 Months")) ?>', <?php echo $month8count; ?>],
-        	['<?php echo date("F Y",strtotime("-7 Months")) ?>', <?php echo $month7count; ?>],
-        	['<?php echo date("F Y",strtotime("-6 Months")) ?>', <?php echo $month6count; ?>],
-        	['<?php echo date("F Y",strtotime("-5 Months")) ?>', <?php echo $month5count; ?>],
-        	['<?php echo date("F Y",strtotime("-4 Months")) ?>', <?php echo $month4count; ?>],
-        	['<?php echo date("F Y",strtotime("-3 Months")) ?>', <?php echo $month3count; ?>],
-        	['<?php echo date("F Y",strtotime("-2 Months")) ?>', <?php echo $month2count; ?>],
-        	['<?php echo date("F Y",strtotime("-1 Months")) ?>', <?php echo $month1count; ?>],
-        	['<?php echo date("F Y",strtotime("-0 Months")) ?>', <?php echo $month0count; ?>]
-        ]);
-
-        var options = {
-          title: 'Number of Sales',
-          colors: ['#000000'],
-          hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
-        };
-
-        var chart = new google.visualization.ColumnChart(document.getElementById('count_chart'));
-        chart.draw(data, options);
-      }
-    </script>
-   <div id="count_chart" style="width: 100%; height: 350px;"></div>
-   </div>
-   <div class="TextStats" style="float: right; position: absolute; top: 50px; right: 10px; font-size: 20px;">
-   		<h2 style="font-size: 30px;">Total Revenue:</h2><br / >
-   		<span style="font-size: 60px; font-weight: bold;">
-   			<?php echo $mp->format_currency('', $totalitytotal); ?>
-   		</span>
-
-   		<h2 style="font-size: 30px;">This Month's Revenue:</h2><br / >
-   		<span style="font-size: 60px; font-weight: bold;">
-   			<?php echo $mp->format_currency('', $month0total); ?>
-   		</span>
-   </div>
-    
-    <?php
+		<h2 style="font-size: 30px;">Total Sales:</h2><br / >
+		<span style="font-size: 60px; font-weight: bold;"><?php echo $totalitycount; ?></span>
+		
+		<h2 style="font-size: 30px;">Total Average/Sale:</h2><br / >
+		<span style="font-size: 60px; font-weight: bold;"><?php echo $mp->format_currency('', $totalityaverage); ?></span>
+		
+		<h2 style="font-size: 30px;">This Month's Revenue:</h2><br / >
+		<span style="font-size: 60px; font-weight: bold;"><?php echo $mp->format_currency('', $month0total); ?></span>
+	</div>
+	<?php
 }
 ?>
