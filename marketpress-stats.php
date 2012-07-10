@@ -152,7 +152,8 @@ function business_marketpress_stats_page() {
 
         var options = {
           title: 'Total Sales',
-          hAxis: {title: 'Year', titleTextStyle: {color: 'red'}}
+          colors: ['#000000'],
+          hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
         };
 
         var chart = new google.visualization.ColumnChart(document.getElementById('total_chart'));
@@ -184,7 +185,8 @@ function business_marketpress_stats_page() {
 
         var options = {
           title: 'Sales Average',
-          hAxis: {title: 'Year', titleTextStyle: {color: 'red'}}
+          colors: ['#000000'],
+          hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
         };
 
         var chart = new google.visualization.ColumnChart(document.getElementById('average_chart'));
@@ -216,7 +218,8 @@ function business_marketpress_stats_page() {
 
         var options = {
           title: 'Number of Sales',
-          hAxis: {title: 'Year', titleTextStyle: {color: 'red'}}
+          colors: ['#000000'],
+          hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
         };
 
         var chart = new google.visualization.ColumnChart(document.getElementById('count_chart'));
