@@ -523,41 +523,17 @@ function business_marketpress_stats_page() {
           google.setOnLoadCallback(drawChart);
           function drawChart() {
             var data = google.visualization.arrayToDataTable([
-              ['Day', 'Average'],
-              ['<?php echo date("M d",strtotime("-30 Days")) ?>', <?php echo $day30average; ?>],
-              ['<?php echo date("M d",strtotime("-29 Days")) ?>', <?php echo $day29average; ?>],
-              ['<?php echo date("M d",strtotime("-28 Days")) ?>', <?php echo $day28average; ?>],
-              ['<?php echo date("M d",strtotime("-27 Days")) ?>', <?php echo $day27average; ?>],
-              ['<?php echo date("M d",strtotime("-26 Days")) ?>', <?php echo $day26average; ?>],
-              ['<?php echo date("M d",strtotime("-25 Days")) ?>', <?php echo $day25average; ?>],
-              ['<?php echo date("M d",strtotime("-24 Days")) ?>', <?php echo $day24average; ?>],
-              ['<?php echo date("M d",strtotime("-23 Days")) ?>', <?php echo $day23average; ?>],
-              ['<?php echo date("M d",strtotime("-22 Days")) ?>', <?php echo $day22average; ?>],
-              ['<?php echo date("M d",strtotime("-21 Days")) ?>', <?php echo $day21average; ?>],
-              ['<?php echo date("M d",strtotime("-20 Days")) ?>', <?php echo $day20average; ?>],
-              ['<?php echo date("M d",strtotime("-19 Days")) ?>', <?php echo $day19average; ?>],
-              ['<?php echo date("M d",strtotime("-18 Days")) ?>', <?php echo $day18average; ?>],
-              ['<?php echo date("M d",strtotime("-17 Days")) ?>', <?php echo $day17average; ?>],
-              ['<?php echo date("M d",strtotime("-16 Days")) ?>', <?php echo $day16average; ?>],
-              ['<?php echo date("M d",strtotime("-15 Days")) ?>', <?php echo $day15average; ?>],
-              ['<?php echo date("M d",strtotime("-14 Days")) ?>', <?php echo $day14average; ?>],
-              ['<?php echo date("M d",strtotime("-13 Days")) ?>', <?php echo $day13average; ?>],
-              ['<?php echo date("M d",strtotime("-12 Days")) ?>', <?php echo $day12average; ?>],
-              ['<?php echo date("M d",strtotime("-11 Days")) ?>', <?php echo $day11average; ?>],
-              ['<?php echo date("M d",strtotime("-10 Days")) ?>', <?php echo $day10average; ?>],
-              ['<?php echo date("M d",strtotime("-9 Days")) ?>', <?php echo $day9average; ?>],
-              ['<?php echo date("M d",strtotime("-8 Days")) ?>', <?php echo $day8average; ?>],
-              ['<?php echo date("M d",strtotime("-7 Days")) ?>', <?php echo $day7average; ?>],
-              ['<?php echo date("M d",strtotime("-6 Days")) ?>', <?php echo $day6average; ?>],
-              ['<?php echo date("M d",strtotime("-5 Days")) ?>', <?php echo $day5average; ?>],
-              ['<?php echo date("M d",strtotime("-4 Days")) ?>', <?php echo $day4average; ?>],
-              ['<?php echo date("M d",strtotime("-3 Days")) ?>', <?php echo $day3average; ?>],
-              ['<?php echo date("M d",strtotime("-2 Days")) ?>', <?php echo $day2average; ?>],
-              ['<?php echo date("M d",strtotime("-1 Days")) ?>', <?php echo $day1average; ?>],
-              ['<?php echo date("M d",strtotime("-0 Days")) ?>', <?php echo $day0average; ?>]
+              ['Day', 'Total'],
+              ['<?php echo date("M d",strtotime("-6 Days")) ?>', <?php echo $day6total; ?>],
+              ['<?php echo date("M d",strtotime("-5 Days")) ?>', <?php echo $day5total; ?>],
+              ['<?php echo date("M d",strtotime("-4 Days")) ?>', <?php echo $day4total; ?>],
+              ['<?php echo date("M d",strtotime("-3 Days")) ?>', <?php echo $day3total; ?>],
+              ['<?php echo date("M d",strtotime("-2 Days")) ?>', <?php echo $day2total; ?>],
+              ['<?php echo date("M d",strtotime("-1 Days")) ?>', <?php echo $day1total; ?>],
+              ['<?php echo date("M d",strtotime("-0 Days")) ?>', <?php echo $day0total; ?>]
             ]);
             var options = {
-              title: 'Average Sales in the past 30 days (Pie View)',
+              title: 'Total Weekly Sales',
               hAxis: {title: '30 Days', titleTextStyle: {color: '#000000'}}
             };
             var chart = new google.visualization.PieChart(document.getElementById('average_day_pie'));
