@@ -198,7 +198,7 @@ function business_marketpress_stats_page() {
       google.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-        	['Month', 'Average'],
+        	['Month', 'Count'],
         	['<?php echo date("F Y",strtotime("-12 Months")) ?>', <?php echo $month12count; ?>],
         	['<?php echo date("F Y",strtotime("-11 Months")) ?>', <?php echo $month11count; ?>],
         	['<?php echo date("F Y",strtotime("-10 Months")) ?>', <?php echo $month10count; ?>],
