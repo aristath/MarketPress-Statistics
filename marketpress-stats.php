@@ -383,8 +383,9 @@ function business_marketpress_stats_page() {
   if (!empty($day29->total)){$day29total = $day29->total;} else {$day29total = 0;}
   if (!empty($day30->total)){$day30total = $day30->total;} else {$day30total = 0;}
   
-  ?>
+  echo '<script type="text/javascript" src="' . plugins_url( 'bigtext.js' , __FILE__ ) . '" ></script>';
   
+  ?>
   <div class="wrap">
   <table style="width: 100%;">
     <tr>
@@ -628,68 +629,58 @@ function business_marketpress_stats_page() {
         <div id="count_chart" style="width: 100%; height: 200px;"></div>
         </div>
       </td>
-      <td style="width: 400px; vertical-align: top; text-align: center;">
-          <table>
-            <tr style="border-bottom: 1px solid #dedede;">
-              <td colspan="2" style="border-bottom: 1px solid #dedede; padding: 15px 0;">
-                <h2 style="font-size: 30px;">Total Revenue:</h2><br / >
-                <span style="font-size: 60px; font-weight: bold;"><?php echo $mp->format_currency('', $totalitytotal); ?></span>
-              </td>
-            </tr>
-            <tr>
-              <td style="border-bottom: 1px solid #dedede; padding: 5px;">
-                <p style="font-size: 15px;">Total Sales:</h2></p>
-                <p style="font-size: 20px; font-weight: bold;"><?php echo $totalitycount; ?></p>
-              </td>
-              <td style="border-bottom: 1px solid #dedede; padding: 5px;">
-                <p style="font-size: 15px;">Total Average/Sale:</p>
-                <p style="font-size: 20px; font-weight: bold;"><?php echo $mp->format_currency('', $totalityaverage); ?></p>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="2" style="border-bottom: 1px solid #dedede; padding: 5px;">
-                <p style="font-size: 20px;">This Month's Revenue:</p>
-                <p style="font-size: 40px; font-weight: bold;"><?php echo $mp->format_currency('', $month0total); ?></p>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="2">
-                <script type="text/javascript">
-                  google.load("visualization", "1", {packages:["corechart"]});
-                  google.setOnLoadCallback(drawChart);
-                  function drawChart() {
-                    var data = google.visualization.arrayToDataTable([
-                      ['Month', 'Total'],
-                      ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php echo $month12total; ?>],
-                      ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php echo $month11total; ?>],
-                      ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php echo $month10total; ?>],
-                      ['<?php echo date("M",strtotime("-9 Months")) ?>', <?php echo $month9total; ?>],
-                      ['<?php echo date("M",strtotime("-8 Months")) ?>', <?php echo $month8total; ?>],
-                      ['<?php echo date("M",strtotime("-7 Months")) ?>', <?php echo $month7total; ?>],
-                      ['<?php echo date("M",strtotime("-6 Months")) ?>', <?php echo $month6total; ?>],
-                      ['<?php echo date("M",strtotime("-5 Months")) ?>', <?php echo $month5total; ?>],
-                      ['<?php echo date("M",strtotime("-4 Months")) ?>', <?php echo $month4total; ?>],
-                      ['<?php echo date("M",strtotime("-3 Months")) ?>', <?php echo $month3total; ?>],
-                      ['<?php echo date("M",strtotime("-2 Months")) ?>', <?php echo $month2total; ?>],
-                      ['<?php echo date("M",strtotime("-1 Months")) ?>', <?php echo $month1total; ?>],
-                      ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php echo $month0total; ?>]
-                    ]);
-                    var options = {
-                      title: 'Total Sales in the past 12 months',
-                      hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
-                    };
-                    var chart = new google.visualization.PieChart(document.getElementById('total_pie'));
-                    chart.draw(data, options);
-                  }
-                </script>
-                <div id="total_pie" style="width: 400px; height: 400px;"></div>
-              </td>
-            </tr>
-          </table>
+      <td style="width: 300px; vertical-align: top; text-align: center;">
+      	<div id="BigText" style="width: 300px; padding: 20px;">
+      		<p>Total Revenue:</p>
+      		<p><strong><?php echo $mp->format_currency('', $totalitytotal); ?></strong></p>
+      		<p style="border-top: 1px solid #dedede;">Total Sales:</p>
+      		<p><strong><?php echo $totalitycount; ?></strong></p>
+      		<p style="border-top: 1px solid #dedede;">Total Average/Sale:</p>
+      		<p><strong><?php echo $mp->format_currency('', $totalityaverage); ?></strong></p>
+      		<p style="border-top: 1px solid #dedede;">This Month's Revenue:</p>
+      		<p><?php echo $mp->format_currency('', $month0total); ?></p>
+      	</div>
+            <script type="text/javascript">
+              google.load("visualization", "1", {packages:["corechart"]});
+              google.setOnLoadCallback(drawChart);
+              function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                  ['Month', 'Total'],
+                  ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php echo $month12total; ?>],
+                  ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php echo $month11total; ?>],
+                  ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php echo $month10total; ?>],
+                  ['<?php echo date("M",strtotime("-9 Months")) ?>', <?php echo $month9total; ?>],
+                  ['<?php echo date("M",strtotime("-8 Months")) ?>', <?php echo $month8total; ?>],
+                  ['<?php echo date("M",strtotime("-7 Months")) ?>', <?php echo $month7total; ?>],
+                  ['<?php echo date("M",strtotime("-6 Months")) ?>', <?php echo $month6total; ?>],
+                  ['<?php echo date("M",strtotime("-5 Months")) ?>', <?php echo $month5total; ?>],
+                  ['<?php echo date("M",strtotime("-4 Months")) ?>', <?php echo $month4total; ?>],
+                  ['<?php echo date("M",strtotime("-3 Months")) ?>', <?php echo $month3total; ?>],
+                  ['<?php echo date("M",strtotime("-2 Months")) ?>', <?php echo $month2total; ?>],
+                  ['<?php echo date("M",strtotime("-1 Months")) ?>', <?php echo $month1total; ?>],
+                  ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php echo $month0total; ?>]
+                ]);
+                var options = {
+                  title: 'Total Sales in the past 12 months',
+                  hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
+                };
+                var chart = new google.visualization.PieChart(document.getElementById('total_pie'));
+                chart.draw(data, options);
+              }
+            </script>
+            <div id="total_pie" style="width: 300px; height: 400px;"></div>
       </td>
     </tr>
   </table>
   </div>
+  <script>
+    (function ($) {
+      $('#BigText').bigtext({
+  	    childSelector: '> p',
+  	    maxfontsize: 110
+      });
+    })(jQuery);
+  </script>
   <?php
   }
 }
