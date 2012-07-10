@@ -92,155 +92,155 @@ function business_marketpress_stats_page() {
   $day = date('d', strtotime('d'));
   $day0 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-1 days'));
+  $month = date('m', strtotime('-1 days'));
   $day = date('d', strtotime('-1 days'));
   $day1 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-2 days'));
+  $month = date('m', strtotime('-2 days'));
   $day = date('d', strtotime('-2 days'));
   $day2 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-3 days'));
+  $month = date('m', strtotime('-3 days'));
   $day = date('d', strtotime('-3 days'));
   $day3 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-4 days'));
+  $month = date('m', strtotime('-4 days'));
   $day = date('d', strtotime('-4 days'));
   $day4 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-5 days'));
+  $month = date('m', strtotime('-5 days'));
   $day = date('d', strtotime('-5 days'));
   $day5 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-6 days'));
+  $month = date('m', strtotime('-6 days'));
   $day = date('d', strtotime('-6 days'));
   $day6 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-7 days'));
+  $month = date('m', strtotime('-7 days'));
   $day = date('d', strtotime('-7 days'));
   $day7 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-8 days'));
+  $month = date('m', strtotime('-8 days'));
   $day = date('d', strtotime('-8 days'));
   $day8 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-9 days'));
+  $month = date('m', strtotime('- days'));
   $day = date('d', strtotime('-9 days'));
   $day9 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-10 days'));
+  $month = date('m', strtotime('-10 days'));
   $day = date('d', strtotime('-10 days'));
   $day10 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-11 days'));
+  $month = date('m', strtotime('-11 days'));
   $day = date('d', strtotime('-11 days'));
-  $day10 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
+  $day11 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-12 days'));
+  $month = date('m', strtotime('-12 days'));
   $day = date('d', strtotime('-12 days'));
-  $day10 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
+  $day12 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-13 days'));
+  $month = date('m', strtotime('-13 days'));
   $day = date('d', strtotime('-13 days'));
-  $day10 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
+  $day13 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-14 days'));
+  $month = date('m', strtotime('-14 days'));
   $day = date('d', strtotime('-14 days'));
-  $day10 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
+  $day14 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-15 days'));
+  $month = date('m', strtotime('-15 days'));
   $day = date('d', strtotime('-15 days'));
-  $day10 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
+  $day15 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-16 days'));
+  $month = date('m', strtotime('-16 days'));
   $day = date('d', strtotime('-16 days'));
-  $day10 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
+  $day16 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-17 days'));
+  $month = date('m', strtotime('-17 days'));
   $day = date('d', strtotime('-17 days'));
-  $day10 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
+  $day17 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-18 days'));
+  $month = date('m', strtotime('-18 days'));
   $day = date('d', strtotime('-18 days'));
-  $day10 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
+  $day18 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-19 days'));
+  $month = date('m', strtotime('-19 days'));
   $day = date('d', strtotime('-19 days'));
-  $day10 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
+  $day19 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-20 days'));
+  $month = date('m', strtotime('-20 days'));
   $day = date('d', strtotime('-20 days'));
-  $day10 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
+  $day20 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-21 days'));
+  $month = date('m', strtotime('-21 days'));
   $day = date('d', strtotime('-21 days'));
-  $day10 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
+  $day21 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-22 days'));
+  $month = date('m', strtotime('-22 days'));
   $day = date('d', strtotime('-22 days'));
-  $day10 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
+  $day22 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-23 days'));
+  $month = date('m', strtotime('-23 days'));
   $day = date('d', strtotime('-23 days'));
-  $day10 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
+  $day23 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-24 days'));
+  $month = date('m', strtotime('-24 days'));
   $day = date('d', strtotime('-24 days'));
-  $day10 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
+  $day24 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-25 days'));
+  $month = date('m', strtotime('-25 days'));
   $day = date('d', strtotime('-25 days'));
-  $day10 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
+  $day25 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-26 days'));
+  $month = date('m', strtotime('-26 days'));
   $day = date('d', strtotime('-26 days'));
-  $day10 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
+  $day26 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-27 days'));
+  $month = date('m', strtotime('-27 days'));
   $day = date('d', strtotime('-27 days'));
-  $day10 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
+  $day27 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-28 days'));
+  $month = date('m', strtotime('-28 days'));
   $day = date('d', strtotime('-28 days'));
-  $day10 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
+  $day28 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-29 days'));
+  $month = date('m', strtotime('-29 days'));
   $day = date('d', strtotime('-29 days'));
-  $day10 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
+  $day29 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
-  $year = date('Y', strtotime('Y'));
-  $month = date('m', strtotime('m'));
+  $year = date('Y', strtotime('-30 days'));
+  $month = date('m', strtotime('-30 days'));
   $day = date('d', strtotime('-30 days'));
-  $day10 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
+  $day30 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month AND DAY(p.post_date) = $day");
 
   if (!empty($month0->count)){$month0count = $month0->count;} else {$month0count = 0;}
   if (!empty($month1->count)){$month1count = $month1->count;} else {$month1count = 0;}
@@ -410,7 +410,7 @@ function business_marketpress_stats_page() {
               ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php echo $month0total; ?>]
             ]);
             var options = {
-              title: 'Total Sales',
+              title: 'Total Sales, 12 Months',
               colors: ['#000000'],
               hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
             };
@@ -425,49 +425,48 @@ function business_marketpress_stats_page() {
           google.setOnLoadCallback(drawChart);
           function drawChart() {
             var data = google.visualization.arrayToDataTable([
-              ['Day', 'Total'],
-              ['<?php echo date("d/m",strtotime("-30 Days")) ?>', <?php echo $day30total; ?>],
-              ['<?php echo date("d/m",strtotime("-29 Days")) ?>', <?php echo $day29total; ?>],
-              ['<?php echo date("d/m",strtotime("-28 Days")) ?>', <?php echo $day28total; ?>],
-              ['<?php echo date("d/m",strtotime("-27 Days")) ?>', <?php echo $day27total; ?>],
-              ['<?php echo date("d/m",strtotime("-26 Days")) ?>', <?php echo $day26total; ?>],
-              ['<?php echo date("d/m",strtotime("-25 Days")) ?>', <?php echo $day25total; ?>],
-              ['<?php echo date("d/m",strtotime("-24 Days")) ?>', <?php echo $day24total; ?>],
-              ['<?php echo date("d/m",strtotime("-23 Days")) ?>', <?php echo $day23total; ?>],
-              ['<?php echo date("d/m",strtotime("-22 Days")) ?>', <?php echo $day22total; ?>],
-              ['<?php echo date("d/m",strtotime("-21 Days")) ?>', <?php echo $day21total; ?>],
-              ['<?php echo date("d/m",strtotime("-20 Days")) ?>', <?php echo $day20total; ?>],
-              ['<?php echo date("d/m",strtotime("-19 Days")) ?>', <?php echo $day19total; ?>],
-              ['<?php echo date("d/m",strtotime("-18 Days")) ?>', <?php echo $day18total; ?>],
-              ['<?php echo date("d/m",strtotime("-17 Days")) ?>', <?php echo $day17total; ?>],
-              ['<?php echo date("d/m",strtotime("-16 Days")) ?>', <?php echo $day16total; ?>],
-              ['<?php echo date("d/m",strtotime("-15 Days")) ?>', <?php echo $day15total; ?>],
-              ['<?php echo date("d/m",strtotime("-14 Days")) ?>', <?php echo $day14total; ?>],
-              ['<?php echo date("d/m",strtotime("-13 Days")) ?>', <?php echo $day13total; ?>],
-              ['<?php echo date("d/m",strtotime("-12 Days")) ?>', <?php echo $day12total; ?>],
-              ['<?php echo date("d/m",strtotime("-11 Days")) ?>', <?php echo $day11total; ?>],
-              ['<?php echo date("d/m",strtotime("-10 Days")) ?>', <?php echo $day10total; ?>],
-              ['<?php echo date("d/m",strtotime("-9 Days")) ?>', <?php echo $day9total; ?>],
-              ['<?php echo date("d/m",strtotime("-8 Days")) ?>', <?php echo $day8total; ?>],
-              ['<?php echo date("d/m",strtotime("-7 Days")) ?>', <?php echo $day7total; ?>],
-              ['<?php echo date("d/m",strtotime("-6 Days")) ?>', <?php echo $day6total; ?>],
-              ['<?php echo date("d/m",strtotime("-5 Days")) ?>', <?php echo $day5total; ?>],
-              ['<?php echo date("d/m",strtotime("-4 Days")) ?>', <?php echo $day4total; ?>],
-              ['<?php echo date("d/m",strtotime("-3 Days")) ?>', <?php echo $day3total; ?>],
-              ['<?php echo date("d/m",strtotime("-2 Days")) ?>', <?php echo $day2total; ?>],
-              ['<?php echo date("d/m",strtotime("-1 Days")) ?>', <?php echo $day1total; ?>],
-              ['<?php echo date("d/m",strtotime("-0 Days")) ?>', <?php echo $day0total; ?>]
+              ['Day', 'Total', 'Average'],
+              ['<?php echo date("d/m",strtotime("-30 Days")) ?>', <?php echo $day30total; ?>, <?php echo $day30average; ?>],
+              ['<?php echo date("d/m",strtotime("-29 Days")) ?>', <?php echo $day29total; ?>, <?php echo $day29average; ?>],
+              ['<?php echo date("d/m",strtotime("-28 Days")) ?>', <?php echo $day28total; ?>, <?php echo $day28average; ?>],
+              ['<?php echo date("d/m",strtotime("-27 Days")) ?>', <?php echo $day27total; ?>, <?php echo $day27average; ?>],
+              ['<?php echo date("d/m",strtotime("-26 Days")) ?>', <?php echo $day26total; ?>, <?php echo $day26average; ?>],
+              ['<?php echo date("d/m",strtotime("-25 Days")) ?>', <?php echo $day25total; ?>, <?php echo $day25average; ?>],
+              ['<?php echo date("d/m",strtotime("-24 Days")) ?>', <?php echo $day24total; ?>, <?php echo $day24average; ?>],
+              ['<?php echo date("d/m",strtotime("-23 Days")) ?>', <?php echo $day23total; ?>, <?php echo $day23average; ?>],
+              ['<?php echo date("d/m",strtotime("-22 Days")) ?>', <?php echo $day22total; ?>, <?php echo $day22average; ?>],
+              ['<?php echo date("d/m",strtotime("-21 Days")) ?>', <?php echo $day21total; ?>, <?php echo $day21average; ?>],
+              ['<?php echo date("d/m",strtotime("-20 Days")) ?>', <?php echo $day20total; ?>, <?php echo $day20average; ?>],
+              ['<?php echo date("d/m",strtotime("-19 Days")) ?>', <?php echo $day19total; ?>, <?php echo $day19average; ?>],
+              ['<?php echo date("d/m",strtotime("-18 Days")) ?>', <?php echo $day18total; ?>, <?php echo $day18average; ?>],
+              ['<?php echo date("d/m",strtotime("-17 Days")) ?>', <?php echo $day17total; ?>, <?php echo $day17average; ?>],
+              ['<?php echo date("d/m",strtotime("-16 Days")) ?>', <?php echo $day16total; ?>, <?php echo $day16average; ?>],
+              ['<?php echo date("d/m",strtotime("-15 Days")) ?>', <?php echo $day15total; ?>, <?php echo $day15average; ?>],
+              ['<?php echo date("d/m",strtotime("-14 Days")) ?>', <?php echo $day14total; ?>, <?php echo $day14average; ?>],
+              ['<?php echo date("d/m",strtotime("-13 Days")) ?>', <?php echo $day13total; ?>, <?php echo $day13average; ?>],
+              ['<?php echo date("d/m",strtotime("-12 Days")) ?>', <?php echo $day12total; ?>, <?php echo $day12average; ?>],
+              ['<?php echo date("d/m",strtotime("-11 Days")) ?>', <?php echo $day11total; ?>, <?php echo $day11average; ?>],
+              ['<?php echo date("d/m",strtotime("-10 Days")) ?>', <?php echo $day10total; ?>, <?php echo $day10average; ?>],
+              ['<?php echo date("d/m",strtotime("-9 Days")) ?>', <?php echo $day9total; ?>, <?php echo $day9average; ?>],
+              ['<?php echo date("d/m",strtotime("-8 Days")) ?>', <?php echo $day8total; ?>, <?php echo $day8average; ?>],
+              ['<?php echo date("d/m",strtotime("-7 Days")) ?>', <?php echo $day7total; ?>, <?php echo $day7average; ?>],
+              ['<?php echo date("d/m",strtotime("-6 Days")) ?>', <?php echo $day6total; ?>, <?php echo $day6average; ?>],
+              ['<?php echo date("d/m",strtotime("-5 Days")) ?>', <?php echo $day5total; ?>, <?php echo $day5average; ?>],
+              ['<?php echo date("d/m",strtotime("-4 Days")) ?>', <?php echo $day4total; ?>, <?php echo $day4average; ?>],
+              ['<?php echo date("d/m",strtotime("-3 Days")) ?>', <?php echo $day3total; ?>, <?php echo $day3average; ?>],
+              ['<?php echo date("d/m",strtotime("-2 Days")) ?>', <?php echo $day2total; ?>, <?php echo $day2average; ?>],
+              ['<?php echo date("d/m",strtotime("-1 Days")) ?>', <?php echo $day1total; ?>, <?php echo $day1average; ?>],
+              ['<?php echo date("d/m",strtotime("-0 Days")) ?>', <?php echo $day0total; ?>, <?php echo $day0average; ?>]
             ]);
             var options = {
-              title: 'Total Sales',
-              colors: ['#000000'],
+              title: 'Total and Average Sales in the past 30 days',
               hAxis: {title: '30 Days', titleTextStyle: {color: '#000000'}}
             };
-            var chart = new google.visualization.LineChart(document.getElementById('total_day_chart'));
+            var chart = new google.visualization.ColumnChart(document.getElementById('total_day_chart'));
             chart.draw(data, options);
           }
         </script>
-        <div id="total_day_chart" style="width: 100%; height: 280px;"></div>
+        <div id="total_day_chart" style="width: 100%; height: 300px;"></div>
 
         <script type="text/javascript">
           google.load("visualization", "1", {packages:["corechart"]});
@@ -490,7 +489,7 @@ function business_marketpress_stats_page() {
               ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php echo $month0average; ?>]
             ]);
             var options = {
-              title: 'Sales Average',
+              title: 'Sales Average, 12 Months',
               colors: ['#000000'],
               hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
             };
@@ -521,7 +520,7 @@ function business_marketpress_stats_page() {
             ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php echo $month0count; ?>]
           ]);
           var options = {
-            title: 'Number of Sales',
+            title: 'Number of Sales, 12 Months',
             colors: ['#000000'],
             hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
           };
@@ -579,7 +578,7 @@ function business_marketpress_stats_page() {
                       ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php echo $month0total; ?>]
                     ]);
                     var options = {
-                      title: 'Total Sales',
+                      title: 'Total Sales in the past 12 months',
                       hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
                     };
                     var chart = new google.visualization.PieChart(document.getElementById('total_pie'));
