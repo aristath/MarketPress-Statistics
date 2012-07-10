@@ -425,6 +425,55 @@ function business_marketpress_stats_page() {
           google.setOnLoadCallback(drawChart);
           function drawChart() {
             var data = google.visualization.arrayToDataTable([
+              ['Day', 'Total'],
+              ['<?php echo date("d/m",strtotime("-30 Days")) ?>', <?php echo $day30total; ?>],
+              ['<?php echo date("d/m",strtotime("-29 Days")) ?>', <?php echo $day29total; ?>],
+              ['<?php echo date("d/m",strtotime("-28 Days")) ?>', <?php echo $day28total; ?>],
+              ['<?php echo date("d/m",strtotime("-27 Days")) ?>', <?php echo $day27total; ?>],
+              ['<?php echo date("d/m",strtotime("-26 Days")) ?>', <?php echo $day26total; ?>],
+              ['<?php echo date("d/m",strtotime("-25 Days")) ?>', <?php echo $day25total; ?>],
+              ['<?php echo date("d/m",strtotime("-24 Days")) ?>', <?php echo $day24total; ?>],
+              ['<?php echo date("d/m",strtotime("-23 Days")) ?>', <?php echo $day23total; ?>],
+              ['<?php echo date("d/m",strtotime("-22 Days")) ?>', <?php echo $day22total; ?>],
+              ['<?php echo date("d/m",strtotime("-21 Days")) ?>', <?php echo $day21total; ?>],
+              ['<?php echo date("d/m",strtotime("-20 Days")) ?>', <?php echo $day20total; ?>],
+              ['<?php echo date("d/m",strtotime("-19 Days")) ?>', <?php echo $day19total; ?>],
+              ['<?php echo date("d/m",strtotime("-18 Days")) ?>', <?php echo $day18total; ?>],
+              ['<?php echo date("d/m",strtotime("-17 Days")) ?>', <?php echo $day17total; ?>],
+              ['<?php echo date("d/m",strtotime("-16 Days")) ?>', <?php echo $day16total; ?>],
+              ['<?php echo date("d/m",strtotime("-15 Days")) ?>', <?php echo $day15total; ?>],
+              ['<?php echo date("d/m",strtotime("-14 Days")) ?>', <?php echo $day14total; ?>],
+              ['<?php echo date("d/m",strtotime("-13 Days")) ?>', <?php echo $day13total; ?>],
+              ['<?php echo date("d/m",strtotime("-12 Days")) ?>', <?php echo $day12total; ?>],
+              ['<?php echo date("d/m",strtotime("-11 Days")) ?>', <?php echo $day11total; ?>],
+              ['<?php echo date("d/m",strtotime("-10 Days")) ?>', <?php echo $day10total; ?>],
+              ['<?php echo date("d/m",strtotime("-9 Days")) ?>', <?php echo $day9total; ?>],
+              ['<?php echo date("d/m",strtotime("-8 Days")) ?>', <?php echo $day8total; ?>],
+              ['<?php echo date("d/m",strtotime("-7 Days")) ?>', <?php echo $day7total; ?>],
+              ['<?php echo date("d/m",strtotime("-6 Days")) ?>', <?php echo $day6total; ?>],
+              ['<?php echo date("d/m",strtotime("-5 Days")) ?>', <?php echo $day5total; ?>],
+              ['<?php echo date("d/m",strtotime("-4 Days")) ?>', <?php echo $day4total; ?>],
+              ['<?php echo date("d/m",strtotime("-3 Days")) ?>', <?php echo $day3total; ?>],
+              ['<?php echo date("d/m",strtotime("-2 Days")) ?>', <?php echo $day2total; ?>],
+              ['<?php echo date("d/m",strtotime("-1 Days")) ?>', <?php echo $day1total; ?>],
+              ['<?php echo date("d/m",strtotime("-0 Days")) ?>', <?php echo $day0total; ?>]
+            ]);
+            var options = {
+              title: 'Total Sales',
+              colors: ['#000000'],
+              hAxis: {title: '30 Days', titleTextStyle: {color: '#000000'}}
+            };
+            var chart = new google.visualization.LineChart(document.getElementById('total_day_chart'));
+            chart.draw(data, options);
+          }
+        </script>
+        <div id="total_day_chart" style="width: 100%; height: 280px;"></div>
+
+        <script type="text/javascript">
+          google.load("visualization", "1", {packages:["corechart"]});
+          google.setOnLoadCallback(drawChart);
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
               ['Month', 'Average'],
               ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php echo $month12average; ?>],
               ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php echo $month11average; ?>],
