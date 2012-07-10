@@ -386,7 +386,7 @@ function business_marketpress_stats_page() {
   echo '<script type="text/javascript" src="' . plugins_url( 'bigtext.js' , __FILE__ ) . '" ></script>';
   
   ?>
-  <div class="wrap">
+  <div class="wrap" style="background: #fff;">
   <table style="width: 100%;">
     <tr>
       <td>
@@ -605,7 +605,7 @@ function business_marketpress_stats_page() {
         <div id="count_chart" style="width: 100%; height: 200px;"></div>
         </div>
       </td>
-      <td style="width: 300px; vertical-align: top; text-align: center;">
+      <td style="width: 300px; vertical-align: top; text-align: center; color: #222;">
       	<div id="BigText" style="width: 300px; padding: 20px;">
       		<p>Total Revenue:</p>
       		<p><strong><?php echo $mp->format_currency('', $totalitytotal); ?></strong></p>
@@ -614,7 +614,7 @@ function business_marketpress_stats_page() {
       		<p style="border-top: 1px solid #dedede;">Total Average/Sale:</p>
       		<p><strong><?php echo $mp->format_currency('', $totalityaverage); ?></strong></p>
       		<p style="border-top: 1px solid #dedede;">This Month's Revenue:</p>
-      		<p><?php echo $mp->format_currency('', $month0total); ?></p>
+      		<p><strong><?php echo $mp->format_currency('', $month0total); ?></strong></p>
       	</div>
             <script type="text/javascript">
               google.load("visualization", "1", {packages:["corechart"]});
@@ -657,6 +657,9 @@ function business_marketpress_stats_page() {
       });
     })(jQuery);
   </script>
+  <style>
+  	#BigText p strong{text-shadow: 2px 2px 2px #ccc; filter: dropshadow(color=#ccc, offx=2, offy=2);}
+  </style>
   <?php
   }
 }
