@@ -195,7 +195,7 @@ function business_marketpress_stats_page() {
 						chart.draw(data, options);
 					}
 				</script>
-				<div id="average_chart" style="width: 100%; height: 350px;"></div>
+				<div id="average_chart" style="width: 100%; height: 280px;"></div>
 
 				<script type="text/javascript">
 				google.load("visualization", "1", {packages:["corechart"]});
@@ -226,7 +226,7 @@ function business_marketpress_stats_page() {
 					chart.draw(data, options);
 				}
 				</script>
-				<div id="count_chart" style="width: 100%; height: 350px;"></div>
+				<div id="count_chart" style="width: 100%; height: 280px;"></div>
 				</div>
 			</td>
 			<td style="width: 320px; vertical-align: top; text-align: center;">
