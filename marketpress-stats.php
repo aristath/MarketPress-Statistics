@@ -81,6 +81,7 @@ function business_marketpress_stats_page() {
 	$month = date('m', strtotime('-12 months'));
 	$month12 = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month");	
 
+	$totality = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total'");	
 	
     if (!empty($month0->count)){$month0count = $month0->count;} else {$month0count = 0;}
     if (!empty($month1->count)){$month1count = $month1->count;} else {$month1count = 0;}
@@ -95,6 +96,7 @@ function business_marketpress_stats_page() {
 	if (!empty($month10->count)){$month10count = $month10->count;} else {$month10count = 0;}
 	if (!empty($month11->count)){$month11count = $month11->count;} else {$month11count = 0;}
 	if (!empty($month12->count)){$month12count = $month12->count;} else {$month12count = 0;}
+    if (!empty($totality->count)){$totalitycount = $totality->count;} else {$totalitycount = 0;}
 			
     if (!empty($month0->total)){$month0total = $month0->total;} else {$month0total = 0;}
     if (!empty($month1->total)){$month1total = $month1->total;} else {$month1total = 0;}
@@ -109,6 +111,7 @@ function business_marketpress_stats_page() {
 	if (!empty($month10->total)){$month10total = $month10->total;} else {$month10total = 0;}
 	if (!empty($month11->total)){$month11total = $month11->total;} else {$month11total = 0;}
 	if (!empty($month12->total)){$month12total = $month12->total;} else {$month12total = 0;}
+	if (!empty($totality->total)){$totalitytotal = $totality->total;} else {$totalitytotal = 0;}
 			
     if (!empty($month0->average)){$month0average = $month0->average;} else {$month0average = 0;}
     if (!empty($month1->average)){$month1average = $month1->average;} else {$month1average = 0;}
@@ -123,6 +126,7 @@ function business_marketpress_stats_page() {
 	if (!empty($month10->average)){$month10average = $month10->average;} else {$month10average = 0;}
 	if (!empty($month11->average)){$month11average = $month11->average;} else {$month11average = 0;}
 	if (!empty($month12->average)){$month12average = $month12->average;} else {$month12average = 0;}
+	if (!empty($totality->average)){$totalityaverage = $totality->average;} else {$totalityaverage = 0;}
 			
 	
 	?>
@@ -229,7 +233,12 @@ function business_marketpress_stats_page() {
    <div id="count_chart" style="width: 100%; height: 350px;"></div>
    </div>
    <div class="TextStats" style="float: right; position: absolute; top: 50px; right: 10px; font-size: 20px;">
-   		<h2 style="font-size: 30px;">This Month's Sales:</h2><br / >
+   		<h2 style="font-size: 30px;">Total Revenue:</h2><br / >
+   		<span style="font-size: 60px; font-weight: bold;">
+   			<?php echo $mp->format_currency('', $totalitytotal); ?>
+   		</span>
+
+   		<h2 style="font-size: 30px;">This Month's Revenue:</h2><br / >
    		<span style="font-size: 60px; font-weight: bold;">
    			<?php echo $mp->format_currency('', $month0total); ?>
    		</span>
