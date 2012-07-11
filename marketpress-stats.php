@@ -396,28 +396,31 @@ function business_marketpress_stats_page() {
           google.setOnLoadCallback(drawChart);
           function drawChart() {
             var data = google.visualization.arrayToDataTable([
-              ['Month', 'Total'],
-              ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php echo $month12total; ?>],
-              ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php echo $month11total; ?>],
-              ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php echo $month10total; ?>],
-              ['<?php echo date("M",strtotime("-9 Months")) ?>', <?php echo $month9total; ?>],
-              ['<?php echo date("M",strtotime("-8 Months")) ?>', <?php echo $month8total; ?>],
-              ['<?php echo date("M",strtotime("-7 Months")) ?>', <?php echo $month7total; ?>],
-              ['<?php echo date("M",strtotime("-6 Months")) ?>', <?php echo $month6total; ?>],
-              ['<?php echo date("M",strtotime("-5 Months")) ?>', <?php echo $month5total; ?>],
-              ['<?php echo date("M",strtotime("-4 Months")) ?>', <?php echo $month4total; ?>],
-              ['<?php echo date("M",strtotime("-3 Months")) ?>', <?php echo $month3total; ?>],
-              ['<?php echo date("M",strtotime("-2 Months")) ?>', <?php echo $month2total; ?>],
-              ['<?php echo date("M",strtotime("-1 Months")) ?>', <?php echo $month1total; ?>],
-              ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php echo $month0total; ?>]
+              ['Month', 'Total', 'Average'],
+              ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php echo $month12total; ?>, <?php echo $month12average; ?>],
+              ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php echo $month11total; ?>, <?php echo $month11average; ?>],
+              ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php echo $month10total; ?>, <?php echo $month10average; ?>],
+              ['<?php echo date("M",strtotime("-9 Months")) ?>', <?php echo $month9total; ?>, <?php echo $month9average; ?>],
+              ['<?php echo date("M",strtotime("-8 Months")) ?>', <?php echo $month8total; ?>, <?php echo $month8average; ?>],
+              ['<?php echo date("M",strtotime("-7 Months")) ?>', <?php echo $month7total; ?>, <?php echo $month7average; ?>],
+              ['<?php echo date("M",strtotime("-6 Months")) ?>', <?php echo $month6total; ?>, <?php echo $month6average; ?>],
+              ['<?php echo date("M",strtotime("-5 Months")) ?>', <?php echo $month5total; ?>, <?php echo $month5average; ?>],
+              ['<?php echo date("M",strtotime("-4 Months")) ?>', <?php echo $month4total; ?>, <?php echo $month4average; ?>],
+              ['<?php echo date("M",strtotime("-3 Months")) ?>', <?php echo $month3total; ?>, <?php echo $month3average; ?>],
+              ['<?php echo date("M",strtotime("-2 Months")) ?>', <?php echo $month2total; ?>, <?php echo $month2average; ?>],
+              ['<?php echo date("M",strtotime("-1 Months")) ?>', <?php echo $month1total; ?>, <?php echo $month1average; ?>],
+              ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php echo $month0total; ?>, <?php echo $month0average; ?>]
             ]);
             var options = {
               title: 'Total Sales, 12 Months',
-              colors: ['#000000'],
-              theme: {legend: {position: 'in'}, titlePosition: 'in', axisTitlesPosition: 'in'},
-              hAxis: {title: 'Year', titleTextStyle: {color: '#999999'}}
+              colors: ['#000000', '#D44413'],
+              theme: {legend: {position: 'in'}, axisTitlesPosition: 'in'},
+              hAxis: {title: 'Year', titleTextStyle: {color: '#999999'}},
+              seriesType: "bars",
+              curveType: "function",
+              series: {1: {type: "line"}}
             };
-            var chart = new google.visualization.ColumnChart(document.getElementById('total_chart'));
+            var chart = new google.visualization.ComboChart(document.getElementById('total_chart'));
             chart.draw(data, options);
           }
         </script>
@@ -463,10 +466,14 @@ function business_marketpress_stats_page() {
             ]);
             var options = {
               title: 'Total and Average Sales in the past 30 days',
-              theme: {legend: {position: 'in'}, titlePosition: 'in', axisTitlesPosition: 'in'},
-              hAxis: {title: '30 Days', titleTextStyle: {color: '#999999'}}
+              colors: ['#000000', '#D44413'],
+              theme: {legend: {position: 'in'}, axisTitlesPosition: 'in'},
+              hAxis: {title: 'Year', titleTextStyle: {color: '#999999'}},
+              seriesType: "bars",
+              curveType: "function",
+              series: {1: {type: "line"}}
             };
-            var chart = new google.visualization.ColumnChart(document.getElementById('total_day_chart'));
+            var chart = new google.visualization.ComboChart(document.getElementById('total_day_chart'));
             chart.draw(data, options);
           }
         </script>
@@ -518,7 +525,7 @@ function business_marketpress_stats_page() {
             chart.draw(data, options);
           }
         </script>
-        <div id="total_day_pie" style="width: 45%; height: 300px; float: left;"></div>
+        <div id="total_day_pie" style="width: 45%; height: 300px; display: inline-block;"></div>
 
         <script type="text/javascript">
           google.load("visualization", "1", {packages:["corechart"]});
@@ -542,39 +549,7 @@ function business_marketpress_stats_page() {
             chart.draw(data, options);
           }
         </script>
-        <div id="average_day_pie" style="width: 45%; height: 300px; float: left;"></div>
-
-        <script type="text/javascript">
-          google.load("visualization", "1", {packages:["corechart"]});
-          google.setOnLoadCallback(drawChart);
-          function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-              ['Month', 'Average'],
-              ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php echo $month12average; ?>],
-              ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php echo $month11average; ?>],
-              ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php echo $month10average; ?>],
-              ['<?php echo date("M",strtotime("-9 Months")) ?>', <?php echo $month9average; ?>],
-              ['<?php echo date("M",strtotime("-8 Months")) ?>', <?php echo $month8average; ?>],
-              ['<?php echo date("M",strtotime("-7 Months")) ?>', <?php echo $month7average; ?>],
-              ['<?php echo date("M",strtotime("-6 Months")) ?>', <?php echo $month6average; ?>],
-              ['<?php echo date("M",strtotime("-5 Months")) ?>', <?php echo $month5average; ?>],
-              ['<?php echo date("M",strtotime("-4 Months")) ?>', <?php echo $month4average; ?>],
-              ['<?php echo date("M",strtotime("-3 Months")) ?>', <?php echo $month3average; ?>],
-              ['<?php echo date("M",strtotime("-2 Months")) ?>', <?php echo $month2average; ?>],
-              ['<?php echo date("M",strtotime("-1 Months")) ?>', <?php echo $month1average; ?>],
-              ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php echo $month0average; ?>]
-            ]);
-            var options = {
-              title: 'Sales Average, 12 Months',
-              colors: ['#000000'],
-              theme: {legend: {position: 'in'}, titlePosition: 'in', axisTitlesPosition: 'in'},
-              hAxis: {title: 'Year', titleTextStyle: {color: '#999999'}}
-            };
-            var chart = new google.visualization.ColumnChart(document.getElementById('average_month_chart'));
-            chart.draw(data, options);
-          }
-        </script>
-        <div id="average_month_chart" style="width: 100%; height: 200px; clear: both; float: none;"></div>
+        <div id="average_day_pie" style="width: 45%; height: 300px; display: inline-block;"></div>
 
         <script type="text/javascript">
         google.load("visualization", "1", {packages:["corechart"]});
@@ -620,7 +595,7 @@ function business_marketpress_stats_page() {
       		<p style="border-top: 1px solid #dedede;">This Month's Revenue:</p>
       		<p><strong><?php echo $mp->format_currency('', $month0total); ?></strong></p>
       	</div>
-            <script type="text/javascript">
+<!--             <script type="text/javascript">
               google.load("visualization", "1", {packages:["corechart"]});
               google.setOnLoadCallback(drawChart);
               function drawChart() {
@@ -642,13 +617,14 @@ function business_marketpress_stats_page() {
                 ]);
                 var options = {
                   title: 'Total Sales in the past 12 months',
+                  is3D: 'true',
                   hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
                 };
                 var chart = new google.visualization.PieChart(document.getElementById('total_pie'));
                 chart.draw(data, options);
               }
             </script>
-            <div id="total_pie" style="width: 300px; height: 400px;"></div>
+            <div id="total_pie" style="width: 300px; height: 400px;"></div> -->
       </td>
     </tr>
   </table>
