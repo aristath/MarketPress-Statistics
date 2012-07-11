@@ -626,6 +626,17 @@ function business_marketpress_stats_popular_products_revenue( $echo = true, $num
   }
 }
 
+function business_marketpress_stats_popular_products_revenue_table( $echo = true, $num = 10 ) {
+  global $mp;
+  //The Query
+  $custom_query = new WP_Query('post_type=product&post_status=publish&posts_per_page='.intval($num).'&meta_key=mp_sales_count&meta_compare=>&meta_value=0&orderby=meta_value&order=DESC');
+  if (count($custom_query->posts)) {
+    foreach ($custom_query->posts as $post) {
+      echo "['" . $post->post_title . "', {v:" . business_marketpress_stats_product_revenue(false, $post->ID) . ", f:'" . business_marketpress_stats_product_revenue(false, $post->ID) . "'}, {v:" . business_marketpress_stats_product_sales(false, $post->ID) . ", f:'" . business_marketpress_stats_product_sales(false, $post->ID) . "'}], ";
+    ;}
+  }
+}
+
 function business_marketpress_stats_product_revenue( $echo = true, $post_id = NULL, $label = true ) {
   global $id, $mp;
   $post_id = ( NULL === $post_id ) ? $id : $post_id;
@@ -703,6 +714,26 @@ function business_marketpress_stats_product_sales( $echo = true, $post_id = NULL
               }
             </script>
             <div id="top_products_revenue" style="width: 50%; height: 500px; display: inline-block;"></div>
+                
+             <script type="text/javascript">
+              google.load('visualization', '1', {packages:['table']});
+              google.setOnLoadCallback(drawTable);
+              function drawTable() {
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Product Name');
+                data.addColumn('number', 'Total Revenue');
+                data.addColumn('number', 'Product Sales');
+                data.addRows([
+
+                  <?php business_marketpress_stats_popular_products_revenue_table(); ?>
+                ]);
+                var options = {
+                };
+                var table = new google.visualization.Table(document.getElementById('top_products_table'));
+                table.draw(data, {showRowNumber: true});
+              }
+            </script>
+            <div id="top_products_table" style="width: 100%; height: 500px; display: block;"></div>
                 
   </div>
   <script>
