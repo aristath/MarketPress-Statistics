@@ -600,39 +600,53 @@ function business_marketpress_stats_page() {
       		<p style="border-top: 1px solid #dedede;">Total Average/Sale:</p>
       		<p><strong><?php echo $mp->format_currency('', $totalityaverage); ?></strong></p>
       	</div>
-<!--             <script type="text/javascript">
+      </td>
+    </tr>
+  </table>
+  <?php
+function mp_statistics_popular_products( $echo = true, $num = 10 ) {
+  global $mp;
+  //The Query
+  $custom_query = new WP_Query('post_type=product&post_status=publish&posts_per_page='.intval($num).'&meta_key=mp_sales_count&meta_compare=>&meta_value=0&orderby=meta_value&order=DESC');
+  if (count($custom_query->posts)) {
+    foreach ($custom_query->posts as $post) {
+      echo "['" . $post->post_title . "', " . mp_statistics_product_sales(false, $post->ID) . "], ";
+    ;}
+  }
+}
+
+function mp_statistics_product_sales( $echo = true, $post_id = NULL ) {
+  global $id, $mp;
+  $post_id = ( NULL === $post_id ) ? $id : $post_id;
+  $meta = get_post_custom($post_id);
+  $sales = $meta["mp_sales_count"][0];
+  
+  if ($echo)
+    echo $sales;
+  else
+    return $sales;
+}
+?>
+             <script type="text/javascript">
               google.load("visualization", "1", {packages:["corechart"]});
               google.setOnLoadCallback(drawChart);
               function drawChart() {
                 var data = google.visualization.arrayToDataTable([
-                  ['Month', 'Total'],
-                  ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php echo $month12total; ?>],
-                  ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php echo $month11total; ?>],
-                  ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php echo $month10total; ?>],
-                  ['<?php echo date("M",strtotime("-9 Months")) ?>', <?php echo $month9total; ?>],
-                  ['<?php echo date("M",strtotime("-8 Months")) ?>', <?php echo $month8total; ?>],
-                  ['<?php echo date("M",strtotime("-7 Months")) ?>', <?php echo $month7total; ?>],
-                  ['<?php echo date("M",strtotime("-6 Months")) ?>', <?php echo $month6total; ?>],
-                  ['<?php echo date("M",strtotime("-5 Months")) ?>', <?php echo $month5total; ?>],
-                  ['<?php echo date("M",strtotime("-4 Months")) ?>', <?php echo $month4total; ?>],
-                  ['<?php echo date("M",strtotime("-3 Months")) ?>', <?php echo $month3total; ?>],
-                  ['<?php echo date("M",strtotime("-2 Months")) ?>', <?php echo $month2total; ?>],
-                  ['<?php echo date("M",strtotime("-1 Months")) ?>', <?php echo $month1total; ?>],
-                  ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php echo $month0total; ?>]
+                  ['Product', 'Sales'],
+
+                  <?php mp_statistics_popular_products(); ?>
                 ]);
                 var options = {
-                  title: 'Total Sales in the past 12 months',
+                  title: 'Top Products',
                   is3D: 'true',
                   hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
                 };
-                var chart = new google.visualization.PieChart(document.getElementById('total_pie'));
+                var chart = new google.visualization.PieChart(document.getElementById('top_products_pie'));
                 chart.draw(data, options);
               }
             </script>
-            <div id="total_pie" style="width: 300px; height: 400px;"></div> -->
-      </td>
-    </tr>
-  </table>
+            <div id="top_products_pie" style="width: 50%; height: 500px; display: inline-block;"></div>
+                
   </div>
   <script>
     (function ($) {
