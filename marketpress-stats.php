@@ -586,14 +586,19 @@ function business_marketpress_stats_page() {
       </td>
       <td style="width: 300px; vertical-align: top; text-align: center; color: #222;">
       	<div id="BigText" style="width: 300px; padding: 20px;">
-      		<p>Total Revenue:</p>
+      		<p>This Month's Revenue:</p>
+      		<p><strong><?php echo $mp->format_currency('', $month0total); ?></strong></p>
+      		<p style="border-top: 1px solid #dedede;">This Month's Sales:</p>
+      		<p><strong><?php echo $month0count; ?></strong></p>
+      		<p style="border-top: 1px solid #dedede;">This Month's Average:</p>
+      		<p><strong><?php echo $mp->format_currency('', $totalityaverage); ?>/Sale</strong></p>
+
+      		<p style="border-top: 1px solid #dedede;">Total Revenue:</p>
       		<p><strong><?php echo $mp->format_currency('', $totalitytotal); ?></strong></p>
       		<p style="border-top: 1px solid #dedede;">Total Sales:</p>
       		<p><strong><?php echo $totalitycount; ?></strong></p>
       		<p style="border-top: 1px solid #dedede;">Total Average/Sale:</p>
       		<p><strong><?php echo $mp->format_currency('', $totalityaverage); ?></strong></p>
-      		<p style="border-top: 1px solid #dedede;">This Month's Revenue:</p>
-      		<p><strong><?php echo $mp->format_currency('', $month0total); ?></strong></p>
       	</div>
 <!--             <script type="text/javascript">
               google.load("visualization", "1", {packages:["corechart"]});
