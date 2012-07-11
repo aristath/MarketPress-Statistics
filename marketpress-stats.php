@@ -604,18 +604,58 @@ function business_marketpress_stats_page() {
     </tr>
   </table>
   <?php
-function mp_statistics_popular_products( $echo = true, $num = 10 ) {
+function business_marketpress_stats_popular_products_sales( $echo = true, $num = 10 ) {
   global $mp;
   //The Query
   $custom_query = new WP_Query('post_type=product&post_status=publish&posts_per_page='.intval($num).'&meta_key=mp_sales_count&meta_compare=>&meta_value=0&orderby=meta_value&order=DESC');
   if (count($custom_query->posts)) {
     foreach ($custom_query->posts as $post) {
-      echo "['" . $post->post_title . "', " . mp_statistics_product_sales(false, $post->ID) . "], ";
+      echo "['" . $post->post_title . "', " . business_marketpress_stats_product_sales(false, $post->ID) . "], ";
     ;}
   }
 }
 
-function mp_statistics_product_sales( $echo = true, $post_id = NULL ) {
+function business_marketpress_stats_popular_products_revenue( $echo = true, $num = 10 ) {
+  global $mp;
+  //The Query
+  $custom_query = new WP_Query('post_type=product&post_status=publish&posts_per_page='.intval($num).'&meta_key=mp_sales_count&meta_compare=>&meta_value=0&orderby=meta_value&order=DESC');
+  if (count($custom_query->posts)) {
+    foreach ($custom_query->posts as $post) {
+      echo "['" . $post->post_title . "', " . business_marketpress_stats_product_revenue(false, $post->ID) . "], ";
+    ;}
+  }
+}
+
+function business_marketpress_stats_product_revenue( $echo = true, $post_id = NULL, $label = true ) {
+  global $id, $mp;
+  $post_id = ( NULL === $post_id ) ? $id : $post_id;
+
+	$meta = get_post_custom($post_id);
+  //unserialize
+  foreach ($meta as $key => $val) {
+	  $meta[$key] = maybe_unserialize($val[0]);
+	  if (!is_array($meta[$key]) && $key != "mp_is_sale" && $key != "mp_track_inventory" && $key != "mp_product_link" && $key != "mp_file" && $key != "mp_price_sort")
+	    $meta[$key] = array($meta[$key]);
+	}
+  if ((is_array($meta["mp_price"]) && count($meta["mp_price"]) >= 1) || !empty($meta["mp_file"])) {
+    if ($meta["mp_is_sale"]) {
+	    $price .= $meta["mp_sale_price"][0];
+	  } else {
+	    $price = $meta["mp_price"][0];
+	  }
+	} else {
+		return '';
+	}
+  
+  $sales = $meta["mp_sales_count"][0];
+  $revenue = $sales*$price;
+  if ($echo)
+    echo $revenue;
+  else
+    return $revenue;
+}
+
+function business_marketpress_stats_product_sales( $echo = true, $post_id = NULL ) {
   global $id, $mp;
   $post_id = ( NULL === $post_id ) ? $id : $post_id;
   $meta = get_post_custom($post_id);
@@ -634,18 +674,35 @@ function mp_statistics_product_sales( $echo = true, $post_id = NULL ) {
                 var data = google.visualization.arrayToDataTable([
                   ['Product', 'Sales'],
 
-                  <?php mp_statistics_popular_products(); ?>
+                  <?php business_marketpress_stats_popular_products_sales(); ?>
                 ]);
                 var options = {
-                  title: 'Top Products',
+                  title: 'Top Products by number of sales',
                   is3D: 'true',
-                  hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
                 };
                 var chart = new google.visualization.PieChart(document.getElementById('top_products_pie'));
                 chart.draw(data, options);
               }
             </script>
-            <div id="top_products_pie" style="width: 50%; height: 500px; display: inline-block;"></div>
+            <div id="top_products_pie" style="width: 45%; height: 500px; display: inline-block;"></div>
+                
+             <script type="text/javascript">
+              google.load("visualization", "1", {packages:["corechart"]});
+              google.setOnLoadCallback(drawChart);
+              function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                  ['Product', 'Revenue'],
+
+                  <?php business_marketpress_stats_popular_products_revenue(); ?>
+                ]);
+                var options = {
+                  title: 'Top Products Revenue',
+                };
+                var chart = new google.visualization.PieChart(document.getElementById('top_products_revenue'));
+                chart.draw(data, options);
+              }
+            </script>
+            <div id="top_products_revenue" style="width: 50%; height: 500px; display: inline-block;"></div>
                 
   </div>
   <script>
