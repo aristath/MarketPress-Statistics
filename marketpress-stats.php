@@ -414,7 +414,8 @@ function business_marketpress_stats_page() {
             var options = {
               title: 'Total Sales, 12 Months',
               colors: ['#000000'],
-              hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
+              theme: {legend: {position: 'in'}, titlePosition: 'in', axisTitlesPosition: 'in'},
+              hAxis: {title: 'Year', titleTextStyle: {color: '#999999'}}
             };
             var chart = new google.visualization.ColumnChart(document.getElementById('total_chart'));
             chart.draw(data, options);
@@ -462,7 +463,8 @@ function business_marketpress_stats_page() {
             ]);
             var options = {
               title: 'Total and Average Sales in the past 30 days',
-              hAxis: {title: '30 Days', titleTextStyle: {color: '#000000'}}
+              theme: {legend: {position: 'in'}, titlePosition: 'in', axisTitlesPosition: 'in'},
+              hAxis: {title: '30 Days', titleTextStyle: {color: '#999999'}}
             };
             var chart = new google.visualization.ColumnChart(document.getElementById('total_day_chart'));
             chart.draw(data, options);
@@ -565,7 +567,8 @@ function business_marketpress_stats_page() {
             var options = {
               title: 'Sales Average, 12 Months',
               colors: ['#000000'],
-              hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
+              theme: {legend: {position: 'in'}, titlePosition: 'in', axisTitlesPosition: 'in'},
+              hAxis: {title: 'Year', titleTextStyle: {color: '#999999'}}
             };
             var chart = new google.visualization.ColumnChart(document.getElementById('average_month_chart'));
             chart.draw(data, options);
@@ -596,7 +599,8 @@ function business_marketpress_stats_page() {
           var options = {
             title: 'Number of Sales, 12 Months',
             colors: ['#000000'],
-            hAxis: {title: 'Year', titleTextStyle: {color: '#000000'}}
+            theme: {legend: {position: 'in'}, titlePosition: 'in', axisTitlesPosition: 'in'},
+            hAxis: {title: 'Year', titleTextStyle: {color: '#999999'}}
           };
           var chart = new google.visualization.LineChart(document.getElementById('count_chart'));
           chart.draw(data, options);
