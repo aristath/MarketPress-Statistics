@@ -672,10 +672,10 @@ function business_marketpress_stats_popular_products_sales( $echo = true, $num =
   }
 }
 
-function business_marketpress_stats_popular_products_revenue( $echo = true, $num = 10 ) {
+function business_marketpress_stats_popular_products_revenue( $echo = true) {
   global $mp;
   //The Query
-  $custom_query = new WP_Query('post_type=product&post_status=publish&posts_per_page='.intval($num).'&meta_key=mp_sales_count&meta_compare=>&meta_value=0&orderby=meta_value&order=DESC');
+  $custom_query = new WP_Query('post_type=product&post_status=publish&meta_key=mp_sales_count&meta_compare=>&meta_value=0&orderby=meta_value&order=DESC');
   if (count($custom_query->posts)) {
     foreach ($custom_query->posts as $post) {
       echo "['" . $post->post_title . "', " . business_marketpress_stats_product_revenue(false, $post->ID) . "], ";
