@@ -533,6 +533,8 @@ function business_marketpress_stats_product_sales_per_price( $echo = true, $post
           title: 'Sales by product Price',
           hAxis: {title: 'Price'},
           vAxis: {title: 'Sales'},
+          pointSize: '9',
+          colors: ['#000000'],
           legend: 'none'
         };
 
@@ -597,6 +599,8 @@ function business_marketpress_stats_product_income_by_price( $echo = true, $post
           title: 'Revenue by product Price',
           hAxis: {title: 'Price'},
           vAxis: {title: 'Revenue'},
+          colors: ['#D44413'],
+          pointSize: '9',
           legend: 'none'
         };
 
