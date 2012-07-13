@@ -530,7 +530,7 @@ function business_marketpress_stats_product_sales_per_price( $echo = true, $post
           ]);
 
         var options = {
-          title: 'Sales per product Price',
+          title: 'Sales by product Price',
           hAxis: {title: 'Price'},
           vAxis: {title: 'Sales'},
           legend: 'none'
@@ -540,9 +540,73 @@ function business_marketpress_stats_product_sales_per_price( $echo = true, $post
         chart.draw(data, options);
       }
     </script>
+    <div id="sales_per_price" style="width: 47%; height: 300px; display: inline-block;"></div>
+
+<?php
+function business_marketpress_stats_products_income_price_all( $echo = true ) {
+  global $mp;
+  //The Query
+  $custom_query = new WP_Query('post_type=product&post_status=publish&meta_key=mp_sales_count&meta_compare=>&meta_value=0&orderby=meta_value&order=DESC');
+  if (count($custom_query->posts)) {
+    foreach ($custom_query->posts as $post) {
+      echo "[" . business_marketpress_stats_product_income_by_price(false, $post->ID) . "], ";
+    ;}
+  }
+}
+
+function business_marketpress_stats_product_income_by_price( $echo = true, $post_id = NULL, $label = true ) {
+  global $id, $mp;
+  $post_id = ( NULL === $post_id ) ? $id : $post_id;
+
+	$meta = get_post_custom($post_id);
+  //unserialize
+  foreach ($meta as $key => $val) {
+	  $meta[$key] = maybe_unserialize($val[0]);
+	  if (!is_array($meta[$key]) && $key != "mp_is_sale" && $key != "mp_track_inventory" && $key != "mp_product_link" && $key != "mp_file" && $key != "mp_price_sort")
+	    $meta[$key] = array($meta[$key]);
+	}
+  if ((is_array($meta["mp_price"]) && count($meta["mp_price"]) >= 1) || !empty($meta["mp_file"])) {
+    if ($meta["mp_is_sale"]) {
+	    $price .= $meta["mp_sale_price"][0];
+	  } else {
+	    $price = $meta["mp_price"][0];
+	  }
+	} else {
+		return '';
+	}
+  
+  $sales = $meta["mp_sales_count"][0];
+  $revenue = $sales*$price;
+  $stats = $price . ', ' . $revenue;
+  if ($echo)
+    echo $stats;
+  else
+    return $stats;
+} ?>
+
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Price', 'Sales'],
+          <?php business_marketpress_stats_products_income_price_all(); ?>
+          ]);
+
+        var options = {
+          title: 'Revenue by product Price',
+          hAxis: {title: 'Price'},
+          vAxis: {title: 'Revenue'},
+          legend: 'none'
+        };
+
+        var chart = new google.visualization.ScatterChart(document.getElementById('income_price'));
+        chart.draw(data, options);
+      }
+    </script>
   </head>
   <body>
-    <div id="sales_per_price" style="width: 100%; height: 300px; display: inline-block;"></div>
+    <div id="income_price" style="width: 48%; height: 300px; display: inline-block;"></div>
 
         <script type="text/javascript">
         google.load("visualization", "1", {packages:["corechart"]});
