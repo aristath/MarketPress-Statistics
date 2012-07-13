@@ -526,30 +526,71 @@ function business_marketpress_stats_page() {
           }
         </script>
         <div id="total_day_pie" style="width: 45%; height: 300px; display: inline-block;"></div>
+<?php
+function business_marketpress_stats_popular_products_sales_price_all( $echo = true ) {
+  global $mp;
+  //The Query
+  $custom_query = new WP_Query('post_type=product&post_status=publish&meta_key=mp_sales_count&meta_compare=>&meta_value=0&orderby=meta_value&order=DESC');
+  if (count($custom_query->posts)) {
+    foreach ($custom_query->posts as $post) {
+      echo "[" . business_marketpress_stats_product_sales_per_price(false, $post->ID) . "], ";
+    ;}
+  }
+}
 
-        <script type="text/javascript">
-          google.load("visualization", "1", {packages:["corechart"]});
-          google.setOnLoadCallback(drawChart);
-          function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-              ['Day', 'Total'],
-              ['<?php echo date("M d",strtotime("-6 Days")) ?>', <?php echo $day6total; ?>],
-              ['<?php echo date("M d",strtotime("-5 Days")) ?>', <?php echo $day5total; ?>],
-              ['<?php echo date("M d",strtotime("-4 Days")) ?>', <?php echo $day4total; ?>],
-              ['<?php echo date("M d",strtotime("-3 Days")) ?>', <?php echo $day3total; ?>],
-              ['<?php echo date("M d",strtotime("-2 Days")) ?>', <?php echo $day2total; ?>],
-              ['<?php echo date("M d",strtotime("-1 Days")) ?>', <?php echo $day1total; ?>],
-              ['<?php echo date("M d",strtotime("-0 Days")) ?>', <?php echo $day0total; ?>]
-            ]);
-            var options = {
-              title: 'Total Weekly Sales',
-              hAxis: {title: '30 Days', titleTextStyle: {color: '#000000'}}
-            };
-            var chart = new google.visualization.PieChart(document.getElementById('average_day_pie'));
-            chart.draw(data, options);
-          }
-        </script>
-        <div id="average_day_pie" style="width: 45%; height: 300px; display: inline-block;"></div>
+function business_marketpress_stats_product_sales_per_price( $echo = true, $post_id = NULL, $label = true ) {
+  global $id, $mp;
+  $post_id = ( NULL === $post_id ) ? $id : $post_id;
+
+	$meta = get_post_custom($post_id);
+  //unserialize
+  foreach ($meta as $key => $val) {
+	  $meta[$key] = maybe_unserialize($val[0]);
+	  if (!is_array($meta[$key]) && $key != "mp_is_sale" && $key != "mp_track_inventory" && $key != "mp_product_link" && $key != "mp_file" && $key != "mp_price_sort")
+	    $meta[$key] = array($meta[$key]);
+	}
+  if ((is_array($meta["mp_price"]) && count($meta["mp_price"]) >= 1) || !empty($meta["mp_file"])) {
+    if ($meta["mp_is_sale"]) {
+	    $price .= $meta["mp_sale_price"][0];
+	  } else {
+	    $price = $meta["mp_price"][0];
+	  }
+	} else {
+		return '';
+	}
+  
+  $sales = $meta["mp_sales_count"][0];
+  $stats = $price . ', ' . $sales;
+  if ($echo)
+    echo $stats;
+  else
+    return $stats;
+} ?>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Price', 'Sales'],
+          <?php business_marketpress_stats_popular_products_sales_price_all(); ?>
+          ]);
+
+        var options = {
+          title: 'Sales per product Price',
+          hAxis: {title: 'Price'},
+          vAxis: {title: 'Sales'},
+          legend: 'none'
+        };
+
+        var chart = new google.visualization.ScatterChart(document.getElementById('sales_per_price'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="sales_per_price" style="width: 45%; height: 300px; display: inline-block;"></div>
 
         <script type="text/javascript">
         google.load("visualization", "1", {packages:["corechart"]});
