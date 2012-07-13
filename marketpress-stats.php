@@ -479,53 +479,6 @@ function business_marketpress_stats_page() {
         </script>
         <div id="total_day_chart" style="width: 100%; height: 300px;"></div>
 
-        <script type="text/javascript">
-          google.load("visualization", "1", {packages:["corechart"]});
-          google.setOnLoadCallback(drawChart);
-          function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-              ['Day', 'Total'],
-              ['<?php echo date("M d",strtotime("-30 Days")) ?>', <?php echo $day30total; ?>],
-              ['<?php echo date("M d",strtotime("-29 Days")) ?>', <?php echo $day29total; ?>],
-              ['<?php echo date("M d",strtotime("-28 Days")) ?>', <?php echo $day28total; ?>],
-              ['<?php echo date("M d",strtotime("-27 Days")) ?>', <?php echo $day27total; ?>],
-              ['<?php echo date("M d",strtotime("-26 Days")) ?>', <?php echo $day26total; ?>],
-              ['<?php echo date("M d",strtotime("-25 Days")) ?>', <?php echo $day25total; ?>],
-              ['<?php echo date("M d",strtotime("-24 Days")) ?>', <?php echo $day24total; ?>],
-              ['<?php echo date("M d",strtotime("-23 Days")) ?>', <?php echo $day23total; ?>],
-              ['<?php echo date("M d",strtotime("-22 Days")) ?>', <?php echo $day22total; ?>],
-              ['<?php echo date("M d",strtotime("-21 Days")) ?>', <?php echo $day21total; ?>],
-              ['<?php echo date("M d",strtotime("-20 Days")) ?>', <?php echo $day20total; ?>],
-              ['<?php echo date("M d",strtotime("-19 Days")) ?>', <?php echo $day19total; ?>],
-              ['<?php echo date("M d",strtotime("-18 Days")) ?>', <?php echo $day18total; ?>],
-              ['<?php echo date("M d",strtotime("-17 Days")) ?>', <?php echo $day17total; ?>],
-              ['<?php echo date("M d",strtotime("-16 Days")) ?>', <?php echo $day16total; ?>],
-              ['<?php echo date("M d",strtotime("-15 Days")) ?>', <?php echo $day15total; ?>],
-              ['<?php echo date("M d",strtotime("-14 Days")) ?>', <?php echo $day14total; ?>],
-              ['<?php echo date("M d",strtotime("-13 Days")) ?>', <?php echo $day13total; ?>],
-              ['<?php echo date("M d",strtotime("-12 Days")) ?>', <?php echo $day12total; ?>],
-              ['<?php echo date("M d",strtotime("-11 Days")) ?>', <?php echo $day11total; ?>],
-              ['<?php echo date("M d",strtotime("-10 Days")) ?>', <?php echo $day10total; ?>],
-              ['<?php echo date("M d",strtotime("-9 Days")) ?>', <?php echo $day9total; ?>],
-              ['<?php echo date("M d",strtotime("-8 Days")) ?>', <?php echo $day8total; ?>],
-              ['<?php echo date("M d",strtotime("-7 Days")) ?>', <?php echo $day7total; ?>],
-              ['<?php echo date("M d",strtotime("-6 Days")) ?>', <?php echo $day6total; ?>],
-              ['<?php echo date("M d",strtotime("-5 Days")) ?>', <?php echo $day5total; ?>],
-              ['<?php echo date("M d",strtotime("-4 Days")) ?>', <?php echo $day4total; ?>],
-              ['<?php echo date("M d",strtotime("-3 Days")) ?>', <?php echo $day3total; ?>],
-              ['<?php echo date("M d",strtotime("-2 Days")) ?>', <?php echo $day2total; ?>],
-              ['<?php echo date("M d",strtotime("-1 Days")) ?>', <?php echo $day1total; ?>],
-              ['<?php echo date("M d",strtotime("-0 Days")) ?>', <?php echo $day0total; ?>]
-            ]);
-            var options = {
-              title: 'Total Sales in the past 30 days (Pie View)',
-              hAxis: {title: '30 Days', titleTextStyle: {color: '#000000'}}
-            };
-            var chart = new google.visualization.PieChart(document.getElementById('total_day_pie'));
-            chart.draw(data, options);
-          }
-        </script>
-        <div id="total_day_pie" style="width: 45%; height: 300px; display: inline-block;"></div>
 <?php
 function business_marketpress_stats_popular_products_sales_price_all( $echo = true ) {
   global $mp;
@@ -567,7 +520,6 @@ function business_marketpress_stats_product_sales_per_price( $echo = true, $post
     return $stats;
 } ?>
 
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
@@ -590,7 +542,7 @@ function business_marketpress_stats_product_sales_per_price( $echo = true, $post
     </script>
   </head>
   <body>
-    <div id="sales_per_price" style="width: 45%; height: 300px; display: inline-block;"></div>
+    <div id="sales_per_price" style="width: 100%; height: 300px; display: inline-block;"></div>
 
         <script type="text/javascript">
         google.load("visualization", "1", {packages:["corechart"]});
