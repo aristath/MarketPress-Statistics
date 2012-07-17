@@ -144,31 +144,31 @@ function business_marketpress_stats_page() {
         </script>
         <div id="total_chart_items" style="width: 100%; height: 350px;"></div>
 
-<?php
-function business_marketpress_stats_popular_products_sales_price_all( $echo = true ) {
-  global $mp;
-  //The Query
-  $custom_query = new WP_Query('post_type=product&post_status=publish&meta_key=mp_sales_count&meta_compare=>&meta_value=0&orderby=meta_value&order=DESC');
-  if (count($custom_query->posts)) {
-    foreach ($custom_query->posts as $post) {
-      echo "[" . business_marketpress_stats_product_sales_per_price(false, $post->ID) . "], ";
-    ;}
+  <?php
+  function business_marketpress_stats_popular_products_sales_price_all( $echo = true ) {
+    global $mp;
+    //The Query
+    $custom_query = new WP_Query('post_type=product&post_status=publish&meta_key=mp_sales_count&meta_compare=>&meta_value=0&orderby=meta_value&order=DESC');
+    if (count($custom_query->posts)) {
+      foreach ($custom_query->posts as $post) {
+        echo "[" . business_marketpress_stats_product_sales_per_price(false, $post->ID) . "], ";
+      ;}
+    }
   }
-}
 
-function business_marketpress_stats_product_sales_per_price( $echo = true, $post_id = NULL, $label = true ) {
-  global $id, $mp;
-  $post_id = ( NULL === $post_id ) ? $id : $post_id;
+  function business_marketpress_stats_product_sales_per_price( $echo = true, $post_id = NULL, $label = true ) {
+    global $id, $mp;
+    $post_id = ( NULL === $post_id ) ? $id : $post_id;
 
-	$meta = get_post_custom($post_id);
-  //unserialize
-  foreach ($meta as $key => $val) {
+	  $meta = get_post_custom($post_id);
+    //unserialize
+    foreach ($meta as $key => $val) {
 	  $meta[$key] = maybe_unserialize($val[0]);
 	  if (!is_array($meta[$key]) && $key != "mp_is_sale" && $key != "mp_track_inventory" && $key != "mp_product_link" && $key != "mp_file" && $key != "mp_price_sort")
 	    $meta[$key] = array($meta[$key]);
 	}
-  if ((is_array($meta["mp_price"]) && count($meta["mp_price"]) >= 1) || !empty($meta["mp_file"])) {
-    if ($meta["mp_is_sale"]) {
+    if ((is_array($meta["mp_price"]) && count($meta["mp_price"]) >= 1) || !empty($meta["mp_file"])) {
+      if ($meta["mp_is_sale"]) {
 	    $price .= $meta["mp_sale_price"][0];
 	  } else {
 	    $price = $meta["mp_price"][0];
@@ -177,13 +177,13 @@ function business_marketpress_stats_product_sales_per_price( $echo = true, $post
 		return '';
 	}
   
-  $sales = $meta["mp_sales_count"][0];
-  $stats = $price . ', ' . $sales;
-  if ($echo)
-    echo $stats;
-  else
-    return $stats;
-} ?>
+    $sales = $meta["mp_sales_count"][0];
+    $stats = $price . ', ' . $sales;
+    if ($echo)
+      echo $stats;
+    else
+      return $stats;
+  } ?>
 
     <script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
@@ -209,47 +209,47 @@ function business_marketpress_stats_product_sales_per_price( $echo = true, $post
     </script>
     <div id="sales_per_price" style="width: 47%; height: 300px; display: inline-block;"></div>
 
-<?php
-function business_marketpress_stats_products_income_price_all( $echo = true ) {
-  global $mp;
-  //The Query
-  $custom_query = new WP_Query('post_type=product&post_status=publish&meta_key=mp_sales_count&meta_compare=>&meta_value=0&orderby=meta_value&order=DESC');
-  if (count($custom_query->posts)) {
-    foreach ($custom_query->posts as $post) {
-      echo "[" . business_marketpress_stats_product_income_by_price(false, $post->ID) . "], ";
-    ;}
+  <?php
+  function business_marketpress_stats_products_income_price_all( $echo = true ) {
+    global $mp;
+    //The Query
+    $custom_query = new WP_Query('post_type=product&post_status=publish&meta_key=mp_sales_count&meta_compare=>&meta_value=0&orderby=meta_value&order=DESC');
+    if (count($custom_query->posts)) {
+      foreach ($custom_query->posts as $post) {
+        echo "[" . business_marketpress_stats_product_income_by_price(false, $post->ID) . "], ";
+      ;}
+    }
   }
-}
 
-function business_marketpress_stats_product_income_by_price( $echo = true, $post_id = NULL, $label = true ) {
-  global $id, $mp;
-  $post_id = ( NULL === $post_id ) ? $id : $post_id;
+  function business_marketpress_stats_product_income_by_price( $echo = true, $post_id = NULL, $label = true ) {
+    global $id, $mp;
+    $post_id = ( NULL === $post_id ) ? $id : $post_id;
 
 	$meta = get_post_custom($post_id);
-  //unserialize
-  foreach ($meta as $key => $val) {
+    //unserialize
+    foreach ($meta as $key => $val) {
 	  $meta[$key] = maybe_unserialize($val[0]);
 	  if (!is_array($meta[$key]) && $key != "mp_is_sale" && $key != "mp_track_inventory" && $key != "mp_product_link" && $key != "mp_file" && $key != "mp_price_sort")
 	    $meta[$key] = array($meta[$key]);
 	}
-  if ((is_array($meta["mp_price"]) && count($meta["mp_price"]) >= 1) || !empty($meta["mp_file"])) {
-    if ($meta["mp_is_sale"]) {
+    if ((is_array($meta["mp_price"]) && count($meta["mp_price"]) >= 1) || !empty($meta["mp_file"])) {
+      if ($meta["mp_is_sale"]) {
 	    $price .= $meta["mp_sale_price"][0];
 	  } else {
 	    $price = $meta["mp_price"][0];
 	  }
-	} else {
+	  } else {
 		return '';
-	}
+	  }
   
-  $sales = $meta["mp_sales_count"][0];
-  $revenue = $sales*$price;
-  $stats = $price . ', ' . $revenue;
-  if ($echo)
-    echo $stats;
-  else
-    return $stats;
-} ?>
+    $sales = $meta["mp_sales_count"][0];
+    $revenue = $sales*$price;
+    $stats = $price . ', ' . $revenue;
+    if ($echo)
+      echo $stats;
+    else
+      return $stats;
+  } ?>
 
     <script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
@@ -329,80 +329,80 @@ function business_marketpress_stats_product_income_by_price( $echo = true, $post
     </tr>
   </table>
   <?php
-function business_marketpress_stats_popular_products_sales( $echo = true, $num = 10 ) {
-  global $mp;
-  //The Query
-  $custom_query = new WP_Query('post_type=product&post_status=publish&posts_per_page='.intval($num).'&meta_key=mp_sales_count&meta_compare=>&meta_value=0&orderby=meta_value&order=DESC');
-  if (count($custom_query->posts)) {
-    foreach ($custom_query->posts as $post) {
-      echo "['" . $post->post_title . "', " . business_marketpress_stats_product_sales(false, $post->ID) . "], ";
-    ;}
+  function business_marketpress_stats_popular_products_sales( $echo = true, $num = 10 ) {
+    global $mp;
+    //The Query
+    $custom_query = new WP_Query('post_type=product&post_status=publish&posts_per_page='.intval($num).'&meta_key=mp_sales_count&meta_compare=>&meta_value=0&orderby=meta_value&order=DESC');
+    if (count($custom_query->posts)) {
+      foreach ($custom_query->posts as $post) {
+        echo "['" . $post->post_title . "', " . business_marketpress_stats_product_sales(false, $post->ID) . "], ";
+      ;}
+    }
   }
-}
 
-function business_marketpress_stats_popular_products_revenue( $echo = true) {
-  global $mp;
-  //The Query
-  $custom_query = new WP_Query('post_type=product&post_status=publish&meta_key=mp_sales_count&meta_compare=>&meta_value=0&orderby=meta_value&order=DESC');
-  if (count($custom_query->posts)) {
-    foreach ($custom_query->posts as $post) {
-      echo "['" . $post->post_title . "', " . business_marketpress_stats_product_revenue(false, $post->ID) . "], ";
-    ;}
+  function business_marketpress_stats_popular_products_revenue( $echo = true) {
+    global $mp;
+    //The Query
+    $custom_query = new WP_Query('post_type=product&post_status=publish&meta_key=mp_sales_count&meta_compare=>&meta_value=0&orderby=meta_value&order=DESC');
+    if (count($custom_query->posts)) {
+      foreach ($custom_query->posts as $post) {
+        echo "['" . $post->post_title . "', " . business_marketpress_stats_product_revenue(false, $post->ID) . "], ";
+      ;}
+    }
   }
-}
 
-function business_marketpress_stats_popular_products_revenue_table( $echo = true, $num = 10 ) {
-  global $mp;
-  //The Query
-  $custom_query = new WP_Query('post_type=product&post_status=publish&posts_per_page='.intval($num).'&meta_key=mp_sales_count&meta_compare=>&meta_value=0&orderby=meta_value&order=DESC');
-  if (count($custom_query->posts)) {
-    foreach ($custom_query->posts as $post) {
-      echo "['" . $post->post_title . "', {v:" . business_marketpress_stats_product_revenue(false, $post->ID) . ", f:'" . business_marketpress_stats_product_revenue(false, $post->ID) . "'}, {v:" . business_marketpress_stats_product_sales(false, $post->ID) . ", f:'" . business_marketpress_stats_product_sales(false, $post->ID) . "'}], ";
-    ;}
+  function business_marketpress_stats_popular_products_revenue_table( $echo = true, $num = 10 ) {
+    global $mp;
+    //The Query
+    $custom_query = new WP_Query('post_type=product&post_status=publish&posts_per_page='.intval($num).'&meta_key=mp_sales_count&meta_compare=>&meta_value=0&orderby=meta_value&order=DESC');
+    if (count($custom_query->posts)) {
+      foreach ($custom_query->posts as $post) {
+        echo "['" . $post->post_title . "', {v:" . business_marketpress_stats_product_revenue(false, $post->ID) . ", f:'" . business_marketpress_stats_product_revenue(false, $post->ID) . "'}, {v:" . business_marketpress_stats_product_sales(false, $post->ID) . ", f:'" . business_marketpress_stats_product_sales(false, $post->ID) . "'}], ";
+      ;}
+    }
   }
-}
 
-function business_marketpress_stats_product_revenue( $echo = true, $post_id = NULL, $label = true ) {
-  global $id, $mp;
-  $post_id = ( NULL === $post_id ) ? $id : $post_id;
+  function business_marketpress_stats_product_revenue( $echo = true, $post_id = NULL, $label = true ) {
+    global $id, $mp;
+    $post_id = ( NULL === $post_id ) ? $id : $post_id;
 
 	$meta = get_post_custom($post_id);
-  //unserialize
-  foreach ($meta as $key => $val) {
+    //unserialize
+    foreach ($meta as $key => $val) {
 	  $meta[$key] = maybe_unserialize($val[0]);
 	  if (!is_array($meta[$key]) && $key != "mp_is_sale" && $key != "mp_track_inventory" && $key != "mp_product_link" && $key != "mp_file" && $key != "mp_price_sort")
 	    $meta[$key] = array($meta[$key]);
 	}
-  if ((is_array($meta["mp_price"]) && count($meta["mp_price"]) >= 1) || !empty($meta["mp_file"])) {
-    if ($meta["mp_is_sale"]) {
+    if ((is_array($meta["mp_price"]) && count($meta["mp_price"]) >= 1) || !empty($meta["mp_file"])) {
+      if ($meta["mp_is_sale"]) {
 	    $price .= $meta["mp_sale_price"][0];
 	  } else {
 	    $price = $meta["mp_price"][0];
 	  }
 	} else {
-		return '';
+	  return '';
 	}
   
-  $sales = $meta["mp_sales_count"][0];
-  $revenue = $sales*$price;
-  if ($echo)
-    echo $revenue;
-  else
-    return $revenue;
-}
+    $sales = $meta["mp_sales_count"][0];
+    $revenue = $sales*$price;
+    if ($echo)
+      echo $revenue;
+    else
+      return $revenue;
+  }
 
-function business_marketpress_stats_product_sales( $echo = true, $post_id = NULL ) {
-  global $id, $mp;
-  $post_id = ( NULL === $post_id ) ? $id : $post_id;
-  $meta = get_post_custom($post_id);
-  $sales = $meta["mp_sales_count"][0];
+  function business_marketpress_stats_product_sales( $echo = true, $post_id = NULL ) {
+    global $id, $mp;
+    $post_id = ( NULL === $post_id ) ? $id : $post_id;
+    $meta = get_post_custom($post_id);
+    $sales = $meta["mp_sales_count"][0];
   
-  if ($echo)
-    echo $sales;
-  else
-    return $sales;
-}
-?>
+    if ($echo)
+      echo $sales;
+    else
+      return $sales;
+  }
+  ?>
              <script type="text/javascript">
               google.load("visualization", "1", {packages:["corechart"]});
               google.setOnLoadCallback(drawChart);
