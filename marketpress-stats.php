@@ -279,7 +279,7 @@ function business_marketpress_stats_page() {
               ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php echo $month0totalitems; ?>, <?php echo $month0averageitems; ?>]
             ]);
             var options = {
-              title: 'Total Sales, 12 Months',
+              title: 'Product sles count, 12 Months',
               colors: ['#000000', '#D44413'],
               theme: {legend: {position: 'in'}, axisTitlesPosition: 'in'},
               hAxis: {title: 'Year', titleTextStyle: {color: '#999999'}},
