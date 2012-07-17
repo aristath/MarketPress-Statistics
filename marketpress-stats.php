@@ -86,6 +86,60 @@ function business_marketpress_stats_page() {
 
   $totality = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total'");  
   
+
+
+  $year = date('Y');
+  $month = date('m');
+  $month0items = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_items' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month");
+
+  $year = date('Y', strtotime('-1 months'));
+  $month = date('m', strtotime('-1 months'));
+  $month1items = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_items' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month");  
+
+  $year = date('Y', strtotime('-2 months'));
+  $month = date('m', strtotime('-2 months'));
+  $month2items = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_items' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month");  
+
+  $year = date('Y', strtotime('-3 months'));
+  $month = date('m', strtotime('-3 months'));
+  $month3items = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_items' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month");  
+
+  $year = date('Y', strtotime('-4 months'));
+  $month = date('m', strtotime('-4 months'));
+  $month4items = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_items' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month");  
+
+  $year = date('Y', strtotime('-5 months'));
+  $month = date('m', strtotime('-5 months'));
+  $month5items = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_items' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month");  
+
+  $year = date('Y', strtotime('-6 months'));
+  $month = date('m', strtotime('-6 months'));
+  $month6items = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_items' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month");  
+
+  $year = date('Y', strtotime('-7 months'));
+  $month = date('m', strtotime('-7 months'));
+  $month7items = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_items' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month");  
+
+  $year = date('Y', strtotime('-8 months'));
+  $month = date('m', strtotime('-8 months'));
+  $month8items = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_items' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month");  
+
+  $year = date('Y', strtotime('-9 months'));
+  $month = date('m', strtotime('-9 months'));
+  $month9items = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_items' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month");  
+
+  $year = date('Y', strtotime('-10 months'));
+  $month = date('m', strtotime('-10 months'));
+  $month10items = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_items' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month");  
+
+  $year = date('Y', strtotime('-11 months'));
+  $month = date('m', strtotime('-11 months'));
+  $month11items = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_items' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month");  
+
+  $year = date('Y', strtotime('-12 months'));
+  $month = date('m', strtotime('-12 months'));
+  $month12items = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_items' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month");  
+
   if (!empty($month0->count)){$month0count = $month0->count;} else {$month0count = 0;}
   if (!empty($month1->count)){$month1count = $month1->count;} else {$month1count = 0;}
   if (!empty($month2->count)){$month2count = $month2->count;} else {$month2count = 0;}
@@ -131,6 +185,35 @@ function business_marketpress_stats_page() {
   if (!empty($month12->average)){$month12average = $month12->average;} else {$month12average = 0;}
   if (!empty($totality->average)){$totalityaverage = $totality->average;} else {$totalityaverage = 0;}
       
+
+  if (!empty($month0items->total)){$month0totalitems = $month0items->total;} else {$month0totalitems = 0;}
+  if (!empty($month1items->total)){$month1totalitems = $month1items->total;} else {$month1totalitems = 0;}
+  if (!empty($month2items->total)){$month2totalitems = $month2items->total;} else {$month2totalitems = 0;}
+  if (!empty($month3items->total)){$month3totalitems = $month3items->total;} else {$month3totalitems = 0;}
+  if (!empty($month4items->total)){$month4totalitems = $month4items->total;} else {$month4totalitems = 0;}
+  if (!empty($month5items->total)){$month5totalitems = $month5items->total;} else {$month5totalitems = 0;}
+  if (!empty($month6items->total)){$month6totalitems = $month6items->total;} else {$month6totalitems = 0;}
+  if (!empty($month7items->total)){$month7totalitems = $month7items->total;} else {$month7totalitems = 0;}
+  if (!empty($month8items->total)){$month8totalitems = $month8items->total;} else {$month8totalitems = 0;}
+  if (!empty($month9items->total)){$month9totalitems = $month9items->total;} else {$month9totalitems = 0;}
+  if (!empty($month10items->total)){$month10totalitems = $month10items->total;} else {$month10totalitems = 0;}
+  if (!empty($month11items->total)){$month11totalitems = $month11items->total;} else {$month11totalitems = 0;}
+  if (!empty($month12items->total)){$month12totalitems = $month12items->total;} else {$month12totalitems = 0;}
+      
+  if (!empty($month0items->average)){$month0averageitems = $month0items->average;} else {$month0averageitems = 0;}
+  if (!empty($month1items->average)){$month1averageitems = $month1items->average;} else {$month1averageitems = 0;}
+  if (!empty($month2items->average)){$month2averageitems = $month2items->average;} else {$month2averageitems = 0;}
+  if (!empty($month3items->average)){$month3averageitems = $month3items->average;} else {$month3averageitems = 0;}
+  if (!empty($month4items->average)){$month4averageitems = $month4items->average;} else {$month4averageitems = 0;}
+  if (!empty($month5items->average)){$month5averageitems = $month5items->average;} else {$month5averageitems = 0;}
+  if (!empty($month6items->average)){$month6averageitems = $month6items->average;} else {$month6averageitems = 0;}
+  if (!empty($month7items->average)){$month7averageitems = $month7items->average;} else {$month7averageitems = 0;}
+  if (!empty($month8items->average)){$month8averageitems = $month8items->average;} else {$month8averageitems = 0;}
+  if (!empty($month9items->average)){$month9averageitems = $month9items->average;} else {$month9averageitems = 0;}
+  if (!empty($month10items->average)){$month10averageitems = $month10items->average;} else {$month10averageitems = 0;}
+  if (!empty($month11items->average)){$month11averageitems = $month11items->average;} else {$month11averageitems = 0;}
+  if (!empty($month12items->average)){$month12averageitems = $month12items->average;} else {$month12averageitems = 0;}
+      
   echo '<script type="text/javascript" src="' . plugins_url( 'bigtext.js' , __FILE__ ) . '" ></script>';
   
   ?>
@@ -173,6 +256,42 @@ function business_marketpress_stats_page() {
           }
         </script>
         <div id="total_chart" style="width: 100%; height: 350px;"></div>
+
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+          google.load("visualization", "1", {packages:["corechart"]});
+          google.setOnLoadCallback(drawChart);
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Month', 'Total', 'Average'],
+              ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php echo $month12totalitems; ?>, <?php echo $month12averageitems; ?>],
+              ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php echo $month11totalitems; ?>, <?php echo $month11averageitems; ?>],
+              ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php echo $month10totalitems; ?>, <?php echo $month10averageitems; ?>],
+              ['<?php echo date("M",strtotime("-9 Months")) ?>', <?php echo $month9totalitems; ?>, <?php echo $month9averageitems; ?>],
+              ['<?php echo date("M",strtotime("-8 Months")) ?>', <?php echo $month8totalitems; ?>, <?php echo $month8averageitems; ?>],
+              ['<?php echo date("M",strtotime("-7 Months")) ?>', <?php echo $month7totalitems; ?>, <?php echo $month7averageitems; ?>],
+              ['<?php echo date("M",strtotime("-6 Months")) ?>', <?php echo $month6totalitems; ?>, <?php echo $month6averageitems; ?>],
+              ['<?php echo date("M",strtotime("-5 Months")) ?>', <?php echo $month5totalitems; ?>, <?php echo $month5averageitems; ?>],
+              ['<?php echo date("M",strtotime("-4 Months")) ?>', <?php echo $month4totalitems; ?>, <?php echo $month4averageitems; ?>],
+              ['<?php echo date("M",strtotime("-3 Months")) ?>', <?php echo $month3totalitems; ?>, <?php echo $month3averageitems; ?>],
+              ['<?php echo date("M",strtotime("-2 Months")) ?>', <?php echo $month2totalitems; ?>, <?php echo $month2averageitems; ?>],
+              ['<?php echo date("M",strtotime("-1 Months")) ?>', <?php echo $month1totalitems; ?>, <?php echo $month1averageitems; ?>],
+              ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php echo $month0totalitems; ?>, <?php echo $month0averageitems; ?>]
+            ]);
+            var options = {
+              title: 'Total Sales, 12 Months',
+              colors: ['#000000', '#D44413'],
+              theme: {legend: {position: 'in'}, axisTitlesPosition: 'in'},
+              hAxis: {title: 'Year', titleTextStyle: {color: '#999999'}},
+              seriesType: "line",
+              curveType: "function",
+              series: {1: {type: "line"}}
+            };
+            var chart = new google.visualization.ComboChart(document.getElementById('total_chart_items'));
+            chart.draw(data, options);
+          }
+        </script>
+        <div id="total_chart_items" style="width: 100%; height: 350px;"></div>
 
 <?php
 function business_marketpress_stats_popular_products_sales_price_all( $echo = true ) {
