@@ -38,6 +38,11 @@ function business_marketpress_stats_page() {
   if (!empty($totality->total)){$totalitytotal = $totality->total;} else {$totalitytotal = 0;}
   if (!empty($totality->average)){$totalityaverage = $totality->average;} else {$totalityaverage = 0;}
       
+  $totalityitems = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_items'");  
+  if (!empty($totalityitems->count)){$totalityitemscount = $totalityitems->count;} else {$totalityitemscount = 0;}
+  if (!empty($totalityitems->total)){$totalityitemstotal = $totalityitems->total;} else {$totalityitemstotal = 0;}
+  if (!empty($totalityitems->average)){$totalityitemsaverage = $totalityitems->average;} else {$totalityitemsaverage = 0;}
+      
   
   function marketpress_statistics_stat( $time = '-0 days' , $stat = count, $echo = true ){
     global $wpdb, $mp;
@@ -315,14 +320,14 @@ function business_marketpress_stats_page() {
       		<p>This Month's Revenue:</p>
       		<p><strong><?php echo $mp->format_currency('', marketpress_statistics_stat('-0 months', total, false)); ?></strong></p>
       		<p style="border-top: 1px solid #dedede;">This Month's Sales:</p>
-      		<p><strong><?php echo marketpress_statistics_stat('-0 months', count, false); ?></strong></p>
+      		<p><strong><?php echo marketpress_statistics_stat('-0 months', count, false); ?> sales, <?php echo marketpress_statistics_stat_items('-0 months', count, false); ?> items</strong></p>
             <p style="border-top: 1px solid #dedede;">This Month's Average:</p>
             <p><strong><?php echo $mp->format_currency('', marketpress_statistics_stat('-0 months', average, false)); ?>/Sale</strong></p>
 
       		<p style="border-top: 2px solid #333;">Total Revenue:</p>
       		<p><strong><?php echo $mp->format_currency('', $totalitytotal); ?></strong></p>
       		<p style="border-top: 1px solid #dedede;">Total Sales:</p>
-      		<p><strong><?php echo $totalitycount; ?></strong></p>
+      		<p><strong><?php echo $totalitycount; ?> sales, <?php echo $totalityitemstotal; ?> items</strong></p>
             <p style="border-top: 1px solid #dedede;">Total Average/Sale:</p>
             <p><strong><?php echo $mp->format_currency('', $totalityaverage); ?></strong></p>      	</div>
       </td>
