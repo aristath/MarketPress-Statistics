@@ -121,40 +121,16 @@ function business_marketpress_stats_page() {
   if (!empty($month12items->average)){$month12averageitems = $month12items->average;} else {$month12averageitems = 0;}
   
   
-  function business_marketpress_stats_sales_count( $time = '-0 days' ){
+  function marketpress_statistics_stat( $time = '-0 days' , $stat = count ){
     global $wpdb, $mp;
     $year = date('Y', strtotime($time));
     $month = date('m', strtotime($time));
 
     $monthquery = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM {$wpdb->posts} p JOIN {$wpdb->postmeta} m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month");
-    $monthcount = 0;
-    if (!empty($monthquery->count)) $monthcount = $monthquery->count;
+    $monthstat = 0;
+    if (!empty($monthquery->$stat)) $monthstat = $monthquery->$stat;
 
-    echo $monthcount; 
-  }
-  
-  function business_marketpress_stats_sales_total( $time = '-0 days' ){
-    global $wpdb, $mp;
-    $year = date('Y', strtotime($time));
-    $month = date('m', strtotime($time));
-
-    $monthquery = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM {$wpdb->posts} p JOIN {$wpdb->postmeta} m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month");
-    $monthtotal = 0;
-    if (!empty($monthquery->total)) $monthtotal = $monthquery->total;
-
-    echo $monthtotal; 
-  }
-  
-  function business_marketpress_stats_sales_average( $time = '-0 days' ){
-    global $wpdb, $mp;
-    $year = date('Y', strtotime($time));
-    $month = date('m', strtotime($time));
-
-    $monthquery = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM {$wpdb->posts} p JOIN {$wpdb->postmeta} m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_total' AND YEAR(p.post_date) = $year AND MONTH(p.post_date) = $month");
-    $monthaverage = 0;
-    if (!empty($monthquery->average)) $monthaverage = $monthquery->average;
-
-    echo $monthaverage; 
+    echo $monthstat; 
   }
 
   echo '<script type="text/javascript" src="' . plugins_url( 'bigtext.js' , __FILE__ ) . '" ></script>';
@@ -171,19 +147,19 @@ function business_marketpress_stats_page() {
           function drawChart() {
             var data = google.visualization.arrayToDataTable([
               ['Month', 'Total', 'Average'],
-              ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php business_marketpress_stats_sales_total('-12 months'); ?>, <?php business_marketpress_stats_sales_average('-12 months'); ?>],
-              ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php business_marketpress_stats_sales_total('-11 months'); ?>, <?php business_marketpress_stats_sales_average('-12 months'); ?>],
-              ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php business_marketpress_stats_sales_total('-10 months'); ?>, <?php business_marketpress_stats_sales_average('-02 months'); ?>],
-              ['<?php echo date("M",strtotime("-9 Months")) ?>', <?php business_marketpress_stats_sales_total('-9 months'); ?>, <?php business_marketpress_stats_sales_average('-9 months'); ?>],
-              ['<?php echo date("M",strtotime("-8 Months")) ?>', <?php business_marketpress_stats_sales_total('-8 months'); ?>, <?php business_marketpress_stats_sales_average('-8 months'); ?>],
-              ['<?php echo date("M",strtotime("-7 Months")) ?>', <?php business_marketpress_stats_sales_total('-7 months'); ?>, <?php business_marketpress_stats_sales_average('-7 months'); ?>],
-              ['<?php echo date("M",strtotime("-6 Months")) ?>', <?php business_marketpress_stats_sales_total('-6 months'); ?>, <?php business_marketpress_stats_sales_average('-6 months'); ?>],
-              ['<?php echo date("M",strtotime("-5 Months")) ?>', <?php business_marketpress_stats_sales_total('-5 months'); ?>, <?php business_marketpress_stats_sales_average('-5 months'); ?>],
-              ['<?php echo date("M",strtotime("-4 Months")) ?>', <?php business_marketpress_stats_sales_total('-4 months'); ?>, <?php business_marketpress_stats_sales_average('-4 months'); ?>],
-              ['<?php echo date("M",strtotime("-3 Months")) ?>', <?php business_marketpress_stats_sales_total('-3 months'); ?>, <?php business_marketpress_stats_sales_average('-3 months'); ?>],
-              ['<?php echo date("M",strtotime("-2 Months")) ?>', <?php business_marketpress_stats_sales_total('-2 months'); ?>, <?php business_marketpress_stats_sales_average('-2 months'); ?>],
-              ['<?php echo date("M",strtotime("-1 Months")) ?>', <?php business_marketpress_stats_sales_total('-1 months'); ?>, <?php business_marketpress_stats_sales_average('-1 months'); ?>],
-              ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php business_marketpress_stats_sales_total('-0 months'); ?>, <?php business_marketpress_stats_sales_average('-0 months'); ?>]
+              ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php marketpress_statistics_stat('-12 months', total); ?>, <?php marketpress_statistics_stat('-12 months', average); ?>],
+              ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php marketpress_statistics_stat('-11 months', total); ?>, <?php marketpress_statistics_stat('-12 months', average); ?>],
+              ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php marketpress_statistics_stat('-10 months', total); ?>, <?php marketpress_statistics_stat('-02 months', average); ?>],
+              ['<?php echo date("M",strtotime("-9 Months")) ?>', <?php marketpress_statistics_stat('-9 months', total); ?>, <?php marketpress_statistics_stat('-9 months', average); ?>],
+              ['<?php echo date("M",strtotime("-8 Months")) ?>', <?php marketpress_statistics_stat('-8 months', total); ?>, <?php marketpress_statistics_stat('-8 months', average); ?>],
+              ['<?php echo date("M",strtotime("-7 Months")) ?>', <?php marketpress_statistics_stat('-7 months', total); ?>, <?php marketpress_statistics_stat('-7 months', average); ?>],
+              ['<?php echo date("M",strtotime("-6 Months")) ?>', <?php marketpress_statistics_stat('-6 months', total); ?>, <?php marketpress_statistics_stat('-6 months', average); ?>],
+              ['<?php echo date("M",strtotime("-5 Months")) ?>', <?php marketpress_statistics_stat('-5 months', total); ?>, <?php marketpress_statistics_stat('-5 months', average); ?>],
+              ['<?php echo date("M",strtotime("-4 Months")) ?>', <?php marketpress_statistics_stat('-4 months', total); ?>, <?php marketpress_statistics_stat('-4 months', average); ?>],
+              ['<?php echo date("M",strtotime("-3 Months")) ?>', <?php marketpress_statistics_stat('-3 months', total); ?>, <?php marketpress_statistics_stat('-3 months', average); ?>],
+              ['<?php echo date("M",strtotime("-2 Months")) ?>', <?php marketpress_statistics_stat('-2 months', total); ?>, <?php marketpress_statistics_stat('-2 months', average); ?>],
+              ['<?php echo date("M",strtotime("-1 Months")) ?>', <?php marketpress_statistics_stat('-1 months', total); ?>, <?php marketpress_statistics_stat('-1 months', average); ?>],
+              ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php marketpress_statistics_stat('-0 months', total); ?>, <?php marketpress_statistics_stat('-0 months', average); ?>]
             ]);
             var options = {
               title: 'Total Sales, 12 Months',
@@ -375,19 +351,19 @@ function business_marketpress_stats_product_income_by_price( $echo = true, $post
         function drawChart() {
           var data = google.visualization.arrayToDataTable([
             ['Month', 'Sales'],
-            ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php business_marketpress_stats_sales_count('-12 months'); ?>],
-            ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php business_marketpress_stats_sales_count('-11 months'); ?>],
-            ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php business_marketpress_stats_sales_count('-10 months'); ?>],
-            ['<?php echo date("M",strtotime("-9 Months")) ?>', <?php business_marketpress_stats_sales_count('-9 months'); ?>],
-            ['<?php echo date("M",strtotime("-8 Months")) ?>', <?php business_marketpress_stats_sales_count('-8 months'); ?>],
-            ['<?php echo date("M",strtotime("-7 Months")) ?>', <?php business_marketpress_stats_sales_count('-7 months'); ?>],
-            ['<?php echo date("M",strtotime("-6 Months")) ?>', <?php business_marketpress_stats_sales_count('-6 months'); ?>],
-            ['<?php echo date("M",strtotime("-5 Months")) ?>', <?php business_marketpress_stats_sales_count('-5 months'); ?>],
-            ['<?php echo date("M",strtotime("-4 Months")) ?>', <?php business_marketpress_stats_sales_count('-4 months'); ?>],
-            ['<?php echo date("M",strtotime("-3 Months")) ?>', <?php business_marketpress_stats_sales_count('-3 months'); ?>],
-            ['<?php echo date("M",strtotime("-2 Months")) ?>', <?php business_marketpress_stats_sales_count('-2 months'); ?>],
-            ['<?php echo date("M",strtotime("-1 Months")) ?>', <?php business_marketpress_stats_sales_count('-1 months'); ?>],
-            ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php business_marketpress_stats_sales_count('-0 months'); ?>],
+            ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php marketpress_statistics_stat('-12 months', count); ?>],
+            ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php marketpress_statistics_stat('-11 months', count); ?>],
+            ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php marketpress_statistics_stat('-10 months', count); ?>],
+            ['<?php echo date("M",strtotime("-9 Months")) ?>', <?php marketpress_statistics_stat('-9 months', count); ?>],
+            ['<?php echo date("M",strtotime("-8 Months")) ?>', <?php marketpress_statistics_stat('-8 months', count); ?>],
+            ['<?php echo date("M",strtotime("-7 Months")) ?>', <?php marketpress_statistics_stat('-7 months', count); ?>],
+            ['<?php echo date("M",strtotime("-6 Months")) ?>', <?php marketpress_statistics_stat('-6 months', count); ?>],
+            ['<?php echo date("M",strtotime("-5 Months")) ?>', <?php marketpress_statistics_stat('-5 months', count); ?>],
+            ['<?php echo date("M",strtotime("-4 Months")) ?>', <?php marketpress_statistics_stat('-4 months', count); ?>],
+            ['<?php echo date("M",strtotime("-3 Months")) ?>', <?php marketpress_statistics_stat('-3 months', count); ?>],
+            ['<?php echo date("M",strtotime("-2 Months")) ?>', <?php marketpress_statistics_stat('-2 months', count); ?>],
+            ['<?php echo date("M",strtotime("-1 Months")) ?>', <?php marketpress_statistics_stat('-1 months', count); ?>],
+            ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php marketpress_statistics_stat('-0 months', count); ?>],
           ]);
           var options = {
             title: 'Number of Sales, 12 Months',
@@ -405,9 +381,9 @@ function business_marketpress_stats_product_income_by_price( $echo = true, $post
       <td style="width: 300px; vertical-align: top; text-align: center; color: #222;">
       	<div id="BigText" style="width: 300px; padding: 20px;">
       		<p>This Month's Revenue:</p>
-      		<p><strong><?php echo $mp->format_currency('', business_marketpress_stats_sales_total('-0 months')); ?></strong></p>
+      		<p><strong><?php echo $mp->format_currency('', marketpress_statistics_stat('-0 months', total)); ?></strong></p>
       		<p style="border-top: 1px solid #dedede;">This Month's Sales:</p>
-      		<p><strong><?php echo business_marketpress_stats_sales_count('-0 months'); ?></strong></p>
+      		<p><strong><?php echo marketpress_statistics_stat('-0 months', count); ?></strong></p>
 
       		<p style="border-top: 2px solid #333;">Total Revenue:</p>
       		<p><strong><?php echo $mp->format_currency('', $totalitytotal); ?></strong></p>
