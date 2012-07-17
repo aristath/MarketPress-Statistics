@@ -121,7 +121,7 @@ function business_marketpress_stats_page() {
   if (!empty($month12items->average)){$month12averageitems = $month12items->average;} else {$month12averageitems = 0;}
   
   
-  function marketpress_statistics_stat( $time = '-0 days' , $stat = count ){
+  function marketpress_statistics_stat( $time = '-0 days' , $stat = count, $echo = true ){
     global $wpdb, $mp;
     $year = date('Y', strtotime($time));
     $month = date('m', strtotime($time));
@@ -130,7 +130,8 @@ function business_marketpress_stats_page() {
     $monthstat = 0;
     if (!empty($monthquery->$stat)) $monthstat = $monthquery->$stat;
 
-    echo $monthstat; 
+    if ($echo) echo $monthstat; 
+    else return $monthstat; 
   }
 
   echo '<script type="text/javascript" src="' . plugins_url( 'bigtext.js' , __FILE__ ) . '" ></script>';
@@ -381,15 +382,18 @@ function business_marketpress_stats_product_income_by_price( $echo = true, $post
       <td style="width: 300px; vertical-align: top; text-align: center; color: #222;">
       	<div id="BigText" style="width: 300px; padding: 20px;">
       		<p>This Month's Revenue:</p>
-      		<p><strong><?php echo $mp->format_currency('', marketpress_statistics_stat('-0 months', total)); ?></strong></p>
+      		<p><strong><?php echo $mp->format_currency('', marketpress_statistics_stat('-0 months', total, false)); ?></strong></p>
       		<p style="border-top: 1px solid #dedede;">This Month's Sales:</p>
-      		<p><strong><?php echo marketpress_statistics_stat('-0 months', count); ?></strong></p>
+      		<p><strong><?php echo marketpress_statistics_stat('-0 months', count, false); ?></strong></p>
+            <p style="border-top: 1px solid #dedede;">This Month's Average:</p>
+            <p><strong><?php echo $mp->format_currency('', marketpress_statistics_stat('-0 months', average, false)); ?>/Sale</strong></p>
 
       		<p style="border-top: 2px solid #333;">Total Revenue:</p>
       		<p><strong><?php echo $mp->format_currency('', $totalitytotal); ?></strong></p>
       		<p style="border-top: 1px solid #dedede;">Total Sales:</p>
       		<p><strong><?php echo $totalitycount; ?></strong></p>
-      	</div>
+            <p style="border-top: 1px solid #dedede;">Total Average/Sale:</p>
+            <p><strong><?php echo $mp->format_currency('', $totalityaverage); ?></strong></p>      	</div>
       </td>
     </tr>
   </table>
