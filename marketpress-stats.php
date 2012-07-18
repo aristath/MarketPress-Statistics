@@ -135,7 +135,7 @@ function mp_st_page() {
               ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php mp_st_stat_items('-0 months', total); ?>, <?php mp_st_stat_items('-0 months', average); ?>],
             ]);
             var options = {
-              title: 'Product sles count, 12 Months',
+              title: 'Product Sales count, 12 Months',
               colors: ['#000000', '#D44413'],
               theme: {legend: {position: 'in'}, axisTitlesPosition: 'in'},
               hAxis: {title: 'Year', titleTextStyle: {color: '#999999'}},
@@ -431,8 +431,8 @@ function mp_st_page() {
       echo $user->postcount;
       echo "'}], ";
 	}
-  } mp_st_users();
-
+  }
+  
   ?>
              <script type="text/javascript">
               google.load("visualization", "1", {packages:["corechart"]});
