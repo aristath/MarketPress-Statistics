@@ -407,6 +407,24 @@ function mp_st_page() {
     else
       return $sales;
   }
+  function mp_st_users() {
+  	global $wpdb;
+  	$order = 'postcount';
+  	$limit = '5';
+  	$usersinfo = $wpdb->get_results("SELECT $wpdb->users.ID as ID, COUNT(post_author) as postcount FROM $wpdb->users LEFT JOIN $wpdb->posts ON $wpdb->users.ID = $wpdb->posts.post_author WHERE post_type = 'mp_order' GROUP BY post_author ORDER BY $order DESC LIMIT $limit");
+  	foreach($usersinfo as $userinfo){
+  	  $user = get_userdata($userinfo->ID);
+  	  $user->postcount = $userinfo->postcount;
+      echo "['";
+      echo $user->display_name;
+      echo "', {v:";
+      echo $user->postcount;
+      echo ", f:'";
+      echo $user->postcount;
+      echo "'}], ";
+	}
+  } mp_st_users();
+
   ?>
              <script type="text/javascript">
               google.load("visualization", "1", {packages:["corechart"]});
@@ -464,6 +482,25 @@ function mp_st_page() {
               }
             </script>
             <div id="top_products_table" style="width: 100%; height: 500px; display: block;"></div>
+                
+             <script type="text/javascript">
+              google.load('visualization', '1', {packages:['table']});
+              google.setOnLoadCallback(drawTable);
+              function drawTable() {
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'username');
+                data.addColumn('number', 'Total orders');
+                data.addRows([
+
+                  <?php mp_st_users(); ?>
+                ]);
+                var options = {
+                };
+                var table = new google.visualization.Table(document.getElementById('top_users_table'));
+                table.draw(data, {showRowNumber: true});
+              }
+            </script>
+            <div id="top_users_table" style="width: 100%; height: 500px; display: block;"></div>
                 
   </div>
   <script>
