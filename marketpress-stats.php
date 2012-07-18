@@ -104,7 +104,7 @@ function mp_st_page() {
               theme: {legend: {position: 'in'}, axisTitlesPosition: 'in'},
               hAxis: {title: 'Year', titleTextStyle: {color: '#999999'}},
               seriesType: "bars",
-              curveType: "function",
+              // curveType: "function",
               series: {1: {type: "line"}}
             };
             var chart = new google.visualization.ComboChart(document.getElementById('total_chart'));
@@ -140,7 +140,7 @@ function mp_st_page() {
               theme: {legend: {position: 'in'}, axisTitlesPosition: 'in'},
               hAxis: {title: 'Year', titleTextStyle: {color: '#999999'}},
               seriesType: "line",
-              curveType: "function",
+              // curveType: "function",
               series: {1: {type: "line"}}
             };
             var chart = new google.visualization.ComboChart(document.getElementById('total_chart_items'));
