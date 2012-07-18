@@ -416,7 +416,15 @@ function mp_st_page() {
   	  $user = get_userdata($userinfo->ID);
   	  $user->postcount = $userinfo->postcount;
       echo "['";
-      echo $user->display_name;
+      echo $user->mp_shipping_info['name'];
+	  echo "', '";
+	  echo $user->mp_shipping_info['city'];
+	  echo "', '";
+	  echo $user->mp_shipping_info['country'];
+	  echo "', '";
+	  echo $user->mp_shipping_info['phone'];
+	  echo "', '";
+	  echo $user->mp_shipping_info['email'];
       echo "', {v:";
       echo $user->postcount;
       echo ", f:'";
@@ -488,7 +496,11 @@ function mp_st_page() {
               google.setOnLoadCallback(drawTable);
               function drawTable() {
                 var data = new google.visualization.DataTable();
-                data.addColumn('string', 'username');
+                data.addColumn('string', 'Customer Name');
+                data.addColumn('string', 'City');
+                data.addColumn('string', 'Country');
+                data.addColumn('string', 'Phone');
+                data.addColumn('string', 'Email');
                 data.addColumn('number', 'Total orders');
                 data.addRows([
 
