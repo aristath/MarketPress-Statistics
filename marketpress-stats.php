@@ -410,7 +410,7 @@ function mp_st_page() {
   function mp_st_users() {
   	global $wpdb;
   	$order = 'postcount';
-  	$limit = '5';
+  	$limit = '10';
   	$usersinfo = $wpdb->get_results("SELECT $wpdb->users.ID as ID, COUNT(post_author) as postcount FROM $wpdb->users LEFT JOIN $wpdb->posts ON $wpdb->users.ID = $wpdb->posts.post_author WHERE post_type = 'mp_order' GROUP BY post_author ORDER BY $order DESC LIMIT $limit");
   	foreach($usersinfo as $userinfo){
   	  $user = get_userdata($userinfo->ID);
