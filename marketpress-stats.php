@@ -14,7 +14,7 @@ register_activation_hook(__FILE__,'mp_st_install');
 register_deactivation_hook( __FILE__, 'mp_st_remove' );
 
 function mp_st_install() {
-}
+} 
 
 function mp_st_remove() {
 }
@@ -26,7 +26,7 @@ function mp_st_admin_menu() {
 }
 
 function mp_st_page() {
-  
+
   if ( class_exists( 'MarketPress' ) ) {
     if ( function_exists('current_user_can') && !current_user_can('manage_options') )
   	  die(__('Cheatin&#8217; uh?'));
@@ -37,13 +37,13 @@ function mp_st_page() {
   if (!empty($totality->count)){$totalitycount = $totality->count;} else {$totalitycount = 0;}
   if (!empty($totality->total)){$totalitytotal = $totality->total;} else {$totalitytotal = 0;}
   if (!empty($totality->average)){$totalityaverage = $totality->average;} else {$totalityaverage = 0;}
-      
+
   $totalityitems = $wpdb->get_row("SELECT count(p.ID) as count, sum(m.meta_value) as total, avg(m.meta_value) as average FROM $wpdb->posts p JOIN $wpdb->postmeta m ON p.ID = m.post_id WHERE p.post_type = 'mp_order' AND m.meta_key = 'mp_order_items'");  
   if (!empty($totalityitems->count)){$totalityitemscount = $totalityitems->count;} else {$totalityitemscount = 0;}
   if (!empty($totalityitems->total)){$totalityitemstotal = $totalityitems->total;} else {$totalityitemstotal = 0;}
   if (!empty($totalityitems->average)){$totalityitemsaverage = $totalityitems->average;} else {$totalityitemsaverage = 0;}
-      
-  
+
+
   function mp_st_stat( $time = '-0 days' , $stat = count, $echo = true ){
     global $wpdb, $mp;
     $year = date('Y', strtotime($time));
@@ -71,7 +71,7 @@ function mp_st_page() {
   }
 
   echo '<script type="text/javascript" src="' . plugins_url( 'bigtext.js' , __FILE__ ) . '" ></script>';
-  
+
   ?>
   <div class="wrap" style="background: #fff;">
   <table style="width: 100%;">
@@ -181,7 +181,7 @@ function mp_st_page() {
 	} else {
 		return '';
 	}
-  
+
     $sales = $meta["mp_sales_count"][0];
     $stats = $price . ', ' . $sales;
     if ($echo)
@@ -246,7 +246,7 @@ function mp_st_page() {
 	  } else {
 		return '';
 	  }
-  
+
     $sales = $meta["mp_sales_count"][0];
     $revenue = $sales*$price;
     $stats = $price . ', ' . $revenue;
@@ -320,7 +320,8 @@ function mp_st_page() {
       		<p>This Month's Revenue:</p>
       		<p><strong><?php echo $mp->format_currency('', mp_st_stat('-0 months', total, false)); ?></strong></p>
       		<p style="border-top: 1px solid #dedede;">This Month's Sales:</p>
-      		<p><strong><?php echo mp_st_stat('-0 months', count, false); ?> sales, <?php echo mp_st_stat_items('-0 months', count, false); ?> items</strong></p>
+      		<p><strong><?php echo mp_st_stat('-0 months', count, false); ?> sales, <?php echo mp_st_stat_items('-0 months', total, false); ?> items</strong></p>
+      		<p>(Average of <?php echo number_format(mp_st_stat_items('-0 months', average, false), 2, '.', ''); ?> items per sale)</p>
             <p style="border-top: 1px solid #dedede;">This Month's Average:</p>
             <p><strong><?php echo $mp->format_currency('', mp_st_stat('-0 months', average, false)); ?>/Sale</strong></p>
 
@@ -328,6 +329,7 @@ function mp_st_page() {
       		<p><strong><?php echo $mp->format_currency('', $totalitytotal); ?></strong></p>
       		<p style="border-top: 1px solid #dedede;">Total Sales:</p>
       		<p><strong><?php echo $totalitycount; ?> sales, <?php echo $totalityitemstotal; ?> items</strong></p>
+      		<p>(Average of <?php echo number_format($totalityitemsaverage, 2, '.', ''); ?> items per order)</p>
             <p style="border-top: 1px solid #dedede;">Total Average/Sale:</p>
             <p><strong><?php echo $mp->format_currency('', $totalityaverage); ?></strong></p>      	</div>
       </td>
@@ -387,7 +389,7 @@ function mp_st_page() {
 	} else {
 	  return '';
 	}
-  
+
     $sales = $meta["mp_sales_count"][0];
     $revenue = $sales*$price;
     if ($echo)
@@ -401,7 +403,7 @@ function mp_st_page() {
     $post_id = ( NULL === $post_id ) ? $id : $post_id;
     $meta = get_post_custom($post_id);
     $sales = $meta["mp_sales_count"][0];
-  
+
     if ($echo)
       echo $sales;
     else
@@ -432,7 +434,7 @@ function mp_st_page() {
       echo "'}], ";
 	}
   }
-  
+
   ?>
              <script type="text/javascript">
               google.load("visualization", "1", {packages:["corechart"]});
@@ -452,7 +454,7 @@ function mp_st_page() {
               }
             </script>
             <div id="top_products_pie" style="width: 45%; height: 500px; display: inline-block;"></div>
-                
+
              <script type="text/javascript">
               google.load("visualization", "1", {packages:["corechart"]});
               google.setOnLoadCallback(drawChart);
@@ -470,7 +472,7 @@ function mp_st_page() {
               }
             </script>
             <div id="top_products_revenue" style="width: 50%; height: 500px; display: inline-block;"></div>
-                
+
              <script type="text/javascript">
               google.load('visualization', '1', {packages:['table']});
               google.setOnLoadCallback(drawTable);
@@ -490,7 +492,7 @@ function mp_st_page() {
               }
             </script>
             <div id="top_products_table" style="width: 100%; height: 500px; display: block;"></div>
-                
+
              <script type="text/javascript">
               google.load('visualization', '1', {packages:['table']});
               google.setOnLoadCallback(drawTable);
@@ -513,7 +515,7 @@ function mp_st_page() {
               }
             </script>
             <div id="top_users_table" style="width: 100%; height: 500px; display: block;"></div>
-                
+
   </div>
   <script>
     (function ($) {
