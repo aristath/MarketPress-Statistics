@@ -83,20 +83,20 @@ function mp_st_page() {
           google.setOnLoadCallback(drawChart);
           function drawChart() {
             var data = google.visualization.arrayToDataTable([
-              ['Month', 'Total', 'Average'],
-              ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php mp_st_stat('-12 months', total); ?>, <?php mp_st_stat('-12 months', average); ?>],
-              ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php mp_st_stat('-11 months', total); ?>, <?php mp_st_stat('-12 months', average); ?>],
-              ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php mp_st_stat('-10 months', total); ?>, <?php mp_st_stat('-02 months', average); ?>],
-              ['<?php echo date("M",strtotime("-9 Months")) ?>', <?php mp_st_stat('-9 months', total); ?>, <?php mp_st_stat('-9 months', average); ?>],
-              ['<?php echo date("M",strtotime("-8 Months")) ?>', <?php mp_st_stat('-8 months', total); ?>, <?php mp_st_stat('-8 months', average); ?>],
-              ['<?php echo date("M",strtotime("-7 Months")) ?>', <?php mp_st_stat('-7 months', total); ?>, <?php mp_st_stat('-7 months', average); ?>],
-              ['<?php echo date("M",strtotime("-6 Months")) ?>', <?php mp_st_stat('-6 months', total); ?>, <?php mp_st_stat('-6 months', average); ?>],
-              ['<?php echo date("M",strtotime("-5 Months")) ?>', <?php mp_st_stat('-5 months', total); ?>, <?php mp_st_stat('-5 months', average); ?>],
-              ['<?php echo date("M",strtotime("-4 Months")) ?>', <?php mp_st_stat('-4 months', total); ?>, <?php mp_st_stat('-4 months', average); ?>],
-              ['<?php echo date("M",strtotime("-3 Months")) ?>', <?php mp_st_stat('-3 months', total); ?>, <?php mp_st_stat('-3 months', average); ?>],
-              ['<?php echo date("M",strtotime("-2 Months")) ?>', <?php mp_st_stat('-2 months', total); ?>, <?php mp_st_stat('-2 months', average); ?>],
-              ['<?php echo date("M",strtotime("-1 Months")) ?>', <?php mp_st_stat('-1 months', total); ?>, <?php mp_st_stat('-1 months', average); ?>],
-              ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php mp_st_stat('-0 months', total); ?>, <?php mp_st_stat('-0 months', average); ?>]
+              ['Month', 'Total'],
+              ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php mp_st_stat('-12 months', total); ?>],
+              ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php mp_st_stat('-11 months', total); ?>],
+              ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php mp_st_stat('-10 months', total); ?>],
+              ['<?php echo date("M",strtotime("-9 Months")) ?>', <?php mp_st_stat('-9 months', total); ?>],
+              ['<?php echo date("M",strtotime("-8 Months")) ?>', <?php mp_st_stat('-8 months', total); ?>],
+              ['<?php echo date("M",strtotime("-7 Months")) ?>', <?php mp_st_stat('-7 months', total); ?>],
+              ['<?php echo date("M",strtotime("-6 Months")) ?>', <?php mp_st_stat('-6 months', total); ?>],
+              ['<?php echo date("M",strtotime("-5 Months")) ?>', <?php mp_st_stat('-5 months', total); ?>],
+              ['<?php echo date("M",strtotime("-4 Months")) ?>', <?php mp_st_stat('-4 months', total); ?>],
+              ['<?php echo date("M",strtotime("-3 Months")) ?>', <?php mp_st_stat('-3 months', total); ?>],
+              ['<?php echo date("M",strtotime("-2 Months")) ?>', <?php mp_st_stat('-2 months', total); ?>],
+              ['<?php echo date("M",strtotime("-1 Months")) ?>', <?php mp_st_stat('-1 months', total); ?>],
+              ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php mp_st_stat('-0 months', total); ?>]
             ]);
             var options = {
               title: 'Total Sales, 12 Months',
@@ -113,26 +113,61 @@ function mp_st_page() {
         </script>
         <div id="total_chart" style="width: 100%; height: 350px;"></div>
 
+        <script type="text/javascript">
+          google.load("visualization", "1", {packages:["corechart"]});
+          google.setOnLoadCallback(drawChart);
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Month', 'Average'],
+              ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php mp_st_stat('-12 months', average); ?>],
+              ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php mp_st_stat('-12 months', average); ?>],
+              ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php mp_st_stat('-02 months', average); ?>],
+              ['<?php echo date("M",strtotime("-9 Months")) ?>', <?php mp_st_stat('-9 months', average); ?>],
+              ['<?php echo date("M",strtotime("-8 Months")) ?>', <?php mp_st_stat('-8 months', average); ?>],
+              ['<?php echo date("M",strtotime("-7 Months")) ?>', <?php mp_st_stat('-7 months', average); ?>],
+              ['<?php echo date("M",strtotime("-6 Months")) ?>', <?php mp_st_stat('-6 months', average); ?>],
+              ['<?php echo date("M",strtotime("-5 Months")) ?>', <?php mp_st_stat('-5 months', average); ?>],
+              ['<?php echo date("M",strtotime("-4 Months")) ?>', <?php mp_st_stat('-4 months', average); ?>],
+              ['<?php echo date("M",strtotime("-3 Months")) ?>', <?php mp_st_stat('-3 months', average); ?>],
+              ['<?php echo date("M",strtotime("-2 Months")) ?>', <?php mp_st_stat('-2 months', average); ?>],
+              ['<?php echo date("M",strtotime("-1 Months")) ?>', <?php mp_st_stat('-1 months', average); ?>],
+              ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php mp_st_stat('-0 months', average); ?>]
+            ]);
+            var options = {
+              title: 'Average per Sale, 12 Months',
+              colors: ['#000000', '#D44413'],
+              theme: {legend: {position: 'in'}, axisTitlesPosition: 'in'},
+              hAxis: {title: 'Year', titleTextStyle: {color: '#999999'}},
+              seriesType: "bars",
+              // curveType: "function",
+              series: {1: {type: "line"}}
+            };
+            var chart = new google.visualization.ComboChart(document.getElementById('average_chart'));
+            chart.draw(data, options);
+          }
+        </script>
+        <div id="average_chart" style="width: 100%; height: 250px;"></div>
+
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
         <script type="text/javascript">
           google.load("visualization", "1", {packages:["corechart"]});
           google.setOnLoadCallback(drawChart);
           function drawChart() {
             var data = google.visualization.arrayToDataTable([
-              ['Month', 'Total', 'Average'],
-              ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php mp_st_stat_items('-12 months', total); ?>, <?php mp_st_stat_items('-12 months', average); ?>],
-              ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php mp_st_stat_items('-11 months', total); ?>, <?php mp_st_stat_items('-11 months', average); ?>],
-              ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php mp_st_stat_items('-10 months', total); ?>, <?php mp_st_stat_items('-10 months', average); ?>],
-              ['<?php echo date("M",strtotime("-9 Months")) ?>', <?php mp_st_stat_items('-9 months', total); ?>, <?php mp_st_stat_items('-9 months', average); ?>],
-              ['<?php echo date("M",strtotime("-8 Months")) ?>', <?php mp_st_stat_items('-8 months', total); ?>, <?php mp_st_stat_items('-8 months', average); ?>],
-              ['<?php echo date("M",strtotime("-7 Months")) ?>', <?php mp_st_stat_items('-7 months', total); ?>, <?php mp_st_stat_items('-7 months', average); ?>],
-              ['<?php echo date("M",strtotime("-6 Months")) ?>', <?php mp_st_stat_items('-6 months', total); ?>, <?php mp_st_stat_items('-6 months', average); ?>],
-              ['<?php echo date("M",strtotime("-5 Months")) ?>', <?php mp_st_stat_items('-5 months', total); ?>, <?php mp_st_stat_items('-5 months', average); ?>],
-              ['<?php echo date("M",strtotime("-4 Months")) ?>', <?php mp_st_stat_items('-4 months', total); ?>, <?php mp_st_stat_items('-4 months', average); ?>],
-              ['<?php echo date("M",strtotime("-3 Months")) ?>', <?php mp_st_stat_items('-3 months', total); ?>, <?php mp_st_stat_items('-3 months', average); ?>],
-              ['<?php echo date("M",strtotime("-2 Months")) ?>', <?php mp_st_stat_items('-2 months', total); ?>, <?php mp_st_stat_items('-2 months', average); ?>],
-              ['<?php echo date("M",strtotime("-1 Months")) ?>', <?php mp_st_stat_items('-1 months', total); ?>, <?php mp_st_stat_items('-1 months', average); ?>],
-              ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php mp_st_stat_items('-0 months', total); ?>, <?php mp_st_stat_items('-0 months', average); ?>],
+              ['Month', 'Total'],
+              ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php mp_st_stat_items('-12 months', total); ?>],
+              ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php mp_st_stat_items('-11 months', total); ?>],
+              ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php mp_st_stat_items('-10 months', total); ?>],
+              ['<?php echo date("M",strtotime("-9 Months")) ?>', <?php mp_st_stat_items('-9 months', total); ?>],
+              ['<?php echo date("M",strtotime("-8 Months")) ?>', <?php mp_st_stat_items('-8 months', total); ?>],
+              ['<?php echo date("M",strtotime("-7 Months")) ?>', <?php mp_st_stat_items('-7 months', total); ?>],
+              ['<?php echo date("M",strtotime("-6 Months")) ?>', <?php mp_st_stat_items('-6 months', total); ?>],
+              ['<?php echo date("M",strtotime("-5 Months")) ?>', <?php mp_st_stat_items('-5 months', total); ?>],
+              ['<?php echo date("M",strtotime("-4 Months")) ?>', <?php mp_st_stat_items('-4 months', total); ?>],
+              ['<?php echo date("M",strtotime("-3 Months")) ?>', <?php mp_st_stat_items('-3 months', total); ?>],
+              ['<?php echo date("M",strtotime("-2 Months")) ?>', <?php mp_st_stat_items('-2 months', total); ?>],
+              ['<?php echo date("M",strtotime("-1 Months")) ?>', <?php mp_st_stat_items('-1 months', total); ?>],
+              ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php mp_st_stat_items('-0 months', total); ?>]
             ]);
             var options = {
               title: 'Product Sales count, 12 Months',
@@ -147,7 +182,42 @@ function mp_st_page() {
             chart.draw(data, options);
           }
         </script>
-        <div id="total_chart_items" style="width: 100%; height: 350px;"></div>
+        <div id="total_chart_items" style="width: 48%; height: 350px; display: inline-block;"></div>
+
+        <script type="text/javascript">
+          google.load("visualization", "1", {packages:["corechart"]});
+          google.setOnLoadCallback(drawChart);
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Month', 'Average'],
+              ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php mp_st_stat_items('-12 months', average); ?>],
+              ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php mp_st_stat_items('-11 months', average); ?>],
+              ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php mp_st_stat_items('-10 months', average); ?>],
+              ['<?php echo date("M",strtotime("-9 Months")) ?>', <?php mp_st_stat_items('-9 months', average); ?>],
+              ['<?php echo date("M",strtotime("-8 Months")) ?>', <?php mp_st_stat_items('-8 months', average); ?>],
+              ['<?php echo date("M",strtotime("-7 Months")) ?>', <?php mp_st_stat_items('-7 months', average); ?>],
+              ['<?php echo date("M",strtotime("-6 Months")) ?>', <?php mp_st_stat_items('-6 months', average); ?>],
+              ['<?php echo date("M",strtotime("-5 Months")) ?>', <?php mp_st_stat_items('-5 months', average); ?>],
+              ['<?php echo date("M",strtotime("-4 Months")) ?>', <?php mp_st_stat_items('-4 months', average); ?>],
+              ['<?php echo date("M",strtotime("-3 Months")) ?>', <?php mp_st_stat_items('-3 months', average); ?>],
+              ['<?php echo date("M",strtotime("-2 Months")) ?>', <?php mp_st_stat_items('-2 months', average); ?>],
+              ['<?php echo date("M",strtotime("-1 Months")) ?>', <?php mp_st_stat_items('-1 months', average); ?>],
+              ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php mp_st_stat_items('-0 months', average); ?>],
+            ]);
+            var options = {
+              title: 'Product Sales count, 12 Months',
+              colors: ['#000000', '#D44413'],
+              theme: {legend: {position: 'in'}, axisTitlesPosition: 'in'},
+              hAxis: {title: 'Year', titleTextStyle: {color: '#999999'}},
+              seriesType: "line",
+              // curveType: "function",
+              series: {1: {type: "line"}}
+            };
+            var chart = new google.visualization.ComboChart(document.getElementById('average_chart_items'));
+            chart.draw(data, options);
+          }
+        </script>
+        <div id="average_chart_items" style="width: 48%; height: 350px; display: inline-block;"></div>
 
   <?php
   function mp_st_popular_products_sales_price_all( $echo = true ) {
