@@ -389,12 +389,12 @@ function mp_st_page() {
       </td>
       <td style="width: 300px; vertical-align: top; text-align: center; color: #222;">
       	<div id="BigText" style="width: 300px; padding: 20px;">
-      		<p><?php _e("This Month's Revenue:"); ?></p>
+      		<p><?php _e("This Month's Revenue:", "mp_st"); ?></p>
       		<p><strong><?php echo $mp->format_currency('', mp_st_stat('-0 months', total, false)); ?></strong></p>
-      		<p style="border-top: 1px solid #dedede;"><?php _e("This Month's Sales:"); ?></p>
+      		<p style="border-top: 1px solid #dedede;"><?php _e("This Month's Sales:", "mp_st"); ?></p>
       		<p><strong><?php echo mp_st_stat('-0 months', count, false); ?> <?php _e('sales', 'mp_st'); ?>, <?php echo mp_st_stat_items('-0 months', total, false); ?> <?php _e('items', 'mp_st'); ?></strong></p>
       		<p>(<?php _e('Average of', 'mp_st'); ?> <?php echo number_format(mp_st_stat_items('-0 months', average, false), 2, '.', ''); ?> <?php _e('items per sale', 'mp_st'); ?>)</p>
-            <p style="border-top: 1px solid #dedede;"><?php _e("This Month's Average:"); ?></p>
+            <p style="border-top: 1px solid #dedede;"><?php _e("This Month's Average:", "mp_st"); ?></p>
             <p><strong><?php echo $mp->format_currency('', mp_st_stat('-0 months', average, false)); ?>/<?php _e('Sale', 'mp_st'); ?></strong></p>
 
       		<p style="border-top: 2px solid #333;"><?php _e('Total Revenue:', 'mp_st'); ?></p>

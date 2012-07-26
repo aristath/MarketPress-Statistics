@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: MarketPress Statistics v0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-07-26 13:25:07+0000\n"
+"PO-Revision-Date: 2012-07-26 13:28:47+0000\n"
 "Last-Translator: marketplace <aristath@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -108,14 +108,14 @@ msgid "Number of Sales, 12 Months"
 msgstr "Αριθμός Πωλήσεων 12 Μήνες"
 
 #: marketpress-stats.php:392
-#@ default
+#@ mp_st
 msgid "This Month's Revenue:"
-msgstr ""
+msgstr "Εισόδημα Αυτού του Μήνα:"
 
 #: marketpress-stats.php:394
-#@ default
+#@ mp_st
 msgid "This Month's Sales:"
-msgstr ""
+msgstr "Πωλήσεις Αυτού του Μήνα:"
 
 #: marketpress-stats.php:395
 #@ mp_st
@@ -140,9 +140,9 @@ msgid "items per sale"
 msgstr "προϊόντα ανά πώληση"
 
 #: marketpress-stats.php:397
-#@ default
+#@ mp_st
 msgid "This Month's Average:"
-msgstr ""
+msgstr "Μ.Ο. Αυτού του Μήνα:"
 
 #: marketpress-stats.php:398
 #@ mp_st
