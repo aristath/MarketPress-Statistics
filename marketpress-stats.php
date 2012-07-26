@@ -85,7 +85,7 @@ function mp_st_page() {
           google.setOnLoadCallback(drawChart);
           function drawChart() {
             var data = google.visualization.arrayToDataTable([
-              ['Month', 'Total'],
+              ['<?php _e('Month', 'mp_st'); ?>', '<?php _e('Total', 'mp_st'); ?>'],
               ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php mp_st_stat('-12 months', total); ?>],
               ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php mp_st_stat('-11 months', total); ?>],
               ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php mp_st_stat('-10 months', total); ?>],
@@ -101,10 +101,10 @@ function mp_st_page() {
               ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php mp_st_stat('-0 months', total); ?>]
             ]);
             var options = {
-              title: 'Total Sales, 12 Months',
+              title: '<?php _e('Total Sales, 12 Months', 'mp_st'); ?>',
               colors: ['#000000', '#D44413'],
               theme: {legend: {position: 'in'}, axisTitlesPosition: 'in'},
-              hAxis: {title: 'Year', titleTextStyle: {color: '#999999'}},
+              hAxis: {title: '<?php _e('Year', 'mp_st'); ?>', titleTextStyle: {color: '#999999'}},
               seriesType: "bars",
               // curveType: "function",
               series: {1: {type: "line"}}
@@ -120,7 +120,7 @@ function mp_st_page() {
           google.setOnLoadCallback(drawChart);
           function drawChart() {
             var data = google.visualization.arrayToDataTable([
-              ['Month', 'Average'],
+              ['<?php _e('Month', 'mp_st'); ?>', '<?php _e('Average', 'mp_st'); ?>'],
               ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php mp_st_stat('-12 months', average); ?>],
               ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php mp_st_stat('-12 months', average); ?>],
               ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php mp_st_stat('-02 months', average); ?>],
@@ -136,7 +136,7 @@ function mp_st_page() {
               ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php mp_st_stat('-0 months', average); ?>]
             ]);
             var options = {
-              title: 'Average per Sale, 12 Months',
+              title: '<?php _e('Average per Sale, 12 Months', 'mp_st'); ?>',
               colors: ['#000000', '#D44413'],
               theme: {legend: {position: 'in'}, axisTitlesPosition: 'in'},
               hAxis: {title: 'Year', titleTextStyle: {color: '#999999'}},
@@ -156,7 +156,7 @@ function mp_st_page() {
           google.setOnLoadCallback(drawChart);
           function drawChart() {
             var data = google.visualization.arrayToDataTable([
-              ['Month', 'Total'],
+              ['<?php _e('Month', 'mp_st'); ?>', '<?php _e('Total', 'mp_st'); ?>'],
               ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php mp_st_stat_items('-12 months', total); ?>],
               ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php mp_st_stat_items('-11 months', total); ?>],
               ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php mp_st_stat_items('-10 months', total); ?>],
@@ -172,10 +172,10 @@ function mp_st_page() {
               ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php mp_st_stat_items('-0 months', total); ?>]
             ]);
             var options = {
-              title: 'Product Sales count, 12 Months',
+              title: '<?php _e('Product Sales count, 12 Months', 'mp_st'); ?>',
               colors: ['#000000', '#D44413'],
               theme: {legend: {position: 'in'}, axisTitlesPosition: 'in'},
-              hAxis: {title: 'Year', titleTextStyle: {color: '#999999'}},
+              hAxis: {title: '<?php _e('Year', 'mp_st'); ?>', titleTextStyle: {color: '#999999'}},
               seriesType: "line",
               // curveType: "function",
               series: {1: {type: "line"}}
@@ -191,7 +191,7 @@ function mp_st_page() {
           google.setOnLoadCallback(drawChart);
           function drawChart() {
             var data = google.visualization.arrayToDataTable([
-              ['Month', 'Average'],
+              ['<?php _e('Month', 'mp_st'); ?>', '<?php _e('Average', 'mp_st'); ?>'],
               ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php mp_st_stat_items('-12 months', average); ?>],
               ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php mp_st_stat_items('-11 months', average); ?>],
               ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php mp_st_stat_items('-10 months', average); ?>],
@@ -207,10 +207,10 @@ function mp_st_page() {
               ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php mp_st_stat_items('-0 months', average); ?>],
             ]);
             var options = {
-              title: 'Product Sales count, 12 Months',
+              title: '<?php _e('Product Sales count, 12 Months', 'mp_st'); ?>',
               colors: ['#000000', '#D44413'],
               theme: {legend: {position: 'in'}, axisTitlesPosition: 'in'},
-              hAxis: {title: 'Year', titleTextStyle: {color: '#999999'}},
+              hAxis: {title: '<?php _e('Year', 'mp_st'); ?>', titleTextStyle: {color: '#999999'}},
               seriesType: "line",
               // curveType: "function",
               series: {1: {type: "line"}}
@@ -267,14 +267,14 @@ function mp_st_page() {
       google.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Price', 'Sales'],
+          ['<?php _e('Price', 'mp_st'); ?>', '<?php _e('Sales', 'mp_st'); ?>'],
           <?php mp_st_popular_products_sales_price_all(); ?>
           ]);
 
         var options = {
-          title: 'Sales by product Price',
-          hAxis: {title: 'Price'},
-          vAxis: {title: 'Sales'},
+          title: '<?php _e('Sales by product Price', 'mp_st'); ?>',
+          hAxis: {title: '<?php _e('Price', 'mp_st'); ?>'},
+          vAxis: {title: '<?php _e('Sales', 'mp_st'); ?>'},
           pointSize: '9',
           colors: ['#000000'],
           legend: 'none'
@@ -333,14 +333,14 @@ function mp_st_page() {
       google.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Price', 'Sales'],
+          ['<?php _e('Price', 'mp_st'); ?>', '<?php _e('Sales', 'mp_st'); ?>'],
           <?php mp_st_products_income_price_all(); ?>
           ]);
 
         var options = {
-          title: 'Revenue by product Price',
-          hAxis: {title: 'Price'},
-          vAxis: {title: 'Revenue'},
+          title: '<?php _e('Revenue by product Price', 'mp_st'); ?>',
+          hAxis: {title: '<?php _e('Price', 'mp_st'); ?>'},
+          vAxis: {title: '<?php _e('Revenue', 'mp_st'); ?>'},
           colors: ['#D44413'],
           pointSize: '9',
           legend: 'none'
@@ -359,7 +359,7 @@ function mp_st_page() {
         google.setOnLoadCallback(drawChart);
         function drawChart() {
           var data = google.visualization.arrayToDataTable([
-            ['Month', 'Sales'],
+            ['<?php _e('Month', 'mp_st'); ?>', '<?php _e('Sales', 'mp_st'); ?>'],
             ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php mp_st_stat('-12 months', count); ?>],
             ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php mp_st_stat('-11 months', count); ?>],
             ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php mp_st_stat('-10 months', count); ?>],
@@ -375,10 +375,10 @@ function mp_st_page() {
             ['<?php echo date("M",strtotime("-0 Months")) ?>', <?php mp_st_stat('-0 months', count); ?>],
           ]);
           var options = {
-            title: 'Number of Sales, 12 Months',
+            title: '<?php _e('Number of Sales, 12 Months', 'mp_st'); ?>',
             colors: ['#000000'],
             theme: {legend: {position: 'in'}, titlePosition: 'in', axisTitlesPosition: 'in'},
-            hAxis: {title: 'Year', titleTextStyle: {color: '#999999'}}
+            hAxis: {title: '<?php _e('Year', 'mp_st'); ?>', titleTextStyle: {color: '#999999'}}
           };
           var chart = new google.visualization.LineChart(document.getElementById('count_chart'));
           chart.draw(data, options);
@@ -389,20 +389,20 @@ function mp_st_page() {
       </td>
       <td style="width: 300px; vertical-align: top; text-align: center; color: #222;">
       	<div id="BigText" style="width: 300px; padding: 20px;">
-      		<p>This Month's Revenue:</p>
+      		<p><?php _e("This Month's Revenue:"); ?></p>
       		<p><strong><?php echo $mp->format_currency('', mp_st_stat('-0 months', total, false)); ?></strong></p>
-      		<p style="border-top: 1px solid #dedede;">This Month's Sales:</p>
-      		<p><strong><?php echo mp_st_stat('-0 months', count, false); ?> sales, <?php echo mp_st_stat_items('-0 months', total, false); ?> items</strong></p>
-      		<p>(Average of <?php echo number_format(mp_st_stat_items('-0 months', average, false), 2, '.', ''); ?> items per sale)</p>
-            <p style="border-top: 1px solid #dedede;">This Month's Average:</p>
-            <p><strong><?php echo $mp->format_currency('', mp_st_stat('-0 months', average, false)); ?>/Sale</strong></p>
+      		<p style="border-top: 1px solid #dedede;"><?php _e("This Month's Sales:"); ?></p>
+      		<p><strong><?php echo mp_st_stat('-0 months', count, false); ?> <?php _e('sales', 'mp_st'); ?>, <?php echo mp_st_stat_items('-0 months', total, false); ?> <?php _e('items', 'mp_st'); ?></strong></p>
+      		<p>(<?php _e('Average of', 'mp_st'); ?> <?php echo number_format(mp_st_stat_items('-0 months', average, false), 2, '.', ''); ?> <?php _e('items per sale', 'mp_st'); ?>)</p>
+            <p style="border-top: 1px solid #dedede;"><?php _e("This Month's Average:"); ?></p>
+            <p><strong><?php echo $mp->format_currency('', mp_st_stat('-0 months', average, false)); ?>/<?php _e('Sale', 'mp_st'); ?></strong></p>
 
-      		<p style="border-top: 2px solid #333;">Total Revenue:</p>
+      		<p style="border-top: 2px solid #333;"><?php _e('Total Revenue:', 'mp_st'); ?></p>
       		<p><strong><?php echo $mp->format_currency('', $totalitytotal); ?></strong></p>
-      		<p style="border-top: 1px solid #dedede;">Total Sales:</p>
-      		<p><strong><?php echo $totalitycount; ?> sales, <?php echo $totalityitemstotal; ?> items</strong></p>
-      		<p>(Average of <?php echo number_format($totalityitemsaverage, 2, '.', ''); ?> items per order)</p>
-            <p style="border-top: 1px solid #dedede;">Total Average/Sale:</p>
+      		<p style="border-top: 1px solid #dedede;"><?php _e('Total Sales:', 'mp_st'); ?></p>
+      		<p><strong><?php echo $totalitycount; ?> sales, <?php echo $totalityitemstotal; ?> <?php _e('items', 'mp_st'); ?></strong></p>
+      		<p>(<?php _e('Average of', 'mp_st'); ?> <?php echo number_format($totalityitemsaverage, 2, '.', ''); ?> <?php _e('items per order', 'mp_st'); ?>)</p>
+            <p style="border-top: 1px solid #dedede;"><?php _e('Total Average/Sale:', 'mp_st'); ?></p>
             <p><strong><?php echo $mp->format_currency('', $totalityaverage); ?></strong></p>      	</div>
       </td>
     </tr>
@@ -513,12 +513,12 @@ function mp_st_page() {
               google.setOnLoadCallback(drawChart);
               function drawChart() {
                 var data = google.visualization.arrayToDataTable([
-                  ['Product', 'Sales'],
+                  ['<?php _e('Product', 'mp_st'); ?>', '<?php _e('Sales', 'mp_st'); ?>'],
 
                   <?php mp_st_popular_products_sales(); ?>
                 ]);
                 var options = {
-                  title: 'Top Products by number of sales',
+                  title: '<?php _e('Top Products by number of sales', 'mp_st'); ?>',
                   is3D: 'true',
                 };
                 var chart = new google.visualization.PieChart(document.getElementById('top_products_pie'));
@@ -532,12 +532,12 @@ function mp_st_page() {
               google.setOnLoadCallback(drawChart);
               function drawChart() {
                 var data = google.visualization.arrayToDataTable([
-                  ['Product', 'Revenue'],
+                  ['<?php _e('Product', 'mp_st'); ?>', '<?php _e('Revenue', 'mp_st'); ?>'],
 
                   <?php mp_st_popular_products_revenue(); ?>
                 ]);
                 var options = {
-                  title: 'Top Products Revenue',
+                  title: '<?php _e('Top Products Revenue', 'mp_st'); ?>',
                 };
                 var chart = new google.visualization.PieChart(document.getElementById('top_products_revenue'));
                 chart.draw(data, options);
@@ -550,9 +550,9 @@ function mp_st_page() {
               google.setOnLoadCallback(drawTable);
               function drawTable() {
                 var data = new google.visualization.DataTable();
-                data.addColumn('string', 'Product Name');
-                data.addColumn('number', 'Total Revenue');
-                data.addColumn('number', 'Product Sales');
+                data.addColumn('string', '<?php _e('Product Name', 'mp_st'); ?>');
+                data.addColumn('number', '<?php _e('Total Revenue', 'mp_st'); ?>');
+                data.addColumn('number', '<?php _e('Product Sales', 'mp_st'); ?>');
                 data.addRows([
 
                   <?php mp_st_popular_products_revenue_table(); ?>
@@ -570,12 +570,12 @@ function mp_st_page() {
               google.setOnLoadCallback(drawTable);
               function drawTable() {
                 var data = new google.visualization.DataTable();
-                data.addColumn('string', 'Customer Name');
-                data.addColumn('string', 'City');
-                data.addColumn('string', 'Country');
-                data.addColumn('string', 'Phone');
-                data.addColumn('string', 'Email');
-                data.addColumn('number', 'Total orders');
+                data.addColumn('string', '<?php _e('Customer Name', 'mp_st'); ?>');
+                data.addColumn('string', '<?php _e('City', 'mp_st'); ?>');
+                data.addColumn('string', '<?php _e('Country', 'mp_st'); ?>');
+                data.addColumn('string', '<?php _e('Phone', 'mp_st'); ?>');
+                data.addColumn('string', '<?php _e('Email', 'mp_st'); ?>');
+                data.addColumn('number', '<?php _e('Total orders', 'mp_st'); ?>');
                 data.addRows([
 
                   <?php mp_st_users(); ?>
