@@ -19,6 +19,8 @@ function mp_st_install() {
 function mp_st_remove() {
 }
 
+load_plugin_textdomain('mp_st', false, basename( dirname( __FILE__ ) ) . '/languages' );
+
 add_action('admin_menu', 'mp_st_admin_menu');
 
 function mp_st_admin_menu() {
@@ -66,7 +68,7 @@ function mp_st_page() {
     $monthstat = 0;
     if (!empty($monthquery->$stat)) $monthstat = $monthquery->$stat;
 
-    if ($echo) echo $monthstat; 
+    if ($echo) echo number_format($monthstat, 2, '', ''); 
     else return $monthstat; 
   }
 
