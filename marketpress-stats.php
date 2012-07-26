@@ -400,7 +400,7 @@ function mp_st_page() {
       		<p style="border-top: 2px solid #333;"><?php _e('Total Revenue:', 'mp_st'); ?></p>
       		<p><strong><?php echo $mp->format_currency('', $totalitytotal); ?></strong></p>
       		<p style="border-top: 1px solid #dedede;"><?php _e('Total Sales:', 'mp_st'); ?></p>
-      		<p><strong><?php echo $totalitycount; ?> sales, <?php echo $totalityitemstotal; ?> <?php _e('items', 'mp_st'); ?></strong></p>
+      		<p><strong><?php echo $totalitycount; ?> <?php _e('sales', 'mp_st'); ?>, <?php echo $totalityitemstotal; ?> <?php _e('items', 'mp_st'); ?></strong></p>
       		<p>(<?php _e('Average of', 'mp_st'); ?> <?php echo number_format($totalityitemsaverage, 2, '.', ''); ?> <?php _e('items per order', 'mp_st'); ?>)</p>
             <p style="border-top: 1px solid #dedede;"><?php _e('Total Average/Sale:', 'mp_st'); ?></p>
             <p><strong><?php echo $mp->format_currency('', $totalityaverage); ?></strong></p>      	</div>

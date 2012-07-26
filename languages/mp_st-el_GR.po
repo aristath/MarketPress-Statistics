@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: MarketPress Statistics v0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-07-26 13:28:47+0000\n"
+"PO-Revision-Date: 2012-07-26 13:35:03+0000\n"
 "Last-Translator: marketplace <aristath@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -118,6 +118,7 @@ msgid "This Month's Sales:"
 msgstr "Πωλήσεις Αυτού του Μήνα:"
 
 #: marketpress-stats.php:395
+#: marketpress-stats.php:403
 #@ mp_st
 msgid "sales"
 msgstr "πωλήσεις"
