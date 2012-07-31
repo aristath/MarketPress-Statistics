@@ -6,6 +6,7 @@ Description: Shows MarketPrerss Statistics using the GooGle Charts Library (http
 Version: 0.2
 Author: Aristeides Stathopoulos
 */
+load_plugin_textdomain('mp_st', false, basename( dirname( __FILE__ ) ) . '/languages' );
 
 /* Runs when plugin is activated */
 register_activation_hook(__FILE__,'mp_st_install'); 
@@ -19,12 +20,10 @@ function mp_st_install() {
 function mp_st_remove() {
 }
 
-load_plugin_textdomain('mp_st', false, basename( dirname( __FILE__ ) ) . '/languages' );
-
 add_action('admin_menu', 'mp_st_admin_menu');
 
 function mp_st_admin_menu() {
-  add_menu_page('Sales Statistics', 'Store Statistics', 'administrator', 'mp_st', 'mp_st_page');
+  add_menu_page( __('Sales Statistics', 'mp_st'), __('Store Statistics', 'mp_st'), 'administrator', 'mp_st', 'mp_st_page');
 }
 
 function mp_st_page() {
@@ -68,7 +67,7 @@ function mp_st_page() {
     $monthstat = 0;
     if (!empty($monthquery->$stat)) $monthstat = $monthquery->$stat;
 
-    if ($echo) echo number_format($monthstat, 2, '', ''); 
+    if ($echo) echo $monthstat; 
     else return $monthstat; 
   }
 
