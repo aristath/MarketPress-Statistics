@@ -3,7 +3,7 @@
 Plugin Name: MarketPress Statistics
 Plugin URI: magazi.org
 Description: Shows MarketPrerss Statistics using the GooGle Charts Library (https://google-developers.appspot.com/chart/)
-Version: 0.2
+Version: 0.4
 Author: Aristeides Stathopoulos
 */
 load_plugin_textdomain('mp_st', false, basename( dirname( __FILE__ ) ) . '/languages' );
@@ -121,8 +121,8 @@ function mp_st_page() {
             var data = google.visualization.arrayToDataTable([
               ['<?php _e('Month', 'mp_st'); ?>', '<?php _e('Average', 'mp_st'); ?>'],
               ['<?php echo date("M",strtotime("-12 Months")) ?>', <?php mp_st_stat('-12 months', average); ?>],
-              ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php mp_st_stat('-12 months', average); ?>],
-              ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php mp_st_stat('-02 months', average); ?>],
+              ['<?php echo date("M",strtotime("-11 Months")) ?>', <?php mp_st_stat('-11 months', average); ?>],
+              ['<?php echo date("M",strtotime("-10 Months")) ?>', <?php mp_st_stat('-10 months', average); ?>],
               ['<?php echo date("M",strtotime("-9 Months")) ?>', <?php mp_st_stat('-9 months', average); ?>],
               ['<?php echo date("M",strtotime("-8 Months")) ?>', <?php mp_st_stat('-8 months', average); ?>],
               ['<?php echo date("M",strtotime("-7 Months")) ?>', <?php mp_st_stat('-7 months', average); ?>],
@@ -602,4 +602,3 @@ function mp_st_page() {
   <?php
   }
 }
-?>
