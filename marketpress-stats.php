@@ -3,7 +3,7 @@
 Plugin Name: MarketPress Statistics
 Plugin URI: magazi.org
 Description: Shows MarketPrerss Statistics using the GooGle Charts Library (https://google-developers.appspot.com/chart/)
-Version: 0.4
+Version: 0.4.1
 Author: Aristeides Stathopoulos
 */
 load_plugin_textdomain('mp_st', false, basename( dirname( __FILE__ ) ) . '/languages' );

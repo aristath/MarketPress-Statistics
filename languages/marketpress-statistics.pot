@@ -1,0 +1,171 @@
+# Copyright (C) 2012 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version:  \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/marketpress-statistics\n"
+"POT-Creation-Date: 2012-07-27 23:40:15+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2012-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: marketpress-stats.php:34
+msgid "Cheatin&#8217; uh?"
+msgstr ""
+
+#: marketpress-stats.php:88 marketpress-stats.php:123
+#: marketpress-stats.php:159 marketpress-stats.php:194
+#: marketpress-stats.php:362
+msgid "Month"
+msgstr ""
+
+#: marketpress-stats.php:88 marketpress-stats.php:159
+msgid "Total"
+msgstr ""
+
+#: marketpress-stats.php:104
+msgid "Total Sales, 12 Months"
+msgstr ""
+
+#: marketpress-stats.php:107 marketpress-stats.php:178
+#: marketpress-stats.php:213 marketpress-stats.php:381
+msgid "Year"
+msgstr ""
+
+#: marketpress-stats.php:123 marketpress-stats.php:194
+msgid "Average"
+msgstr ""
+
+#: marketpress-stats.php:139
+msgid "Average per Sale, 12 Months"
+msgstr ""
+
+#: marketpress-stats.php:175 marketpress-stats.php:210
+msgid "Product Sales count, 12 Months"
+msgstr ""
+
+#: marketpress-stats.php:270 marketpress-stats.php:276
+#: marketpress-stats.php:336 marketpress-stats.php:342
+msgid "Price"
+msgstr ""
+
+#: marketpress-stats.php:270 marketpress-stats.php:277
+#: marketpress-stats.php:336 marketpress-stats.php:362
+#: marketpress-stats.php:516
+msgid "Sales"
+msgstr ""
+
+#: marketpress-stats.php:275
+msgid "Sales by product Price"
+msgstr ""
+
+#: marketpress-stats.php:341
+msgid "Revenue by product Price"
+msgstr ""
+
+#: marketpress-stats.php:343 marketpress-stats.php:535
+msgid "Revenue"
+msgstr ""
+
+#: marketpress-stats.php:378
+msgid "Number of Sales, 12 Months"
+msgstr ""
+
+#: marketpress-stats.php:392
+msgid "This Month's Revenue:"
+msgstr ""
+
+#: marketpress-stats.php:394
+msgid "This Month's Sales:"
+msgstr ""
+
+#: marketpress-stats.php:395 marketpress-stats.php:403
+msgid "sales"
+msgstr ""
+
+#: marketpress-stats.php:395 marketpress-stats.php:403
+msgid "items"
+msgstr ""
+
+#: marketpress-stats.php:396 marketpress-stats.php:404
+msgid "Average of"
+msgstr ""
+
+#: marketpress-stats.php:396
+msgid "items per sale"
+msgstr ""
+
+#: marketpress-stats.php:397
+msgid "This Month's Average:"
+msgstr ""
+
+#: marketpress-stats.php:398
+msgid "Sale"
+msgstr ""
+
+#: marketpress-stats.php:400
+msgid "Total Revenue:"
+msgstr ""
+
+#: marketpress-stats.php:402
+msgid "Total Sales:"
+msgstr ""
+
+#: marketpress-stats.php:404
+msgid "items per order"
+msgstr ""
+
+#: marketpress-stats.php:405
+msgid "Total Average/Sale:"
+msgstr ""
+
+#: marketpress-stats.php:516 marketpress-stats.php:535
+msgid "Product"
+msgstr ""
+
+#: marketpress-stats.php:521
+msgid "Top Products by number of sales"
+msgstr ""
+
+#: marketpress-stats.php:540
+msgid "Top Products Revenue"
+msgstr ""
+
+#: marketpress-stats.php:553
+msgid "Product Name"
+msgstr ""
+
+#: marketpress-stats.php:554
+msgid "Total Revenue"
+msgstr ""
+
+#: marketpress-stats.php:555
+msgid "Product Sales"
+msgstr ""
+
+#: marketpress-stats.php:573
+msgid "Customer Name"
+msgstr ""
+
+#: marketpress-stats.php:574
+msgid "City"
+msgstr ""
+
+#: marketpress-stats.php:575
+msgid "Country"
+msgstr ""
+
+#: marketpress-stats.php:576
+msgid "Phone"
+msgstr ""
+
+#: marketpress-stats.php:577
+msgid "Email"
+msgstr ""
+
+#: marketpress-stats.php:578
+msgid "Total orders"
+msgstr ""

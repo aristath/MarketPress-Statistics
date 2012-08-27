@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: MarketPress Statistics v0.2\n"
+"Project-Id-Version: MarketPress Statistics v0.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-07-26 13:35:03+0000\n"
+"PO-Revision-Date: 2012-08-02 10:58:28+0000\n"
 "Last-Translator: marketplace <aristath@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,215 +19,225 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Textdomain-Support: yes"
 
-#: marketpress-stats.php:34
+#: marketpress-stats.php:33
 #@ default
 msgid "Cheatin&#8217; uh?"
 msgstr ""
 
-#: marketpress-stats.php:104
+#: marketpress-stats.php:103
 #@ mp_st
 msgid "Total Sales, 12 Months"
 msgstr "Συνολικές Πωλήσεις, 12 Μήνες"
 
-#: marketpress-stats.php:88
-#: marketpress-stats.php:123
-#: marketpress-stats.php:159
-#: marketpress-stats.php:194
-#: marketpress-stats.php:362
+#: marketpress-stats.php:87
+#: marketpress-stats.php:122
+#: marketpress-stats.php:158
+#: marketpress-stats.php:193
+#: marketpress-stats.php:361
 #@ mp_st
 msgid "Month"
 msgstr "Μήνας"
 
-#: marketpress-stats.php:88
-#: marketpress-stats.php:159
+#: marketpress-stats.php:87
+#: marketpress-stats.php:158
 #@ mp_st
 msgid "Total"
 msgstr "Σύνολο"
 
-#: marketpress-stats.php:107
-#: marketpress-stats.php:178
-#: marketpress-stats.php:213
-#: marketpress-stats.php:381
+#: marketpress-stats.php:106
+#: marketpress-stats.php:177
+#: marketpress-stats.php:212
+#: marketpress-stats.php:380
 #@ mp_st
 msgid "Year"
 msgstr "Έτος"
 
-#: marketpress-stats.php:123
-#: marketpress-stats.php:194
+#: marketpress-stats.php:122
+#: marketpress-stats.php:193
 #@ mp_st
 msgid "Average"
 msgstr "Μέσος Όρος"
 
-#: marketpress-stats.php:139
+#: marketpress-stats.php:138
 #@ mp_st
 msgid "Average per Sale, 12 Months"
 msgstr "Μ.Ο. ανά πώληση, 12 Μήνες"
 
-#: marketpress-stats.php:175
-#: marketpress-stats.php:210
+#: marketpress-stats.php:174
+#: marketpress-stats.php:209
 #@ mp_st
 msgid "Product Sales count, 12 Months"
 msgstr "Πωλήσεις Προϊόντων, 12 Μήνες"
 
-#: marketpress-stats.php:270
-#: marketpress-stats.php:276
-#: marketpress-stats.php:336
-#: marketpress-stats.php:342
+#: marketpress-stats.php:269
+#: marketpress-stats.php:275
+#: marketpress-stats.php:335
+#: marketpress-stats.php:341
 #@ mp_st
 msgid "Price"
 msgstr "Τιμή"
 
-#: marketpress-stats.php:270
-#: marketpress-stats.php:277
-#: marketpress-stats.php:336
-#: marketpress-stats.php:362
-#: marketpress-stats.php:516
+#: marketpress-stats.php:269
+#: marketpress-stats.php:276
+#: marketpress-stats.php:335
+#: marketpress-stats.php:361
+#: marketpress-stats.php:515
 #@ mp_st
 msgid "Sales"
 msgstr "Πωλήσεις"
 
-#: marketpress-stats.php:275
+#: marketpress-stats.php:274
 #@ mp_st
 msgid "Sales by product Price"
 msgstr "Πωλήσεις ανά Τιμή Προϊόντος"
 
-#: marketpress-stats.php:341
+#: marketpress-stats.php:340
 #@ mp_st
 msgid "Revenue by product Price"
 msgstr "Έσοδα ανά Τιμή Προϊόντος"
 
-#: marketpress-stats.php:343
-#: marketpress-stats.php:535
+#: marketpress-stats.php:342
+#: marketpress-stats.php:534
 #@ mp_st
 msgid "Revenue"
 msgstr "Έσοδα"
 
-#: marketpress-stats.php:378
+#: marketpress-stats.php:377
 #@ mp_st
 msgid "Number of Sales, 12 Months"
 msgstr "Αριθμός Πωλήσεων 12 Μήνες"
 
-#: marketpress-stats.php:392
+#: marketpress-stats.php:391
 #@ mp_st
 msgid "This Month's Revenue:"
 msgstr "Εισόδημα Αυτού του Μήνα:"
 
-#: marketpress-stats.php:394
+#: marketpress-stats.php:393
 #@ mp_st
 msgid "This Month's Sales:"
 msgstr "Πωλήσεις Αυτού του Μήνα:"
 
-#: marketpress-stats.php:395
-#: marketpress-stats.php:403
+#: marketpress-stats.php:394
+#: marketpress-stats.php:402
 #@ mp_st
 msgid "sales"
 msgstr "πωλήσεις"
 
-#: marketpress-stats.php:395
-#: marketpress-stats.php:403
+#: marketpress-stats.php:394
+#: marketpress-stats.php:402
 #@ mp_st
 msgid "items"
 msgstr "τεμάχια"
 
-#: marketpress-stats.php:396
-#: marketpress-stats.php:404
+#: marketpress-stats.php:395
+#: marketpress-stats.php:403
 #@ mp_st
 msgid "Average of"
 msgstr "Μέσος Όρος"
 
-#: marketpress-stats.php:396
+#: marketpress-stats.php:395
 #@ mp_st
 msgid "items per sale"
 msgstr "προϊόντα ανά πώληση"
 
-#: marketpress-stats.php:397
+#: marketpress-stats.php:396
 #@ mp_st
 msgid "This Month's Average:"
 msgstr "Μ.Ο. Αυτού του Μήνα:"
 
-#: marketpress-stats.php:398
+#: marketpress-stats.php:397
 #@ mp_st
 msgid "Sale"
 msgstr "Πώληση"
 
-#: marketpress-stats.php:400
+#: marketpress-stats.php:399
 #@ mp_st
 msgid "Total Revenue:"
 msgstr "Συνολικό Εισόδημα:"
 
-#: marketpress-stats.php:402
+#: marketpress-stats.php:401
 #@ mp_st
 msgid "Total Sales:"
 msgstr "Συνολικές Πωλήσεις:"
 
-#: marketpress-stats.php:404
+#: marketpress-stats.php:403
 #@ mp_st
 msgid "items per order"
 msgstr "προϊόντα ανά παραγγελία"
 
-#: marketpress-stats.php:405
+#: marketpress-stats.php:404
 #@ mp_st
 msgid "Total Average/Sale:"
 msgstr "Συνολικός Μ.Ο. ανά Πώληση:"
 
-#: marketpress-stats.php:516
-#: marketpress-stats.php:535
+#: marketpress-stats.php:515
+#: marketpress-stats.php:534
 #@ mp_st
 msgid "Product"
 msgstr "Προϊόν"
 
-#: marketpress-stats.php:521
+#: marketpress-stats.php:520
 #@ mp_st
 msgid "Top Products by number of sales"
 msgstr "Κορυφαία Προϊόντα ανά αριθμό πωλήσεων"
 
-#: marketpress-stats.php:540
+#: marketpress-stats.php:539
 #@ mp_st
 msgid "Top Products Revenue"
 msgstr "Έσοδα Κορυφαίων Προϊόντων"
 
-#: marketpress-stats.php:553
+#: marketpress-stats.php:552
 #@ mp_st
 msgid "Product Name"
 msgstr "Όνομα Προϊόντος"
 
-#: marketpress-stats.php:554
+#: marketpress-stats.php:553
 #@ mp_st
 msgid "Total Revenue"
 msgstr "Συνολικά Έσοδα"
 
-#: marketpress-stats.php:555
+#: marketpress-stats.php:554
 #@ mp_st
 msgid "Product Sales"
 msgstr "Πωλήσεις Προϊόντος"
 
-#: marketpress-stats.php:573
+#: marketpress-stats.php:572
 #@ mp_st
 msgid "Customer Name"
 msgstr "Όνομα Πελάτη"
 
-#: marketpress-stats.php:574
+#: marketpress-stats.php:573
 #@ mp_st
 msgid "City"
 msgstr "Πόλη"
 
-#: marketpress-stats.php:575
+#: marketpress-stats.php:574
 #@ mp_st
 msgid "Country"
 msgstr "Χώρα"
 
-#: marketpress-stats.php:576
+#: marketpress-stats.php:575
 #@ mp_st
 msgid "Phone"
 msgstr "Τηλέφωνο"
 
-#: marketpress-stats.php:577
+#: marketpress-stats.php:576
 #@ mp_st
 msgid "Email"
 msgstr ""
 
-#: marketpress-stats.php:578
+#: marketpress-stats.php:577
 #@ mp_st
 msgid "Total orders"
 msgstr "Σύνολο Παραγγελιών"
+
+#: marketpress-stats.php:26
+#@ mp_st
+msgid "Sales Statistics"
+msgstr "Στατιστικά Πωλήσεων"
+
+#: marketpress-stats.php:26
+#@ mp_st
+msgid "Store Statistics"
+msgstr "Στατιστικά Καταστήματος"
 
